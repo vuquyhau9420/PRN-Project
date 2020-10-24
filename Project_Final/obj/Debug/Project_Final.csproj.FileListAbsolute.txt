@@ -1,0 +1,11 @@
+D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.csprojAssemblyReference.cache
+D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.frmLogin.resources
+D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.frmMain.resources
+D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.csproj.GenerateResource.cache
+D:\CN5\PRN321\PRN-Project\Project_Final\bin\Debug\Project_Final.exe.config
+D:\CN5\PRN321\PRN-Project\Project_Final\bin\Debug\Project_Final.exe
+D:\CN5\PRN321\PRN-Project\Project_Final\bin\Debug\Project_Final.pdb
+D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.Properties.Resources.resources
+D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.csproj.CoreCompileInputs.cache
+D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.exe
+D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.pdb

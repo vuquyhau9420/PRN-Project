@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows;
+using Project_Final.ucControl;
 
 namespace Project_Final {
     public partial class frmMain : Form {
@@ -16,7 +17,15 @@ namespace Project_Final {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
+            //Add product form
+            ucProductFrm ucProductFrm = new ucProductFrm();
+            ucProductFrm.Size = ContentPanel.Size;
+            ContentPanel.Controls.Add(ucProductFrm);
 
+            //Hide button when user haven't logged in yet
+            button2.Hide();
+            button3.Hide();
+            button4.Hide();
         }
         private void EnabledFunctionForSpecificRole(int role) {
             button2.Show();

@@ -57,7 +57,6 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Image = global::Project_Final.Properties.Resources.FunnyIcon1;
             this.label1.Location = new System.Drawing.Point(20, 26);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
