@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddEdit.Designer.cs">
+      <DependentUpon>frmAddEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="ucControl\ucProductFrm.Designer.cs">
       <DependentUpon>ucProductFrm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmAddEdit.resx">
+      <DependentUpon>frmAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,6 +93,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ucControl\ucProductFrm.resx">
+      <DependentUpon>ucProductFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -97,6 +109,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Image\FunnyIcon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Image\FunnyIcon1-removebg-preview.png" />
+    <Content Include="Image\ImageForPanel2.png" />
+    <Content Include="Image\MenuPanel.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,3 +9,4 @@ D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.Properties.Resou
 D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.csproj.CoreCompileInputs.cache
 D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.exe
 D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.pdb
+D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.ucControl.ucProductFrm.resources

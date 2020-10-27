@@ -23,12 +23,12 @@ namespace Project_Final {
             ContentPanel.Controls.Add(ucProductFrm);
 
             //Hide button when user haven't logged in yet
-            button2.Hide();
+            btnProductDetais.Hide();
             button3.Hide();
             button4.Hide();
         }
         private void EnabledFunctionForSpecificRole(int role) {
-            button2.Show();
+            btnProductDetais.Show();
             button3.Show();
             button4.Show();
 
@@ -38,11 +38,11 @@ namespace Project_Final {
             }
             else if (role == 2)//Admin
            {
-                button2.Enabled = false;
+                btnProductDetais.Enabled = false;
             }
             else if (role == 3)//Staff
            {
-                button2.Enabled = false;
+                btnProductDetais.Enabled = false;
                 button3.Enabled = false;
             }
             btnLogin.Hide();
