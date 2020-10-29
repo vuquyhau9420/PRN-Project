@@ -13,7 +13,6 @@ namespace BusinessObject {
         public string Status { get; set; }
 
         // Parent
-
         public PromotionStatus PromotionStatus { get; set; }
     }
 }
