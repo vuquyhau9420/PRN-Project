@@ -74,6 +74,7 @@ create table store_order(
 	order_id uniqueidentifier default newid() primary key not null,
 	order_day datetime not null,
 	customer_phone varchar(20) foreign key references cusomter(customer_phone),
+	staff_id int foreign key references staff(staff_id) not null,
 	order_total_price decimal not null,
 	order_total_pay decimal not null,
 	order_points float not null,
