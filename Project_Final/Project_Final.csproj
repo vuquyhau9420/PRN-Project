@@ -66,6 +66,20 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\IModel.cs" />
+    <Compile Include="Model\Model.cs" />
+    <Compile Include="Model\Models\CategoryModel.cs" />
+    <Compile Include="Model\Models\CustomerModel.cs" />
+    <Compile Include="Model\Models\ImportLogModel.cs" />
+    <Compile Include="Model\Models\OrderDetailModel.cs" />
+    <Compile Include="Model\Models\OrderModel.cs" />
+    <Compile Include="Model\Models\ProductGroupModel.cs" />
+    <Compile Include="Model\Models\ProductModel.cs" />
+    <Compile Include="Model\Models\PromotionModel.cs" />
+    <Compile Include="Model\Models\PromotionStatusModel.cs" />
+    <Compile Include="Model\Models\StaffModel.cs" />
+    <Compile Include="Model\Models\StaffRoleModel.cs" />
+    <Compile Include="Model\Models\SupplierModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ucControl\ucProductFrm.cs">

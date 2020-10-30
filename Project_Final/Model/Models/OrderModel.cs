@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessObject {
-    class Order : BusinessObject {
+namespace Project_Final.Model.Models {
+    class OrderModel {
         public string Id { get; set; }
         public DateTime OrderDay { get; set; }
         public string CustomerPhone { get; set; }
@@ -14,11 +14,6 @@ namespace BusinessObject {
         public float Points { get; set; }
         public string PromotionId { get; set; }
         public int StaffId { get; set; }
-        public List<OrderDetail> OrderDetails { get; set; }
-
-        // Parent
-        public Promotion Promotion { get; set; }
-        public Staff Staff { get; set; }
-        public Customer Customer { get; set; }
+        public List<OrderDetailModel> OrderDetails { get; set; }
     }
 }
