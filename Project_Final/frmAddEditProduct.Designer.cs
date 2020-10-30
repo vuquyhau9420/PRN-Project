@@ -33,9 +33,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cboCategory = new System.Windows.Forms.ComboBox();
             this.cboProductGroup = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAddCategory = new System.Windows.Forms.Button();
+            this.btnAddProductGroup = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnDeleteCatagory = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtProductID = new System.Windows.Forms.TextBox();
             this.txtProductName = new System.Windows.Forms.TextBox();
@@ -45,20 +46,19 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtQuantity = new System.Windows.Forms.TextBox();
+            this.txtImportPrice = new System.Windows.Forms.TextBox();
+            this.txtSalePrice = new System.Windows.Forms.TextBox();
+            this.txtDesciption = new System.Windows.Forms.TextBox();
+            this.txtImage = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.chkStatus = new System.Windows.Forms.CheckBox();
             this.btnChooseImg = new System.Windows.Forms.Button();
             this.lbImage = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnDeleteCatagory = new System.Windows.Forms.Button();
             this.btnDeleteProductGroup = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnViewProductGroupDetail = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -83,41 +83,63 @@
             // 
             // cboCategory
             // 
+            this.cboCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboCategory.FormattingEnabled = true;
-            this.cboCategory.Location = new System.Drawing.Point(171, 34);
+            this.cboCategory.Location = new System.Drawing.Point(192, 33);
+            this.cboCategory.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(217, 24);
             this.cboCategory.TabIndex = 2;
             // 
             // cboProductGroup
             // 
+            this.cboProductGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboProductGroup.FormattingEnabled = true;
-            this.cboProductGroup.Location = new System.Drawing.Point(171, 65);
+            this.cboProductGroup.Location = new System.Drawing.Point(192, 65);
             this.cboProductGroup.Name = "cboProductGroup";
             this.cboProductGroup.Size = new System.Drawing.Size(217, 24);
             this.cboProductGroup.TabIndex = 3;
             // 
-            // button1
+            // btnAddCategory
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(395, 34);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(49, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "+";
-            this.toolTip1.SetToolTip(this.button1, "Click to add new Category");
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAddCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCategory.Location = new System.Drawing.Point(416, 33);
+            this.btnAddCategory.Name = "btnAddCategory";
+            this.btnAddCategory.Size = new System.Drawing.Size(49, 23);
+            this.btnAddCategory.TabIndex = 4;
+            this.btnAddCategory.Text = "+";
+            this.toolTip1.SetToolTip(this.btnAddCategory, "Click to add new Category");
+            this.btnAddCategory.UseVisualStyleBackColor = true;
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
             // 
-            // button2
+            // btnAddProductGroup
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(395, 66);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(49, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "+";
-            this.toolTip1.SetToolTip(this.button2, "Click to add new product group");
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAddProductGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddProductGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddProductGroup.Location = new System.Drawing.Point(415, 66);
+            this.btnAddProductGroup.Name = "btnAddProductGroup";
+            this.btnAddProductGroup.Size = new System.Drawing.Size(49, 23);
+            this.btnAddProductGroup.TabIndex = 5;
+            this.btnAddProductGroup.Text = "+";
+            this.toolTip1.SetToolTip(this.btnAddProductGroup, "Click to add new product group");
+            this.btnAddProductGroup.UseVisualStyleBackColor = true;
+            this.btnAddProductGroup.Click += new System.EventHandler(this.btnAddProductGroup_Click);
+            // 
+            // btnDeleteCatagory
+            // 
+            this.btnDeleteCatagory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeleteCatagory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteCatagory.Location = new System.Drawing.Point(471, 33);
+            this.btnDeleteCatagory.Name = "btnDeleteCatagory";
+            this.btnDeleteCatagory.Size = new System.Drawing.Size(56, 25);
+            this.btnDeleteCatagory.TabIndex = 26;
+            this.btnDeleteCatagory.Text = "-";
+            this.btnDeleteCatagory.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolTip1.SetToolTip(this.btnDeleteCatagory, "Click here to remove the category");
+            this.btnDeleteCatagory.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -131,17 +153,23 @@
             // 
             // txtProductID
             // 
-            this.txtProductID.Location = new System.Drawing.Point(172, 136);
+            this.txtProductID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProductID.Location = new System.Drawing.Point(192, 136);
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.Size = new System.Drawing.Size(216, 22);
             this.txtProductID.TabIndex = 7;
             // 
             // txtProductName
             // 
-            this.txtProductName.Location = new System.Drawing.Point(171, 176);
+            this.txtProductName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProductName.Location = new System.Drawing.Point(192, 176);
+            this.txtProductName.Multiline = true;
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(216, 22);
+            this.txtProductName.Size = new System.Drawing.Size(217, 22);
             this.txtProductName.TabIndex = 8;
+            this.txtProductName.WordWrap = false;
             // 
             // label4
             // 
@@ -197,46 +225,56 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(102, 432);
+            this.label9.Location = new System.Drawing.Point(107, 432);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(59, 20);
             this.label9.TabIndex = 14;
             this.label9.Text = "Image";
             // 
-            // textBox1
+            // txtQuantity
             // 
-            this.textBox1.Location = new System.Drawing.Point(172, 223);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(216, 22);
-            this.textBox1.TabIndex = 15;
+            this.txtQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtQuantity.Location = new System.Drawing.Point(192, 225);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(216, 22);
+            this.txtQuantity.TabIndex = 15;
             // 
-            // textBox2
+            // txtImportPrice
             // 
-            this.textBox2.Location = new System.Drawing.Point(171, 269);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(216, 22);
-            this.textBox2.TabIndex = 16;
+            this.txtImportPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtImportPrice.Location = new System.Drawing.Point(192, 269);
+            this.txtImportPrice.Name = "txtImportPrice";
+            this.txtImportPrice.Size = new System.Drawing.Size(216, 22);
+            this.txtImportPrice.TabIndex = 16;
             // 
-            // textBox3
+            // txtSalePrice
             // 
-            this.textBox3.Location = new System.Drawing.Point(172, 312);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(216, 22);
-            this.textBox3.TabIndex = 17;
+            this.txtSalePrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSalePrice.Location = new System.Drawing.Point(192, 312);
+            this.txtSalePrice.Name = "txtSalePrice";
+            this.txtSalePrice.Size = new System.Drawing.Size(216, 22);
+            this.txtSalePrice.TabIndex = 17;
             // 
-            // textBox4
+            // txtDesciption
             // 
-            this.textBox4.Location = new System.Drawing.Point(171, 353);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(216, 22);
-            this.textBox4.TabIndex = 18;
+            this.txtDesciption.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDesciption.Location = new System.Drawing.Point(192, 353);
+            this.txtDesciption.Name = "txtDesciption";
+            this.txtDesciption.Size = new System.Drawing.Size(216, 22);
+            this.txtDesciption.TabIndex = 18;
             // 
-            // textBox5
+            // txtImage
             // 
-            this.textBox5.Location = new System.Drawing.Point(171, 430);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(216, 22);
-            this.textBox5.TabIndex = 19;
+            this.txtImage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtImage.Location = new System.Drawing.Point(192, 430);
+            this.txtImage.Name = "txtImage";
+            this.txtImage.Size = new System.Drawing.Size(216, 22);
+            this.txtImage.TabIndex = 19;
             // 
             // label10
             // 
@@ -253,7 +291,7 @@
             this.chkStatus.AutoSize = true;
             this.chkStatus.Checked = true;
             this.chkStatus.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkStatus.Location = new System.Drawing.Point(172, 393);
+            this.chkStatus.Location = new System.Drawing.Point(192, 393);
             this.chkStatus.Name = "chkStatus";
             this.chkStatus.Size = new System.Drawing.Size(18, 17);
             this.chkStatus.TabIndex = 21;
@@ -261,7 +299,8 @@
             // 
             // btnChooseImg
             // 
-            this.btnChooseImg.Location = new System.Drawing.Point(395, 429);
+            this.btnChooseImg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChooseImg.Location = new System.Drawing.Point(415, 429);
             this.btnChooseImg.Name = "btnChooseImg";
             this.btnChooseImg.Size = new System.Drawing.Size(112, 23);
             this.btnChooseImg.TabIndex = 22;
@@ -270,10 +309,12 @@
             // 
             // lbImage
             // 
+            this.lbImage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbImage.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.lbImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbImage.Location = new System.Drawing.Point(172, 471);
+            this.lbImage.Location = new System.Drawing.Point(192, 469);
             this.lbImage.Name = "lbImage";
             this.lbImage.Size = new System.Drawing.Size(216, 129);
             this.lbImage.TabIndex = 23;
@@ -282,7 +323,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(118, 618);
+            this.btnSave.Location = new System.Drawing.Point(192, 618);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(128, 50);
             this.btnSave.TabIndex = 24;
@@ -292,50 +333,39 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(278, 618);
+            this.btnCancel.Location = new System.Drawing.Point(356, 618);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(148, 50);
             this.btnCancel.TabIndex = 25;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // btnDeleteCatagory
-            // 
-            this.btnDeleteCatagory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteCatagory.Location = new System.Drawing.Point(451, 34);
-            this.btnDeleteCatagory.Name = "btnDeleteCatagory";
-            this.btnDeleteCatagory.Size = new System.Drawing.Size(56, 24);
-            this.btnDeleteCatagory.TabIndex = 26;
-            this.btnDeleteCatagory.Text = "-";
-            this.btnDeleteCatagory.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.toolTip1.SetToolTip(this.btnDeleteCatagory, "Click here to remove the category");
-            this.btnDeleteCatagory.UseVisualStyleBackColor = true;
-            // 
             // btnDeleteProductGroup
             // 
+            this.btnDeleteProductGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeleteProductGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteProductGroup.Location = new System.Drawing.Point(450, 67);
+            this.btnDeleteProductGroup.Location = new System.Drawing.Point(470, 66);
             this.btnDeleteProductGroup.Name = "btnDeleteProductGroup";
             this.btnDeleteProductGroup.Size = new System.Drawing.Size(57, 23);
             this.btnDeleteProductGroup.TabIndex = 27;
             this.btnDeleteProductGroup.Text = "-";
             this.btnDeleteProductGroup.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnViewProductGroupDetail
             // 
-            this.button3.Location = new System.Drawing.Point(171, 95);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(184, 35);
-            this.button3.TabIndex = 28;
-            this.button3.Text = "View Product Group Detail";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnViewProductGroupDetail.Location = new System.Drawing.Point(192, 95);
+            this.btnViewProductGroupDetail.Name = "btnViewProductGroupDetail";
+            this.btnViewProductGroupDetail.Size = new System.Drawing.Size(184, 35);
+            this.btnViewProductGroupDetail.TabIndex = 28;
+            this.btnViewProductGroupDetail.Text = "View Product Group Detail";
+            this.btnViewProductGroupDetail.UseVisualStyleBackColor = true;
             // 
             // frmAddEditProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 680);
-            this.Controls.Add(this.button3);
+            this.ClientSize = new System.Drawing.Size(622, 697);
+            this.Controls.Add(this.btnViewProductGroupDetail);
             this.Controls.Add(this.btnDeleteProductGroup);
             this.Controls.Add(this.btnDeleteCatagory);
             this.Controls.Add(this.btnCancel);
@@ -344,11 +374,11 @@
             this.Controls.Add(this.btnChooseImg);
             this.Controls.Add(this.chkStatus);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtImage);
+            this.Controls.Add(this.txtDesciption);
+            this.Controls.Add(this.txtSalePrice);
+            this.Controls.Add(this.txtImportPrice);
+            this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -358,13 +388,16 @@
             this.Controls.Add(this.txtProductName);
             this.Controls.Add(this.txtProductID);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAddProductGroup);
+            this.Controls.Add(this.btnAddCategory);
             this.Controls.Add(this.cboProductGroup);
             this.Controls.Add(this.cboCategory);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAddEditProduct";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -377,8 +410,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboCategory;
         private System.Windows.Forms.ComboBox cboProductGroup;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAddCategory;
+        private System.Windows.Forms.Button btnAddProductGroup;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtProductID;
@@ -389,11 +422,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtQuantity;
+        private System.Windows.Forms.TextBox txtImportPrice;
+        private System.Windows.Forms.TextBox txtSalePrice;
+        private System.Windows.Forms.TextBox txtDesciption;
+        private System.Windows.Forms.TextBox txtImage;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox chkStatus;
         private System.Windows.Forms.Button btnChooseImg;
@@ -402,6 +435,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnDeleteCatagory;
         private System.Windows.Forms.Button btnDeleteProductGroup;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnViewProductGroupDetail;
     }
 }

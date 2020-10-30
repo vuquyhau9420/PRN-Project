@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace Project_Final
 {
-    public partial class frmAddProductGroup : Form
+    public partial class frmAddEditProductGroup : Form
     {
-        public frmAddProductGroup()
+        public frmAddEditProductGroup()
         {
             InitializeComponent();
+        }
+
+        private void btnAddSupplier_Click(object sender, EventArgs e)
+        {
+            frmAddEditSupplier frmAddEditSupplier = new frmAddEditSupplier();
+            frmAddEditSupplier.ShowDialog();
         }
     }
 }
