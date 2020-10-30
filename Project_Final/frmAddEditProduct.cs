@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Project_Final
 {
-    public partial class frmAddEdit : Form
+    public partial class frmAddEditProduct : Form
     {
-        public frmAddEdit()
+        public frmAddEditProduct()
         {
             InitializeComponent();
         }

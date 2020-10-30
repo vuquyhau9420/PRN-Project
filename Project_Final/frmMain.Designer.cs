@@ -124,7 +124,7 @@
             this.panel2.Location = new System.Drawing.Point(249, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(843, 43);
+            this.panel2.Size = new System.Drawing.Size(980, 43);
             this.panel2.TabIndex = 1;
             // 
             // label2
@@ -147,7 +147,7 @@
             this.ContentPanel.Location = new System.Drawing.Point(249, 47);
             this.ContentPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ContentPanel.Name = "ContentPanel";
-            this.ContentPanel.Size = new System.Drawing.Size(843, 718);
+            this.ContentPanel.Size = new System.Drawing.Size(980, 718);
             this.ContentPanel.TabIndex = 2;
             // 
             // frmMain
@@ -156,7 +156,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1092, 764);
+            this.ClientSize = new System.Drawing.Size(1229, 764);
             this.Controls.Add(this.ContentPanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.MenuPanel);

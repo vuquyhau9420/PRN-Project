@@ -48,11 +48,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmAddEdit.cs">
+    <Compile Include="frmAddProductGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddEdit.Designer.cs">
-      <DependentUpon>frmAddEdit.cs</DependentUpon>
+    <Compile Include="frmAddProductGroup.Designer.cs">
+      <DependentUpon>frmAddProductGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddCatogory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddCatogory.Designer.cs">
+      <DependentUpon>frmAddCatogory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddEditProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddEditProduct.Designer.cs">
+      <DependentUpon>frmAddEditProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -88,8 +100,14 @@
     <Compile Include="ucControl\ucProductFrm.Designer.cs">
       <DependentUpon>ucProductFrm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmAddEdit.resx">
-      <DependentUpon>frmAddEdit.cs</DependentUpon>
+    <EmbeddedResource Include="frmAddCatogory.resx">
+      <DependentUpon>frmAddCatogory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddEditProduct.resx">
+      <DependentUpon>frmAddEditProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddProductGroup.resx">
+      <DependentUpon>frmAddProductGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

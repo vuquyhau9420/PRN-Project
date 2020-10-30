@@ -23,3 +23,4 @@ D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\obj\Debug\Project_Fi
 D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\obj\Debug\Project_Final.csproj.CoreCompileInputs.cache
 D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\obj\Debug\Project_Final.exe
 D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\obj\Debug\Project_Final.pdb
+D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.frmAddEdit.resources
