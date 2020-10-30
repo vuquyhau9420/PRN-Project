@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BusinessObject {
-    class OrderDetail : BusinessObject {
+    public class OrderDetail : BusinessObject {
         public string OrderId { get; set; }
         public int Id { get; set; }
         public string ProductId { get; set; }

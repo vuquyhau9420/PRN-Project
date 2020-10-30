@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BusinessObject {
-    class StaffRole : BusinessObject {
+    public class StaffRole : BusinessObject {
         public string Id { get; set; }
         public string Name { get; set; }
     }

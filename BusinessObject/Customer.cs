@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BusinessObject {
-    class Customer : BusinessObject {
+    public class Customer : BusinessObject {
         public string Phone { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }

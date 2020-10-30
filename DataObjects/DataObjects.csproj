@@ -44,10 +44,20 @@
   <ItemGroup>
     <Compile Include="DBHelpers.cs" />
     <Compile Include="Extension.cs" />
+    <Compile Include="ICategoryDao.cs" />
+    <Compile Include="ICustomerDao.cs" />
+    <Compile Include="IStaffDao.cs" />
+    <Compile Include="IStaffRoleDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessObject\BusinessObjects.csproj">
+      <Project>{a8d30dcb-7bb9-4e6d-b109-52a324d2fc93}</Project>
+      <Name>BusinessObjects</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

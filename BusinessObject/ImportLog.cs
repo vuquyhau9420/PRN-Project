@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BusinessObject {
-    class ImportLog : BusinessObject {
+    public class ImportLog : BusinessObject {
         public int Id { get; set; }
         public int StaffId { get; set; }
         public string ProductId { get; set; }
