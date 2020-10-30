@@ -12,20 +12,21 @@ using Project_Final.ucControl;
 
 namespace Project_Final {
     public partial class frmMain : Form {
+        ucProductFrm ucProductFrm = new ucProductFrm();
         public frmMain() {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e) {
             //Add product form
-            ucProductFrm ucProductFrm = new ucProductFrm();
             ucProductFrm.Size = ContentPanel.Size;
+            ucProductFrm.Dock = DockStyle.Top;
             ContentPanel.Controls.Add(ucProductFrm);
 
             //Hide button when user haven't logged in yet
-            btnProductDetais.Hide();
-            button3.Hide();
-            button4.Hide();
+            //btnProductDetais.Hide();
+            //button3.Hide();
+            //button4.Hide();
         }
         private void EnabledFunctionForSpecificRole(int role) {
             btnProductDetais.Show();
@@ -65,6 +66,11 @@ namespace Project_Final {
                 EnabledFunctionForSpecificRole(3);
             }
 
+        }
+
+        private void ContentPanel_SizeChanged(object sender, EventArgs e)
+        {
+            ucProductFrm.Size = ContentPanel.Size;
         }
     }
 }

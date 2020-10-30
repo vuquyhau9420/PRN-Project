@@ -16,5 +16,22 @@ namespace Project_Final.ucControl
         {
             InitializeComponent();
         }
+
+        private void ucProductFrm_SizeChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            frmAddEditProduct frmAddEditProduct = new frmAddEditProduct();
+            frmAddEditProduct.ShowDialog();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            frmAddEditProduct frmAddEditProduct = new frmAddEditProduct();
+            frmAddEditProduct.ShowDialog();
+        }
     }
 }

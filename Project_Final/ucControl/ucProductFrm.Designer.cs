@@ -55,7 +55,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtProductID = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddProduct = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.gbProductDetails.SuspendLayout();
             this.SuspendLayout();
@@ -85,7 +85,7 @@
             // txtProductName
             // 
             this.txtProductName.Location = new System.Drawing.Point(257, 145);
-            this.txtProductName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtProductName.Margin = new System.Windows.Forms.Padding(4);
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(240, 22);
             this.txtProductName.TabIndex = 4;
@@ -104,7 +104,7 @@
             // txtProductGroup
             // 
             this.txtProductGroup.Location = new System.Drawing.Point(257, 105);
-            this.txtProductGroup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtProductGroup.Margin = new System.Windows.Forms.Padding(4);
             this.txtProductGroup.Name = "txtProductGroup";
             this.txtProductGroup.Size = new System.Drawing.Size(240, 22);
             this.txtProductGroup.TabIndex = 6;
@@ -123,7 +123,7 @@
             // txtQuantity
             // 
             this.txtQuantity.Location = new System.Drawing.Point(259, 188);
-            this.txtQuantity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQuantity.Margin = new System.Windows.Forms.Padding(4);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(239, 22);
             this.txtQuantity.TabIndex = 8;
@@ -153,7 +153,7 @@
             // txtProductImportPrice
             // 
             this.txtProductImportPrice.Location = new System.Drawing.Point(260, 236);
-            this.txtProductImportPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtProductImportPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtProductImportPrice.Name = "txtProductImportPrice";
             this.txtProductImportPrice.Size = new System.Drawing.Size(237, 22);
             this.txtProductImportPrice.TabIndex = 11;
@@ -161,15 +161,17 @@
             // txtProductSalePrice
             // 
             this.txtProductSalePrice.Location = new System.Drawing.Point(261, 278);
-            this.txtProductSalePrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtProductSalePrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtProductSalePrice.Name = "txtProductSalePrice";
             this.txtProductSalePrice.Size = new System.Drawing.Size(236, 22);
             this.txtProductSalePrice.TabIndex = 12;
             // 
             // txtCategory
             // 
+            this.txtCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCategory.Location = new System.Drawing.Point(257, 28);
-            this.txtCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCategory.Margin = new System.Windows.Forms.Padding(4);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(240, 22);
             this.txtCategory.TabIndex = 13;
@@ -188,7 +190,7 @@
             // txtDescription
             // 
             this.txtDescription.Location = new System.Drawing.Point(260, 322);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(237, 22);
             this.txtDescription.TabIndex = 15;
@@ -220,7 +222,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProduct.Location = new System.Drawing.Point(643, 38);
-            this.dgvProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvProduct.Margin = new System.Windows.Forms.Padding(4);
             this.dgvProduct.Name = "dgvProduct";
             this.dgvProduct.RowHeadersWidth = 51;
             this.dgvProduct.Size = new System.Drawing.Size(629, 496);
@@ -231,7 +233,7 @@
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(816, 538);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(308, 22);
             this.textBox1.TabIndex = 19;
@@ -274,9 +276,9 @@
             this.gbProductDetails.Controls.Add(this.txtProductImportPrice);
             this.gbProductDetails.Controls.Add(this.label6);
             this.gbProductDetails.Location = new System.Drawing.Point(21, 10);
-            this.gbProductDetails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbProductDetails.Margin = new System.Windows.Forms.Padding(4);
             this.gbProductDetails.Name = "gbProductDetails";
-            this.gbProductDetails.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbProductDetails.Padding = new System.Windows.Forms.Padding(4);
             this.gbProductDetails.Size = new System.Drawing.Size(532, 636);
             this.gbProductDetails.TabIndex = 21;
             this.gbProductDetails.TabStop = false;
@@ -285,7 +287,7 @@
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(257, 588);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(153, 34);
             this.btnDelete.TabIndex = 21;
@@ -295,12 +297,13 @@
             // btnEdit
             // 
             this.btnEdit.Location = new System.Drawing.Point(43, 588);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(163, 34);
             this.btnEdit.TabIndex = 20;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // label10
             // 
@@ -316,7 +319,7 @@
             // txtProductID
             // 
             this.txtProductID.Location = new System.Drawing.Point(260, 68);
-            this.txtProductID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtProductID.Margin = new System.Windows.Forms.Padding(4);
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.Size = new System.Drawing.Size(237, 22);
             this.txtProductID.TabIndex = 18;
@@ -327,29 +330,31 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // button1
+            // btnAddProduct
             // 
-            this.button1.Location = new System.Drawing.Point(647, 592);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(249, 48);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Add New Product";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAddProduct.Location = new System.Drawing.Point(647, 592);
+            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddProduct.Name = "btnAddProduct";
+            this.btnAddProduct.Size = new System.Drawing.Size(249, 48);
+            this.btnAddProduct.TabIndex = 23;
+            this.btnAddProduct.Text = "Add New Product";
+            this.btnAddProduct.UseVisualStyleBackColor = true;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // ucProductFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.gbProductDetails);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dgvProduct);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ucProductFrm";
             this.Size = new System.Drawing.Size(1315, 656);
+            this.SizeChanged += new System.EventHandler(this.ucProductFrm_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
             this.gbProductDetails.ResumeLayout(false);
             this.gbProductDetails.PerformLayout();
@@ -386,6 +391,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtProductID;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddProduct;
     }
 }

@@ -46,7 +46,9 @@
             // 
             // txtCategory
             // 
-            this.txtCategory.Location = new System.Drawing.Point(164, 55);
+            this.txtCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCategory.Location = new System.Drawing.Point(182, 57);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(295, 22);
             this.txtCategory.TabIndex = 1;
@@ -54,7 +56,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(164, 102);
+            this.btnSave.Location = new System.Drawing.Point(182, 102);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(96, 32);
             this.btnSave.TabIndex = 2;
@@ -64,7 +66,7 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(291, 102);
+            this.btnCancel.Location = new System.Drawing.Point(284, 102);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(95, 32);
             this.btnCancel.TabIndex = 3;

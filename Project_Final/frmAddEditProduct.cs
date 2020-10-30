@@ -16,5 +16,17 @@ namespace Project_Final
         {
             InitializeComponent();
         }
+
+        private void btnAddProductGroup_Click(object sender, EventArgs e)
+        {
+            frmAddEditProductGroup frmAddEditProductGroup = new frmAddEditProductGroup();
+            frmAddEditProductGroup.ShowDialog();
+        }
+
+        private void btnAddCategory_Click(object sender, EventArgs e)
+        {
+            frmAddCatogory frmAddCatogory = new frmAddCatogory();
+            frmAddCatogory.ShowDialog();
+        }
     }
 }

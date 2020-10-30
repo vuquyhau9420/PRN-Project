@@ -48,11 +48,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmAddProductGroup.cs">
+    <Compile Include="frmAddEditSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddProductGroup.Designer.cs">
-      <DependentUpon>frmAddProductGroup.cs</DependentUpon>
+    <Compile Include="frmAddEditSupplier.Designer.cs">
+      <DependentUpon>frmAddEditSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddEditProductGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddEditProductGroup.Designer.cs">
+      <DependentUpon>frmAddEditProductGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddCatogory.cs">
       <SubType>Form</SubType>
@@ -106,8 +112,11 @@
     <EmbeddedResource Include="frmAddEditProduct.resx">
       <DependentUpon>frmAddEditProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddProductGroup.resx">
-      <DependentUpon>frmAddProductGroup.cs</DependentUpon>
+    <EmbeddedResource Include="frmAddEditProductGroup.resx">
+      <DependentUpon>frmAddEditProductGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddEditSupplier.resx">
+      <DependentUpon>frmAddEditSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
