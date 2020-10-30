@@ -5,3 +5,4 @@
 - 5:15 PM 30-10-2020 (HieuLM): Add model in Presentation Layer, Dao Interface in Data Layer
 - 5:20 PM 30-10-2020 (HauVQ): Add frmAddEditCatogry , frmAddEditProductGroup, frmAddEditSupplier
 - 11:00 PM 30-10-2020 (HauVQ): Edit layout
+- 1:00 AM 31-10-2020 (HieuLM): Complete data layer (expected)
