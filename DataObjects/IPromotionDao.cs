@@ -6,9 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DataObjects {
-    public interface ICategoryDao {
-        string GetCategoryName(string categoryId);
-
-        List<Category> GetCategorys();
+    public interface IPromotionDao {
+        Promotion GetPromotion(string promotionId);
     }
 }

@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DataObjects {
-    public interface ICategoryDao {
-        string GetCategoryName(string categoryId);
+    public interface IImportLogDao {
+        List<ImportLog> GetImportLogsByStaff(string staffId);
 
-        List<Category> GetCategorys();
+        List<ImportLog> GetImportLogsByProduct(string productId);
     }
 }

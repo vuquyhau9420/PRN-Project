@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using BusinessObject;
 
 namespace DataObjects {
-    interface IStaffDao {
+    public interface IStaffDao {
+        Staff CheckLogin(string username, string password);
+
         Staff GetStaff(int staffid);
 
         List<Staff> GetStaffs();

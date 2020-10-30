@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DataObjects {
-    interface ICustomerDao {
+    public interface ICustomerDao {
         Customer GetCustomer(string phone);
 
         void InsertCustomer(Customer customer);

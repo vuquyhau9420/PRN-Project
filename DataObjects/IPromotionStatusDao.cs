@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DataObjects {
-    public interface IStaffRoleDao {
-        string GetRole(string roleId);
+    public interface IPromotionStatusDao {
+        string GetStatusName(string statusId);
     }
 }

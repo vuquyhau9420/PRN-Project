@@ -45,5 +45,19 @@ namespace DataLibrary {
 
             return item.ToString().Trim();
         }
+
+        public static bool AsBoolean(this object item, bool defaultBoolean = default(bool)) {
+            if (item == null || item.Equals(System.DBNull.Value)) {
+                return defaultBoolean;
+            }
+            return (bool)item;
+        }
+
+        public static DateTime AsDateTime(this object item, DateTime defaultDateTime = default(DateTime)) {
+            if (item == null || item.Equals(System.DBNull.Value)) {
+                return defaultDateTime;
+            }
+            return DateTime.Parse(item.ToString());
+        }
     }
 }
