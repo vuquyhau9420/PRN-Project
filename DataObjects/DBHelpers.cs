@@ -13,7 +13,7 @@ namespace DataObjects {
         private string connectionString { get; set; }
 
         public DBHelpers() {
-            connectionString = ConfigurationManager.ConnectionStrings[0].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["Project_PRN"].ConnectionString;
         }
 
         public IEnumerable<T> Read<T>(string sql, Func<IDataReader, T> make, params object[] parms) {
@@ -101,5 +101,4 @@ namespace DataObjects {
             }
         }
     }
-}
 }

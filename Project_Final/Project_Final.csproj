@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -98,6 +101,8 @@
     <Compile Include="Model\Models\StaffModel.cs" />
     <Compile Include="Model\Models\StaffRoleModel.cs" />
     <Compile Include="Model\Models\SupplierModel.cs" />
+    <Compile Include="Presenters\LoginPresenter.cs" />
+    <Compile Include="Presenters\Presenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ucControl\ucProductFrm.cs">
@@ -106,6 +111,8 @@
     <Compile Include="ucControl\ucProductFrm.Designer.cs">
       <DependentUpon>ucProductFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ILoginView.cs" />
+    <Compile Include="Views\IView.cs" />
     <EmbeddedResource Include="frmAddCatogory.resx">
       <DependentUpon>frmAddCatogory.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +144,7 @@
     <EmbeddedResource Include="ucControl\ucProductFrm.resx">
       <DependentUpon>ucProductFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -157,6 +165,20 @@
     <Content Include="Image\FunnyIcon1-removebg-preview.png" />
     <Content Include="Image\ImageForPanel2.png" />
     <Content Include="Image\MenuPanel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ActionService\ActionService.csproj">
+      <Project>{9d570071-9ca1-40ec-b074-6f3d4fc637dc}</Project>
+      <Name>ActionService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessObject\BusinessObjects.csproj">
+      <Project>{a8d30dcb-7bb9-4e6d-b109-52a324d2fc93}</Project>
+      <Name>BusinessObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataObjects\DataObjects.csproj">
+      <Project>{4d3b2511-e13e-4af2-9e92-252f78a7d276}</Project>
+      <Name>DataObjects</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

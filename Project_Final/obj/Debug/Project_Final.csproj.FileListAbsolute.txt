@@ -30,3 +30,12 @@ D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\obj\Debug\Project_Fi
 D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\obj\Debug\Project_Final.frmAddEditProduct.resources
 D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\obj\Debug\Project_Final.frmAddEditProductGroup.resources
 D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\obj\Debug\Project_Final.frmAddEditSupplier.resources
+D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\bin\Debug\ActionService.dll
+D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\bin\Debug\AutoMapper.dll
+D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\bin\Debug\BusinessObject.dll
+D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\bin\Debug\DataObjects.dll
+D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\bin\Debug\ActionService.pdb
+D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\bin\Debug\BusinessObject.pdb
+D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\bin\Debug\DataObjects.pdb
+D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\bin\Debug\AutoMapper.xml
+D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\obj\Debug\Project_Final.csproj.CopyComplete

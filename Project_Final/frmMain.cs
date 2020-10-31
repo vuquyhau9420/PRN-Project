@@ -7,41 +7,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows;
 using Project_Final.ucControl;
 
 namespace Project_Final {
     public partial class frmMain : Form {
-        ucProductFrm ucProductFrm = new ucProductFrm();
+
+        ucProductFrm ucProductFrm = null;
+
         public frmMain() {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e) {
             //Add product form
-            ucProductFrm.Size = ContentPanel.Size;
-            ucProductFrm.Dock = DockStyle.Top;
-            ContentPanel.Controls.Add(ucProductFrm);
-
             //Hide button when user haven't logged in yet
-            //btnProductDetais.Hide();
-            //button3.Hide();
-            //button4.Hide();
+            btnProductDetais.Hide();
+            button3.Hide();
+            button4.Hide();
         }
-        private void EnabledFunctionForSpecificRole(int role) {
+        private void EnabledFunctionForSpecificRole(string role) {
             btnProductDetais.Show();
             button3.Show();
             button4.Show();
 
-            if (role == 1)//Owner
-            {
+            ucProductFrm = new ucProductFrm();
+            ucProductFrm.Size = ContentPanel.Size;
+            ucProductFrm.Dock = DockStyle.Top;
+            ContentPanel.Controls.Add(ucProductFrm);
 
+            if (role.Equals("O"))//Owner
+            {
             }
-            else if (role == 2)//Admin
+            else if (role.Equals("A"))//Admin
            {
                 btnProductDetais.Enabled = false;
             }
-            else if (role == 3)//Staff
+            else if (role.Equals("S"))//Staff
            {
                 btnProductDetais.Enabled = false;
                 button3.Enabled = false;
@@ -49,28 +50,18 @@ namespace Project_Final {
             btnLogin.Hide();
         }
         private void btnLogin_Click(object sender, EventArgs e) {
-            frmLogin frmLogin = new frmLogin();
-            frmLogin.ShowDialog();
+            using (var frmLogin = new frmLogin()) {
+                frmLogin.ShowDialog();
 
-            int role = frmLogin.Role; // return the role number from frmLogin
-            if (role == 1)// 1 for Owner
-            {
-                EnabledFunctionForSpecificRole(1);
+                string role = frmLogin.Role; // return the role number from frmLogin
+                EnabledFunctionForSpecificRole(role);
             }
-            else if (role == 2)// 2 for Admin
-            {
-                EnabledFunctionForSpecificRole(2);
-            }
-            else if (role == 3)// 3 for normal staff
-            {
-                EnabledFunctionForSpecificRole(3);
-            }
-
         }
 
-        private void ContentPanel_SizeChanged(object sender, EventArgs e)
-        {
-            ucProductFrm.Size = ContentPanel.Size;
+        private void ContentPanel_SizeChanged(object sender, EventArgs e) {
+            if (ucProductFrm != null) {
+                ucProductFrm.Size = ContentPanel.Size;
+            }
         }
     }
 }
