@@ -39,3 +39,4 @@ D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\bin\Debug\BusinessOb
 D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\bin\Debug\DataObjects.pdb
 D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\bin\Debug\AutoMapper.xml
 D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\obj\Debug\Project_Final.csproj.CopyComplete
+D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\obj\Debug\Project_Final.ucControl.ucProductMainFrm.resources

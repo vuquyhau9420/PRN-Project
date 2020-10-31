@@ -32,7 +32,7 @@ namespace Project_Final {
 
             ucProductFrm = new ucProductFrm();
             ucProductFrm.Size = ContentPanel.Size;
-            ucProductFrm.Dock = DockStyle.Top;
+            //ucProductFrm.Dock = DockStyle.Top;
             ContentPanel.Controls.Add(ucProductFrm);
 
             if (role.Equals("O"))//Owner

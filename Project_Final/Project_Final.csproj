@@ -111,6 +111,12 @@
     <Compile Include="ucControl\ucProductFrm.Designer.cs">
       <DependentUpon>ucProductFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucControl\ucProductMainFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucControl\ucProductMainFrm.Designer.cs">
+      <DependentUpon>ucProductMainFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ILoginView.cs" />
     <Compile Include="Views\IView.cs" />
     <EmbeddedResource Include="frmAddCatogory.resx">
@@ -143,6 +149,9 @@
     </Compile>
     <EmbeddedResource Include="ucControl\ucProductFrm.resx">
       <DependentUpon>ucProductFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucControl\ucProductMainFrm.resx">
+      <DependentUpon>ucProductMainFrm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
