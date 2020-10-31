@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.Common;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,9 +17,9 @@ namespace DataObjects {
             connectionString = ConfigurationManager.ConnectionStrings["Project_PRN"].ConnectionString;
         }
 
-        public IEnumerable<T> Read<T>(string sql, Func<IDataReader, T> make, params object[] parms) {
+        public IEnumerable<T> Read<T>(string storeProcedure, Func<IDataReader, T> make, params object[] parms) {
             using (var connection = CreateConnection()) {
-                using (var command = CreateCommand(sql, connection, parms)) {
+                using (var command = CreateCommand(storeProcedure, connection, parms)) {
                     using (var reader = command.ExecuteReader()) {
                         while (reader.Read()) {
                             yield return make(reader);
@@ -51,10 +52,11 @@ namespace DataObjects {
             return connection;
         }
 
-        DbCommand CreateCommand(string sql, DbConnection conn, params object[] parms) {
-            var command = factory.CreateCommand();
-            command.Connection = conn;
-            command.CommandText = sql;
+        DbCommand CreateCommand(string storeProcedure, DbConnection conn, params object[] parms) {
+            var command = new SqlCommand();
+            command.Connection = (SqlConnection)conn;
+            command.CommandText = storeProcedure;
+            command.CommandType = CommandType.StoredProcedure;
             command.AddParameters(parms);
             return command;
         }
@@ -74,23 +76,13 @@ namespace DataObjects {
         public static void AddParameters(this DbCommand command, object[] parms) {
             if (parms != null && parms.Length > 0) {
 
-                // ** Iterator pattern
-
-                // NOTE: processes a name/value pair at each iteration
-
                 for (int i = 0; i < parms.Length; i += 2) {
                     string name = parms[i].ToString();
-
-                    // no empty strings to the database
 
                     if (parms[i + 1] is string && (string)parms[i + 1] == "")
                         parms[i + 1] = null;
 
-                    // if null, set to DbNull
-
                     object value = parms[i + 1] ?? DBNull.Value;
-
-                    // ** Factory pattern
 
                     var dbParameter = command.CreateParameter();
                     dbParameter.ParameterName = name;

@@ -21,14 +21,11 @@ namespace Project_Final {
         private void Form1_Load(object sender, EventArgs e) {
             //Add product form
             //Hide button when user haven't logged in yet
-            btnProductDetais.Hide();
-            button3.Hide();
-            button4.Hide();
         }
         private void EnabledFunctionForSpecificRole(string role) {
-            btnProductDetais.Show();
-            button3.Show();
-            button4.Show();
+            btnProductFrm.Show();
+            btnCustomerFrm.Show();
+            btnPOSFrm.Show();
 
             ucProductFrm = new ucProductFrm();
             ucProductFrm.Size = ContentPanel.Size;
@@ -37,15 +34,15 @@ namespace Project_Final {
 
             if (role.Equals("O"))//Owner
             {
+
             }
             else if (role.Equals("A"))//Admin
-           {
-                btnProductDetais.Enabled = false;
+            {
+
             }
             else if (role.Equals("S"))//Staff
-           {
-                btnProductDetais.Enabled = false;
-                button3.Enabled = false;
+            {
+
             }
             btnLogin.Hide();
         }
@@ -62,6 +59,13 @@ namespace Project_Final {
             if (ucProductFrm != null) {
                 ucProductFrm.Size = ContentPanel.Size;
             }
+        }
+
+        private void btnProductFrm_Click(object sender, EventArgs e) {
+            ucProductMainFrm productFrm = new ucProductMainFrm();
+            productFrm.Size = ContentPanel.Size;
+            ContentPanel.Controls.Remove(ucProductFrm);
+            ContentPanel.Controls.Add(productFrm);
         }
     }
 }

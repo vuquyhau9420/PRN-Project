@@ -15,15 +15,16 @@ namespace DataObjects.Data {
         const string ACTIVE_STAFF_STATUS = "True";
 
         public Staff CheckLogin(string username, string password) {
-            string sql = "SELECT staff_id, staff_username, staff_password, staff_fullname, " +
-                "staff_citizen_identification, staff_sex, staff_phone, staff_address, " +
-                "staff_birthday, staff_role, staff_status " +
-                "FROM staff " +
-                "WHERE staff_username = @STAFF_USERNAME " +
-                "AND staff_password = @STAFF_PASSWORD AND staff_status = @STAFF_STATUS";
-            object[] parms = { "@STAFF_USERNAME", username, "@STAFF_PASSWORD", password, "@STAFF_STATUS", ACTIVE_STAFF_STATUS };
+            //string sql = "SELECT staff_id, staff_username, staff_password, staff_fullname, " +
+            //    "staff_citizen_identification, staff_sex, staff_phone, staff_address, " +
+            //    "staff_birthday, staff_role, staff_status " +
+            //    "FROM staff " +
+            //    "WHERE staff_username = @STAFF_USERNAME " +
+            //    "AND staff_password = @STAFF_PASSWORD AND staff_status = @STAFF_STATUS";
+            string storeProcedure = "spCheckLogin";
+            object[] parms = { "@STAFF_USERNAME", username, "@STAFF_PASSWORD", password };
 
-            return db.Read(sql, make, parms).First();
+            return db.Read(storeProcedure, make, parms).First();
         }
 
         public void DeleteStaff(Staff staff) {

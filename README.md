@@ -7,3 +7,4 @@
 - 11:00 PM 30-10-2020 (HauVQ): Edit layout
 - 1:00 AM 31-10-2020 (HieuLM): Complete data layer (expected)
 - 10:00 AM 31-10-2020 (HieuLM) : Complete login function (expected)
+- 12:00 AM 1-11-2020 (HieuLM) : Add Store Procedure file scripts
