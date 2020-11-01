@@ -52,9 +52,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(78, 46);
+            this.label1.Location = new System.Drawing.Point(58, 37);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 20);
+            this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Group ID";
             // 
@@ -62,9 +63,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(49, 82);
+            this.label2.Location = new System.Drawing.Point(37, 67);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 20);
+            this.label2.Size = new System.Drawing.Size(99, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Group Name";
             // 
@@ -72,9 +74,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(85, 112);
+            this.label3.Location = new System.Drawing.Point(64, 91);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 20);
+            this.label3.Size = new System.Drawing.Size(68, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Supplier";
             // 
@@ -82,9 +85,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(25, 146);
+            this.label4.Location = new System.Drawing.Point(19, 119);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(138, 20);
+            this.label4.Size = new System.Drawing.Size(121, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "Group category";
             // 
@@ -92,9 +96,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(78, 176);
+            this.label5.Location = new System.Drawing.Point(58, 143);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 20);
+            this.label5.Size = new System.Drawing.Size(70, 17);
             this.label5.TabIndex = 4;
             this.label5.Text = "Stocking";
             // 
@@ -102,9 +107,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(96, 214);
+            this.label6.Location = new System.Drawing.Point(72, 174);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 20);
+            this.label6.Size = new System.Drawing.Size(54, 17);
             this.label6.TabIndex = 5;
             this.label6.Text = "Status";
             // 
@@ -112,18 +118,20 @@
             // 
             this.txtGroupID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtGroupID.Location = new System.Drawing.Point(198, 46);
+            this.txtGroupID.Location = new System.Drawing.Point(148, 37);
+            this.txtGroupID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtGroupID.Name = "txtGroupID";
-            this.txtGroupID.Size = new System.Drawing.Size(267, 22);
+            this.txtGroupID.Size = new System.Drawing.Size(201, 20);
             this.txtGroupID.TabIndex = 6;
             // 
             // txtGroupName
             // 
             this.txtGroupName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtGroupName.Location = new System.Drawing.Point(198, 84);
+            this.txtGroupName.Location = new System.Drawing.Point(148, 68);
+            this.txtGroupName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtGroupName.Name = "txtGroupName";
-            this.txtGroupName.Size = new System.Drawing.Size(267, 22);
+            this.txtGroupName.Size = new System.Drawing.Size(201, 20);
             this.txtGroupName.TabIndex = 7;
             // 
             // cboSupplier
@@ -131,9 +139,10 @@
             this.cboSupplier.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cboSupplier.FormattingEnabled = true;
-            this.cboSupplier.Location = new System.Drawing.Point(198, 114);
+            this.cboSupplier.Location = new System.Drawing.Point(148, 93);
+            this.cboSupplier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboSupplier.Name = "cboSupplier";
-            this.cboSupplier.Size = new System.Drawing.Size(267, 24);
+            this.cboSupplier.Size = new System.Drawing.Size(201, 21);
             this.cboSupplier.TabIndex = 8;
             // 
             // cboGroupCategory
@@ -141,9 +150,10 @@
             this.cboGroupCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cboGroupCategory.FormattingEnabled = true;
-            this.cboGroupCategory.Location = new System.Drawing.Point(198, 146);
+            this.cboGroupCategory.Location = new System.Drawing.Point(148, 119);
+            this.cboGroupCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboGroupCategory.Name = "cboGroupCategory";
-            this.cboGroupCategory.Size = new System.Drawing.Size(267, 24);
+            this.cboGroupCategory.Size = new System.Drawing.Size(201, 21);
             this.cboGroupCategory.TabIndex = 9;
             // 
             // chkStock
@@ -151,9 +161,10 @@
             this.chkStock.AutoSize = true;
             this.chkStock.Checked = true;
             this.chkStock.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkStock.Location = new System.Drawing.Point(198, 179);
+            this.chkStock.Location = new System.Drawing.Point(148, 145);
+            this.chkStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkStock.Name = "chkStock";
-            this.chkStock.Size = new System.Drawing.Size(18, 17);
+            this.chkStock.Size = new System.Drawing.Size(15, 14);
             this.chkStock.TabIndex = 10;
             this.chkStock.UseVisualStyleBackColor = true;
             // 
@@ -162,40 +173,49 @@
             this.chkStatus.AutoSize = true;
             this.chkStatus.Checked = true;
             this.chkStatus.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkStatus.Location = new System.Drawing.Point(198, 214);
+            this.chkStatus.Location = new System.Drawing.Point(148, 174);
+            this.chkStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkStatus.Name = "chkStatus";
-            this.chkStatus.Size = new System.Drawing.Size(18, 17);
+            this.chkStatus.Size = new System.Drawing.Size(15, 14);
             this.chkStatus.TabIndex = 11;
             this.chkStatus.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.Color.Lime;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(170, 268);
+            this.btnSave.Location = new System.Drawing.Point(148, 218);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(86, 39);
+            this.btnSave.Size = new System.Drawing.Size(64, 32);
             this.btnSave.TabIndex = 12;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.Color.Red;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(279, 268);
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(236, 218);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(93, 39);
+            this.btnCancel.Size = new System.Drawing.Size(70, 32);
             this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // btnAddSupplier
             // 
             this.btnAddSupplier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddSupplier.AutoSize = true;
             this.btnAddSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddSupplier.Location = new System.Drawing.Point(481, 114);
+            this.btnAddSupplier.Location = new System.Drawing.Point(353, 93);
+            this.btnAddSupplier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddSupplier.Name = "btnAddSupplier";
-            this.btnAddSupplier.Size = new System.Drawing.Size(66, 30);
+            this.btnAddSupplier.Size = new System.Drawing.Size(50, 27);
             this.btnAddSupplier.TabIndex = 14;
             this.btnAddSupplier.Text = "+";
             this.toolTip1.SetToolTip(this.btnAddSupplier, "Click here to add new supplier");
@@ -207,18 +227,19 @@
             this.btnDeleteSupplier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeleteSupplier.AutoSize = true;
             this.btnDeleteSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteSupplier.Location = new System.Drawing.Point(553, 114);
+            this.btnDeleteSupplier.Location = new System.Drawing.Point(407, 93);
+            this.btnDeleteSupplier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDeleteSupplier.Name = "btnDeleteSupplier";
-            this.btnDeleteSupplier.Size = new System.Drawing.Size(69, 30);
+            this.btnDeleteSupplier.Size = new System.Drawing.Size(52, 27);
             this.btnDeleteSupplier.TabIndex = 15;
             this.btnDeleteSupplier.Text = "-";
             this.btnDeleteSupplier.UseVisualStyleBackColor = true;
             // 
             // frmAddEditProductGroup
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 364);
+            this.ClientSize = new System.Drawing.Size(476, 296);
             this.Controls.Add(this.btnDeleteSupplier);
             this.Controls.Add(this.btnAddSupplier);
             this.Controls.Add(this.btnCancel);
@@ -235,6 +256,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmAddEditProductGroup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);

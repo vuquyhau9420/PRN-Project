@@ -25,37 +25,53 @@
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.MenuPanel = new System.Windows.Forms.Panel();
+            this.pBLogo = new System.Windows.Forms.PictureBox();
             this.btnImportFrm = new System.Windows.Forms.Button();
             this.btnPOSFrm = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnCustomerFrm = new System.Windows.Forms.Button();
             this.btnOrderFrm = new System.Windows.Forms.Button();
             this.btnProductFrm = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ContentPanel = new System.Windows.Forms.Panel();
+            this.lbUnsignIn = new System.Windows.Forms.Label();
             this.MenuPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBLogo)).BeginInit();
+            this.ContentPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuPanel
             // 
             this.MenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.MenuPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MenuPanel.BackgroundImage")));
+            this.MenuPanel.Controls.Add(this.pBLogo);
             this.MenuPanel.Controls.Add(this.btnImportFrm);
             this.MenuPanel.Controls.Add(this.btnPOSFrm);
             this.MenuPanel.Controls.Add(this.label2);
-            this.MenuPanel.Controls.Add(this.label1);
             this.MenuPanel.Controls.Add(this.btnCustomerFrm);
             this.MenuPanel.Controls.Add(this.btnOrderFrm);
             this.MenuPanel.Controls.Add(this.btnProductFrm);
             this.MenuPanel.Controls.Add(this.btnLogin);
             this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuPanel.Location = new System.Drawing.Point(0, 0);
-            this.MenuPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.MenuPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MenuPanel.Name = "MenuPanel";
             this.MenuPanel.Size = new System.Drawing.Size(187, 624);
             this.MenuPanel.TabIndex = 0;
+            // 
+            // pBLogo
+            // 
+            this.pBLogo.BackColor = System.Drawing.Color.Transparent;
+            this.pBLogo.Image = ((System.Drawing.Image)(resources.GetObject("pBLogo.Image")));
+            this.pBLogo.InitialImage = null;
+            this.pBLogo.Location = new System.Drawing.Point(32, 35);
+            this.pBLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pBLogo.Name = "pBLogo";
+            this.pBLogo.Size = new System.Drawing.Size(116, 91);
+            this.pBLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pBLogo.TabIndex = 8;
+            this.pBLogo.TabStop = false;
             // 
             // btnImportFrm
             // 
@@ -91,21 +107,11 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "©Copy right by HauVQ && HieuLM ";
             // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(20, 26);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 107);
-            this.label1.TabIndex = 5;
-            // 
             // btnCustomerFrm
             // 
             this.btnCustomerFrm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCustomerFrm.Location = new System.Drawing.Point(32, 312);
-            this.btnCustomerFrm.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCustomerFrm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCustomerFrm.Name = "btnCustomerFrm";
             this.btnCustomerFrm.Size = new System.Drawing.Size(116, 44);
             this.btnCustomerFrm.TabIndex = 3;
@@ -117,7 +123,7 @@
             // 
             this.btnOrderFrm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnOrderFrm.Location = new System.Drawing.Point(32, 360);
-            this.btnOrderFrm.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOrderFrm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOrderFrm.Name = "btnOrderFrm";
             this.btnOrderFrm.Size = new System.Drawing.Size(116, 46);
             this.btnOrderFrm.TabIndex = 2;
@@ -130,7 +136,7 @@
             this.btnProductFrm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnProductFrm.AutoSize = true;
             this.btnProductFrm.Location = new System.Drawing.Point(32, 264);
-            this.btnProductFrm.Margin = new System.Windows.Forms.Padding(2);
+            this.btnProductFrm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnProductFrm.Name = "btnProductFrm";
             this.btnProductFrm.Size = new System.Drawing.Size(116, 44);
             this.btnProductFrm.TabIndex = 1;
@@ -144,7 +150,7 @@
             this.btnLogin.AutoSize = true;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.Location = new System.Drawing.Point(32, 150);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnLogin.Size = new System.Drawing.Size(116, 46);
@@ -159,7 +165,7 @@
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(187, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(751, 35);
             this.panel2.TabIndex = 1;
@@ -168,13 +174,26 @@
             // 
             this.ContentPanel.AutoSize = true;
             this.ContentPanel.BackColor = System.Drawing.Color.Transparent;
+            this.ContentPanel.Controls.Add(this.lbUnsignIn);
             this.ContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ContentPanel.Location = new System.Drawing.Point(187, 35);
-            this.ContentPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.ContentPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ContentPanel.Name = "ContentPanel";
             this.ContentPanel.Size = new System.Drawing.Size(751, 589);
             this.ContentPanel.TabIndex = 2;
             this.ContentPanel.SizeChanged += new System.EventHandler(this.ContentPanel_SizeChanged);
+            // 
+            // lbUnsignIn
+            // 
+            this.lbUnsignIn.AutoSize = true;
+            this.lbUnsignIn.BackColor = System.Drawing.Color.Black;
+            this.lbUnsignIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUnsignIn.ForeColor = System.Drawing.Color.White;
+            this.lbUnsignIn.Location = new System.Drawing.Point(34, 62);
+            this.lbUnsignIn.Name = "lbUnsignIn";
+            this.lbUnsignIn.Size = new System.Drawing.Size(620, 29);
+            this.lbUnsignIn.TabIndex = 0;
+            this.lbUnsignIn.Text = "Welcome to my app, plese login to use its features !!";
             // 
             // frmMain
             // 
@@ -185,7 +204,7 @@
             this.Controls.Add(this.ContentPanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.MenuPanel);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lí quần áo";
@@ -193,6 +212,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MenuPanel.ResumeLayout(false);
             this.MenuPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBLogo)).EndInit();
+            this.ContentPanel.ResumeLayout(false);
+            this.ContentPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,10 +229,11 @@
         private System.Windows.Forms.Button btnOrderFrm;
         private System.Windows.Forms.Button btnCustomerFrm;
         private System.Windows.Forms.Panel ContentPanel;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnPOSFrm;
         private System.Windows.Forms.Button btnImportFrm;
+        private System.Windows.Forms.PictureBox pBLogo;
+        private System.Windows.Forms.Label lbUnsignIn;
     }
 }
 

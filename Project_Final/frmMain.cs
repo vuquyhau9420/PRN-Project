@@ -49,9 +49,14 @@ namespace Project_Final {
         private void btnLogin_Click(object sender, EventArgs e) {
             using (var frmLogin = new frmLogin()) {
                 frmLogin.ShowDialog();
-
+                
                 string role = frmLogin.Role; // return the role number from frmLogin
-                EnabledFunctionForSpecificRole(role);
+                if(role != null){      //Check if role get from Login form is null because of clicking Cancel button.
+
+                    EnabledFunctionForSpecificRole(role);
+                    lbUnsignIn.Visible = false; // hide welcome label if user login successfull.
+                
+                } 
             }
         }
 
@@ -64,8 +69,15 @@ namespace Project_Final {
         private void btnProductFrm_Click(object sender, EventArgs e) {
             ucProductMainFrm productFrm = new ucProductMainFrm();
             productFrm.Size = ContentPanel.Size;
-            ContentPanel.Controls.Remove(ucProductFrm);
+            //ContentPanel.Controls.Remove(ucProductFrm);
+            ucProductFrm.Hide();
             ContentPanel.Controls.Add(productFrm);
+        }
+        private void HideAllUcControl()
+        {
+            foreach (Control ucControl in ContentPanel.Controls){   //Hide all control before show a specific control
+                ucControl.Hide();                                   //for a specific function
+            }
         }
     }
 }

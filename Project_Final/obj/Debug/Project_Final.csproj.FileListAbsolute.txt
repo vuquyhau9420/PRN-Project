@@ -40,3 +40,14 @@ D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\bin\Debug\DataObject
 D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\bin\Debug\AutoMapper.xml
 D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\obj\Debug\Project_Final.csproj.CopyComplete
 D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\obj\Debug\Project_Final.ucControl.ucProductMainFrm.resources
+D:\CN5\PRN321\PRN-Project\Project_Final\bin\Debug\ActionService.dll
+D:\CN5\PRN321\PRN-Project\Project_Final\bin\Debug\AutoMapper.dll
+D:\CN5\PRN321\PRN-Project\Project_Final\bin\Debug\BusinessObject.dll
+D:\CN5\PRN321\PRN-Project\Project_Final\bin\Debug\DataObjects.dll
+D:\CN5\PRN321\PRN-Project\Project_Final\bin\Debug\ActionService.pdb
+D:\CN5\PRN321\PRN-Project\Project_Final\bin\Debug\BusinessObject.pdb
+D:\CN5\PRN321\PRN-Project\Project_Final\bin\Debug\DataObjects.pdb
+D:\CN5\PRN321\PRN-Project\Project_Final\bin\Debug\AutoMapper.xml
+D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.ucControl.ucProductMainFrm.resources
+D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.csproj.CopyComplete
+D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.ucControl.ucCustomerFrm.resources
