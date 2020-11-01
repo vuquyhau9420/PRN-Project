@@ -18,8 +18,8 @@ namespace Project_Final.Model {
         }
 
         #region Login
-        public Staff Login(string username, string password) {
-            return service.CheckLogin(username, password);
+        public StaffModel Login(string username, string password) {
+            return Mapper.Map<Staff, StaffModel>(service.CheckLogin(username, password));
         }
         #endregion
     }

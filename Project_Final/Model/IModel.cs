@@ -1,4 +1,5 @@
 ﻿using BusinessObject;
+using Project_Final.Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,6 @@ using System.Threading.Tasks;
 
 namespace Project_Final.Model {
     public interface IModel {
-        Staff Login(string username, string password);
+        StaffModel Login(string username, string password);
     }
 }

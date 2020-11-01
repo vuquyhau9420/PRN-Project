@@ -1,4 +1,5 @@
 ﻿using BusinessObject;
+using Project_Final.Model.Models;
 using Project_Final.Views;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace Project_Final.Presenters {
 
         }
 
-        public Staff Login() {
+        public StaffModel Login() {
             string username = View.Username;
             string password = View.Password;
 

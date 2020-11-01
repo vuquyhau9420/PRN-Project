@@ -1,4 +1,5 @@
 ﻿using BusinessObject;
+using Project_Final.Model.Models;
 using Project_Final.Presenters;
 using Project_Final.Views;
 using System;
@@ -29,7 +30,7 @@ namespace Project_Final {
 
         private void btnSumbit_Click(object sender, EventArgs e) {
             try {
-                Staff currentStaff = loginPresenter.Login();
+                StaffModel currentStaff = loginPresenter.Login();
                 if (currentStaff == null) {
                     MessageBox.Show("Login Fail");
                 }

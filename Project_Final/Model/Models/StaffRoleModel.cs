@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Project_Final.Model.Models {
-    class StaffRoleModel {
+    public class StaffRoleModel {
         public string Id { get; set; }
         public string Name { get; set; }
     }
