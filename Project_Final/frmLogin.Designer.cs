@@ -60,16 +60,16 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(126, 44);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUsername.Location = new System.Drawing.Point(136, 44);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(263, 20);
             this.txtUsername.TabIndex = 2;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(126, 79);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassword.Location = new System.Drawing.Point(136, 79);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(263, 20);
@@ -78,8 +78,8 @@
             // btnSumbit
             // 
             this.btnSumbit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSumbit.Location = new System.Drawing.Point(126, 148);
-            this.btnSumbit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSumbit.Location = new System.Drawing.Point(136, 148);
+            this.btnSumbit.Margin = new System.Windows.Forms.Padding(2);
             this.btnSumbit.Name = "btnSumbit";
             this.btnSumbit.Size = new System.Drawing.Size(101, 37);
             this.btnSumbit.TabIndex = 4;
@@ -92,7 +92,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(247, 148);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(109, 37);
             this.btnCancel.TabIndex = 5;
@@ -114,7 +114,8 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
