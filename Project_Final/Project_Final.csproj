@@ -107,6 +107,7 @@
     <Compile Include="Presenters\CategoryPresenter.cs" />
     <Compile Include="Presenters\LoginPresenter.cs" />
     <Compile Include="Presenters\Presenter.cs" />
+    <Compile Include="Presenters\ProductGroupPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ucControl\ucProductFrm.cs">
@@ -129,6 +130,7 @@
     </Compile>
     <Compile Include="Views\ICategoryView.cs" />
     <Compile Include="Views\ILoginView.cs" />
+    <Compile Include="Views\IProductGroupView.cs" />
     <Compile Include="Views\IView.cs" />
     <EmbeddedResource Include="frmAddCatogory.resx">
       <DependentUpon>frmAddCatogory.cs</DependentUpon>

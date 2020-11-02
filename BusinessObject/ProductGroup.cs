@@ -8,8 +8,8 @@ namespace BusinessObject {
     public class ProductGroup : BusinessObject {
         public string Id { get; set; }
         public string Name { get; set; }
-        public int SupplierId { get; set; }
-        public int ProductGroupCategory { get; set; }
+        public string SupplierName { get; set; }
+        public string ProductGroupCategory { get; set; }
         public bool IsStocking { get; set; }
         public bool Status { get; set; }
 

@@ -16,6 +16,7 @@ namespace Project_Final.Model {
             Mapper.CreateMap<Staff, StaffModel>();
             Mapper.CreateMap<StaffModel, Staff>();
             Mapper.CreateMap<Category, CategoryModel>();
+            Mapper.CreateMap<ProductGroup, ProductGroupModel>();
         }
 
         #region Login
@@ -27,6 +28,12 @@ namespace Project_Final.Model {
         #region Category
         public List<CategoryModel> GetCategories() {
             return Mapper.Map<List<Category>, List<CategoryModel>>(service.GetCategories());
+        }
+        #endregion
+
+        #region Product Group
+        public List<ProductGroupModel> GetProductGroups(int category_id) {
+            return Mapper.Map<List<ProductGroup>, List<ProductGroupModel>>(service.GetProductGroups(category_id));
         }
         #endregion
     }

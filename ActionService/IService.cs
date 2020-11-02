@@ -10,6 +10,12 @@ namespace ActionService {
         // Login
         Staff CheckLogin(string username, string password);
 
+        #region Category
         List<Category> GetCategories();
+        #endregion
+
+        #region Product_Group
+        List<ProductGroup> GetProductGroups(int category_id);
+        #endregion
     }
 }

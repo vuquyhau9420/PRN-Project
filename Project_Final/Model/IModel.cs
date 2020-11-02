@@ -10,6 +10,12 @@ namespace Project_Final.Model {
     public interface IModel {
         StaffModel Login(string username, string password);
 
+        #region Category
         List<CategoryModel> GetCategories();
+        #endregion
+
+        #region Product Group
+        List<ProductGroupModel> GetProductGroups(int category_id);
+        #endregion
     }
 }

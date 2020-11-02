@@ -12,14 +12,24 @@ namespace ActionService {
 
         static readonly IStaffDao staffDao = new StaffDao();
         static readonly ICategoryDao categoryDao = new CategoryDao();
+        static readonly IProductGroupDao productGroupDao = new ProductGroupDao();
 
-        // Login
+        #region Login
         public Staff CheckLogin(string username, string password) {
             return staffDao.CheckLogin(username, password);
         }
+        #endregion
 
+        #region Category
         public List<Category> GetCategories() {
             return categoryDao.GetCategories();
         }
+        #endregion
+
+        #region Product_Group
+        public List<ProductGroup> GetProductGroups(int category_id) {
+            return productGroupDao.GetProductGroups(category_id);
+        }
+        #endregion
     }
 }
