@@ -9,4 +9,6 @@
 - 10:00 AM 31-10-2020 (HieuLM): Complete login function (expected)
 - 12:00 AM 1-11-2020 (HieuLM): Add Store Procedure file scripts
 - 9:02 PM 1-11-2020 (HauVQ): Add ucCustomer, Fix code in frmMain line 54->59, Edit Layout, Add welcome label 
-- 5:20 PM 2-11-2020 (HieuLM) : Binding dgvProductGroup in ucProductManinFrm
+- 5:18 PM 2-11-2020 (HauVQ): Add ucMakeOrder, add ucProduct into frmProductDetails
+- 5:20 PM 2-11-2020 (HieuLM): Binding dgvProductGroup
+
