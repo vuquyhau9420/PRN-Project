@@ -13,7 +13,6 @@ namespace Project_Final {
     public partial class frmMain : Form {
 
         ucProductMainFrm ucProductMainFrm = null;
-
         public frmMain() {
             InitializeComponent();
         }

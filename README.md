@@ -11,4 +11,6 @@
 - 9:02 PM 1-11-2020 (HauVQ): Add ucCustomer, Fix code in frmMain line 54->59, Edit Layout, Add welcome label 
 - 5:18 PM 2-11-2020 (HauVQ): Add ucMakeOrder, add ucProduct into frmProductDetails
 - 5:20 PM 2-11-2020 (HieuLM): Binding dgvProductGroup
+- 11:10 PM 2-11-2020 (HauVQ): Complete ucMakeOrder
+
 
