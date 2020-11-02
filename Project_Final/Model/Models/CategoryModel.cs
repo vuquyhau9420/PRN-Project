@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Project_Final.Model.Models {
-    class CategoryModel {
+    public class CategoryModel {
         public int Id { get; set; }
         public string Name { get; set; }
         public bool Status { get; set; }

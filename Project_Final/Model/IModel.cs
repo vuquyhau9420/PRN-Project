@@ -9,5 +9,7 @@ using System.Threading.Tasks;
 namespace Project_Final.Model {
     public interface IModel {
         StaffModel Login(string username, string password);
+
+        List<CategoryModel> GetCategories();
     }
 }

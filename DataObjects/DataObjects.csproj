@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\CategoryDao.cs" />
     <Compile Include="Data\StaffDao.cs" />
     <Compile Include="DBHelpers.cs" />
     <Compile Include="Extension.cs" />

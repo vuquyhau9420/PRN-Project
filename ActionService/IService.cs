@@ -9,5 +9,7 @@ namespace ActionService {
     interface IService {
         // Login
         Staff CheckLogin(string username, string password);
+
+        List<Category> GetCategories();
     }
 }

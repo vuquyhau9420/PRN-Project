@@ -55,7 +55,7 @@
             this.MenuPanel.Controls.Add(this.btnLogin);
             this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuPanel.Location = new System.Drawing.Point(0, 0);
-            this.MenuPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MenuPanel.Margin = new System.Windows.Forms.Padding(2);
             this.MenuPanel.Name = "MenuPanel";
             this.MenuPanel.Size = new System.Drawing.Size(187, 624);
             this.MenuPanel.TabIndex = 0;
@@ -66,7 +66,7 @@
             this.pBLogo.Image = ((System.Drawing.Image)(resources.GetObject("pBLogo.Image")));
             this.pBLogo.InitialImage = null;
             this.pBLogo.Location = new System.Drawing.Point(32, 35);
-            this.pBLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pBLogo.Margin = new System.Windows.Forms.Padding(2);
             this.pBLogo.Name = "pBLogo";
             this.pBLogo.Size = new System.Drawing.Size(116, 91);
             this.pBLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -111,7 +111,7 @@
             // 
             this.btnCustomerFrm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCustomerFrm.Location = new System.Drawing.Point(32, 312);
-            this.btnCustomerFrm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCustomerFrm.Margin = new System.Windows.Forms.Padding(2);
             this.btnCustomerFrm.Name = "btnCustomerFrm";
             this.btnCustomerFrm.Size = new System.Drawing.Size(116, 44);
             this.btnCustomerFrm.TabIndex = 3;
@@ -123,7 +123,7 @@
             // 
             this.btnOrderFrm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnOrderFrm.Location = new System.Drawing.Point(32, 360);
-            this.btnOrderFrm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOrderFrm.Margin = new System.Windows.Forms.Padding(2);
             this.btnOrderFrm.Name = "btnOrderFrm";
             this.btnOrderFrm.Size = new System.Drawing.Size(116, 46);
             this.btnOrderFrm.TabIndex = 2;
@@ -136,7 +136,7 @@
             this.btnProductFrm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnProductFrm.AutoSize = true;
             this.btnProductFrm.Location = new System.Drawing.Point(32, 264);
-            this.btnProductFrm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnProductFrm.Margin = new System.Windows.Forms.Padding(2);
             this.btnProductFrm.Name = "btnProductFrm";
             this.btnProductFrm.Size = new System.Drawing.Size(116, 44);
             this.btnProductFrm.TabIndex = 1;
@@ -150,7 +150,7 @@
             this.btnLogin.AutoSize = true;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.Location = new System.Drawing.Point(32, 150);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnLogin.Size = new System.Drawing.Size(116, 46);
@@ -165,7 +165,7 @@
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(187, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(751, 35);
             this.panel2.TabIndex = 1;
@@ -177,7 +177,7 @@
             this.ContentPanel.Controls.Add(this.lbUnsignIn);
             this.ContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ContentPanel.Location = new System.Drawing.Point(187, 35);
-            this.ContentPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ContentPanel.Margin = new System.Windows.Forms.Padding(2);
             this.ContentPanel.Name = "ContentPanel";
             this.ContentPanel.Size = new System.Drawing.Size(751, 589);
             this.ContentPanel.TabIndex = 2;
@@ -204,11 +204,10 @@
             this.Controls.Add(this.ContentPanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.MenuPanel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lí quần áo";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MenuPanel.ResumeLayout(false);
             this.MenuPanel.PerformLayout();

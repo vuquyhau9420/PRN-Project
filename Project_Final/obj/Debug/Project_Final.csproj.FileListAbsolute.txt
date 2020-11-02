@@ -51,3 +51,4 @@ D:\CN5\PRN321\PRN-Project\Project_Final\bin\Debug\AutoMapper.xml
 D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.ucControl.ucProductMainFrm.resources
 D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.csproj.CopyComplete
 D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.ucControl.ucCustomerFrm.resources
+D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\obj\Debug\Project_Final.ucControl.ucCustomerFrm.resources

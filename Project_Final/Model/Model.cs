@@ -15,11 +15,18 @@ namespace Project_Final.Model {
         static Model() {
             Mapper.CreateMap<Staff, StaffModel>();
             Mapper.CreateMap<StaffModel, Staff>();
+            Mapper.CreateMap<Category, CategoryModel>();
         }
 
         #region Login
         public StaffModel Login(string username, string password) {
             return Mapper.Map<Staff, StaffModel>(service.CheckLogin(username, password));
+        }
+        #endregion
+
+        #region Category
+        public List<CategoryModel> GetCategories() {
+            return Mapper.Map<List<Category>, List<CategoryModel>>(service.GetCategories());
         }
         #endregion
     }

@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Category");
             this.treeViewCategory = new System.Windows.Forms.TreeView();
             this.dgvProductGroup = new System.Windows.Forms.DataGridView();
             this.dgvProduct = new System.Windows.Forms.DataGridView();
@@ -32,8 +33,6 @@
             this.txtProduct = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -45,6 +44,10 @@
             this.treeViewCategory.Dock = System.Windows.Forms.DockStyle.Left;
             this.treeViewCategory.Location = new System.Drawing.Point(0, 0);
             this.treeViewCategory.Name = "treeViewCategory";
+            treeNode1.Name = "Node0";
+            treeNode1.Text = "Category";
+            this.treeViewCategory.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode1});
             this.treeViewCategory.Size = new System.Drawing.Size(184, 678);
             this.treeViewCategory.TabIndex = 0;
             // 
@@ -130,31 +133,11 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Product";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(72, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(112, 20);
-            this.textBox1.TabIndex = 11;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 16);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Category";
-            // 
             // ucProductMainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtProduct);
@@ -164,6 +147,7 @@
             this.Controls.Add(this.treeViewCategory);
             this.Name = "ucProductMainFrm";
             this.Size = new System.Drawing.Size(838, 678);
+            this.Load += new System.EventHandler(this.ucProductMainFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -184,7 +168,5 @@
         private System.Windows.Forms.TextBox txtProduct;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
     }
 }

@@ -9,6 +9,6 @@ namespace DataObjects {
     public interface ICategoryDao {
         string GetCategoryName(string categoryId);
 
-        List<Category> GetCategorys();
+        List<Category> GetCategories();
     }
 }
