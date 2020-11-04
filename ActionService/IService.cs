@@ -17,5 +17,9 @@ namespace ActionService {
         #region Product_Group
         List<ProductGroup> GetProductGroups(int category_id);
         #endregion
+
+        #region Product
+        List<Product> GetProducts(string productGroupId);
+        #endregion
     }
 }

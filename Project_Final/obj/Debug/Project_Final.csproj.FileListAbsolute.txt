@@ -54,3 +54,5 @@ D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.ucControl.ucCust
 D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\obj\Debug\Project_Final.ucControl.ucCustomerFrm.resources
 D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.frmProductDetails.resources
 D:\CN5\PRN321\PRN-Project\Project_Final\obj\Debug\Project_Final.ucControl.ucMakeOrder.resources
+D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\obj\Debug\Project_Final.frmProductDetails.resources
+D:\Study\CN5\PRN292\Project Final\PRN-Project\Project_Final\obj\Debug\Project_Final.ucControl.ucMakeOrder.resources

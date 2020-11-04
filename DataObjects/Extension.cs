@@ -59,5 +59,16 @@ namespace DataLibrary {
             }
             return DateTime.Parse(item.ToString());
         }
+
+        public static double AsDouble(this object item, double defaultDouble = default(double)) {
+            if (item == null)
+                return defaultDouble;
+
+            double result;
+            if (!double.TryParse(item.ToString(), out result))
+                return defaultDouble;
+
+            return result;
+        }
     }
 }

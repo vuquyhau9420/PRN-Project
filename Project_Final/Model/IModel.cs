@@ -17,5 +17,9 @@ namespace Project_Final.Model {
         #region Product Group
         List<ProductGroupModel> GetProductGroups(int category_id);
         #endregion
+
+        #region Product
+        List<ProductModel> GetProducts(string productGroupId);
+        #endregion
     }
 }

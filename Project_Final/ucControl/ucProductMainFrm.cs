@@ -17,13 +17,15 @@ namespace Project_Final.ucControl {
         private CategoryPresenter categoryPresenter;
         private ProductGroupPresenter productGroupPresenter;
 
+        private CategoryModel currentCategory;
+        private ProductGroupModel currentProductGroup;
+
         public ucProductMainFrm() {
             InitializeComponent();
 
             categoryPresenter = new CategoryPresenter(this);
             productGroupPresenter = new ProductGroupPresenter(this);
         }
-        public int CategoryId { get; set; }
 
         private void ucProductMainFrm_Load(object sender, EventArgs e) {
             categoryPresenter.Display();
@@ -53,7 +55,6 @@ namespace Project_Final.ucControl {
         }
 
         private void BindingProductGroup(IList<ProductGroupModel> productGroups) {
-            Console.WriteLine(productGroups == null);
             if (productGroups != null) {
                 dgvProductGroup.DataSource = productGroups;
                 dgvProductGroup.ReadOnly = true;
@@ -72,6 +73,41 @@ namespace Project_Final.ucControl {
             }
         }
 
+        public IList<ProductModel> Products {
+            set {
+                var products = value;
+                string productGroupId = dgvProductGroup.SelectedRows[0].Cells[0].Value.ToString();
+                foreach (var item in currentCategory.ProductGroups) {
+                    if (item.Id.Equals(productGroupId)) {
+                        currentProductGroup = item;
+                        item.ListProducts = products;
+
+                        BindingProduct(products);
+                    }
+                }
+            }
+        }
+
+        private void BindingProduct(IList<ProductModel> products) {
+            if (products != null) {
+                dgvProduct.DataSource = products;
+                dgvProduct.ReadOnly = true;
+
+                dgvProduct.Columns["ProductGroupId"].Visible = false;
+                dgvProduct.Columns["Id"].Visible = false;
+                dgvProduct.Columns["Image"].Visible = false;
+                dgvProduct.Columns["ProductGroup"].Visible = false;
+
+                dgvProduct.Columns["Name"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvProduct.Columns["Quantity"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvProduct.Columns["ImportPrice"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvProduct.Columns["ImportPrice"].HeaderText = "Import Price";
+                dgvProduct.Columns["SalePrice"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvProduct.Columns["SalePrice"].HeaderText = "Sale Price";
+                dgvProduct.Columns["Description"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            }
+        }
+
         private TreeNode AddCategoryToTree(CategoryModel category) {
             var node = new TreeNode();
             node.Text = category.Name;
@@ -82,19 +118,16 @@ namespace Project_Final.ucControl {
         }
 
         private void treeViewCategory_AfterSelect(object sender, TreeViewEventArgs e) {
-            Console.WriteLine("hello");
             var category = treeViewCategory.SelectedNode.Tag as CategoryModel;
-            Console.WriteLine(category == null);
+
             if (category != null) {
-                Console.WriteLine("alo");
+                currentCategory = category;
                 if (category.ProductGroups != null) {
                     if (category.ProductGroups.Count > 0) {
-                        Console.WriteLine("Binding");
                         BindingProductGroup(category.ProductGroups);
                     }
                 }
                 else {
-                    Console.WriteLine("pause");
                     this.Cursor = Cursors.WaitCursor;
                     productGroupPresenter.Display(category.Id);
                     BindingProductGroup(category.ProductGroups);

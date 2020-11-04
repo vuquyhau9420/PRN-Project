@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Project_Final.Model.Models {
-    class ProductModel {
+    public class ProductModel {
         public string ProductGroupId { get; set; }
         public string Id { get; set; }
         public string Name { get; set; }
