@@ -14,6 +14,7 @@ namespace Project_Final.Model.Models {
         public double SalePrice { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
+        public bool Status { get; set; }
 
         // Parent
         public ProductGroupModel ProductGroup { get; set; }

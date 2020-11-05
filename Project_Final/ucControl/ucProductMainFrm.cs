@@ -113,6 +113,7 @@ namespace Project_Final.ucControl {
                 dgvProduct.Columns["Id"].Visible = false;
                 dgvProduct.Columns["Image"].Visible = false;
                 dgvProduct.Columns["ProductGroup"].Visible = false;
+                dgvProduct.Columns["Status"].Visible = false;
 
                 dgvProduct.Columns["Name"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvProduct.Columns["Quantity"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;

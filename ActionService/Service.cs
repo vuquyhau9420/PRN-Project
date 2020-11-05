@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 namespace ActionService {
     public class Service : IService {
 
-        static readonly IStaffDao staffDao = new StaffDao();
-        static readonly ICategoryDao categoryDao = new CategoryDao();
-        static readonly IProductGroupDao productGroupDao = new ProductGroupDao();
-        static readonly IProductDao productDao = new ProductDao();
+        static readonly IStaffDao staffDao = StaffDao.getInstance();
+        static readonly ICategoryDao categoryDao = CategoryDao.getInstance();
+        static readonly IProductGroupDao productGroupDao = ProductGroupDao.getInstance();
+        static readonly IProductDao productDao = ProductDao.getInstance();
 
         #region Login
         public Staff CheckLogin(string username, string password) {
@@ -36,6 +36,10 @@ namespace ActionService {
         #region Product
         public List<Product> GetProducts(string productGroupId) {
             return productDao.GetProducts(productGroupId);
+        }
+
+        public bool UpdateProduct(Product product) {
+            return productDao.UpdateProduct(product);
         }
         #endregion
     }

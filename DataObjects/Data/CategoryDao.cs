@@ -10,7 +10,16 @@ using System.Threading.Tasks;
 namespace DataObjects.Data {
     public class CategoryDao : ICategoryDao {
 
+        private static CategoryDao instance;
+
         static DBHelpers db = new DBHelpers();
+
+        public static CategoryDao getInstance() {
+            if (instance == null) {
+                instance = new CategoryDao();
+            }
+            return instance;
+        }
 
         public string GetCategoryName(string categoryId) {
             throw new NotImplementedException();

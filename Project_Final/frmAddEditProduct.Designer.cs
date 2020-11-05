@@ -100,7 +100,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cboProductGroup.FormattingEnabled = true;
             this.cboProductGroup.Location = new System.Drawing.Point(144, 53);
-            this.cboProductGroup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboProductGroup.Margin = new System.Windows.Forms.Padding(2);
             this.cboProductGroup.Name = "cboProductGroup";
             this.cboProductGroup.Size = new System.Drawing.Size(164, 21);
             this.cboProductGroup.TabIndex = 3;
@@ -110,7 +110,7 @@
             this.btnAddCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddCategory.Location = new System.Drawing.Point(312, 27);
-            this.btnAddCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddCategory.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddCategory.Name = "btnAddCategory";
             this.btnAddCategory.Size = new System.Drawing.Size(37, 19);
             this.btnAddCategory.TabIndex = 4;
@@ -124,7 +124,7 @@
             this.btnAddProductGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddProductGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddProductGroup.Location = new System.Drawing.Point(311, 54);
-            this.btnAddProductGroup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddProductGroup.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddProductGroup.Name = "btnAddProductGroup";
             this.btnAddProductGroup.Size = new System.Drawing.Size(37, 19);
             this.btnAddProductGroup.TabIndex = 5;
@@ -138,7 +138,7 @@
             this.btnDeleteCatagory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeleteCatagory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteCatagory.Location = new System.Drawing.Point(353, 27);
-            this.btnDeleteCatagory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteCatagory.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteCatagory.Name = "btnDeleteCatagory";
             this.btnDeleteCatagory.Size = new System.Drawing.Size(42, 20);
             this.btnDeleteCatagory.TabIndex = 26;
@@ -163,7 +163,7 @@
             this.txtProductID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtProductID.Location = new System.Drawing.Point(144, 89);
-            this.txtProductID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtProductID.Margin = new System.Windows.Forms.Padding(2);
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.Size = new System.Drawing.Size(163, 20);
             this.txtProductID.TabIndex = 7;
@@ -173,7 +173,7 @@
             this.txtProductName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtProductName.Location = new System.Drawing.Point(143, 122);
-            this.txtProductName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtProductName.Margin = new System.Windows.Forms.Padding(2);
             this.txtProductName.Multiline = true;
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(164, 19);
@@ -251,7 +251,7 @@
             this.txtQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtQuantity.Location = new System.Drawing.Point(143, 154);
-            this.txtQuantity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtQuantity.Margin = new System.Windows.Forms.Padding(2);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(163, 20);
             this.txtQuantity.TabIndex = 15;
@@ -261,7 +261,7 @@
             this.txtImportPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtImportPrice.Location = new System.Drawing.Point(143, 190);
-            this.txtImportPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtImportPrice.Margin = new System.Windows.Forms.Padding(2);
             this.txtImportPrice.Name = "txtImportPrice";
             this.txtImportPrice.Size = new System.Drawing.Size(163, 20);
             this.txtImportPrice.TabIndex = 16;
@@ -271,7 +271,7 @@
             this.txtSalePrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSalePrice.Location = new System.Drawing.Point(144, 228);
-            this.txtSalePrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSalePrice.Margin = new System.Windows.Forms.Padding(2);
             this.txtSalePrice.Name = "txtSalePrice";
             this.txtSalePrice.Size = new System.Drawing.Size(163, 20);
             this.txtSalePrice.TabIndex = 17;
@@ -281,7 +281,7 @@
             this.txtDesciption.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDesciption.Location = new System.Drawing.Point(144, 265);
-            this.txtDesciption.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDesciption.Margin = new System.Windows.Forms.Padding(2);
             this.txtDesciption.Name = "txtDesciption";
             this.txtDesciption.Size = new System.Drawing.Size(163, 20);
             this.txtDesciption.TabIndex = 18;
@@ -291,7 +291,7 @@
             this.txtImage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtImage.Location = new System.Drawing.Point(143, 336);
-            this.txtImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtImage.Margin = new System.Windows.Forms.Padding(2);
             this.txtImage.Name = "txtImage";
             this.txtImage.Size = new System.Drawing.Size(163, 20);
             this.txtImage.TabIndex = 19;
@@ -313,7 +313,7 @@
             this.chkStatus.Checked = true;
             this.chkStatus.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkStatus.Location = new System.Drawing.Point(144, 304);
-            this.chkStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkStatus.Margin = new System.Windows.Forms.Padding(2);
             this.chkStatus.Name = "chkStatus";
             this.chkStatus.Size = new System.Drawing.Size(15, 14);
             this.chkStatus.TabIndex = 21;
@@ -323,7 +323,7 @@
             // 
             this.btnChooseImg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnChooseImg.Location = new System.Drawing.Point(310, 337);
-            this.btnChooseImg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnChooseImg.Margin = new System.Windows.Forms.Padding(2);
             this.btnChooseImg.Name = "btnChooseImg";
             this.btnChooseImg.Size = new System.Drawing.Size(84, 19);
             this.btnChooseImg.TabIndex = 22;
@@ -337,7 +337,7 @@
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.Black;
             this.btnSave.Location = new System.Drawing.Point(83, 502);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(101, 41);
             this.btnSave.TabIndex = 24;
@@ -351,7 +351,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(238, 502);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(111, 41);
             this.btnCancel.TabIndex = 25;
@@ -363,7 +363,7 @@
             this.btnDeleteProductGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeleteProductGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteProductGroup.Location = new System.Drawing.Point(352, 54);
-            this.btnDeleteProductGroup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteProductGroup.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteProductGroup.Name = "btnDeleteProductGroup";
             this.btnDeleteProductGroup.Size = new System.Drawing.Size(43, 19);
             this.btnDeleteProductGroup.TabIndex = 27;
@@ -411,12 +411,13 @@
             this.Controls.Add(this.cboCategory);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAddEditProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmAddEditProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbProductImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

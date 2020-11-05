@@ -20,6 +20,7 @@ namespace ActionService {
 
         #region Product
         List<Product> GetProducts(string productGroupId);
+        bool UpdateProduct(Product product);
         #endregion
     }
 }

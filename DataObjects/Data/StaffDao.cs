@@ -13,6 +13,15 @@ namespace DataObjects.Data {
 
         static DBHelpers db = new DBHelpers();
 
+        private static StaffDao instance;
+
+        public static StaffDao getInstance() {
+            if (instance == null) {
+                instance = new StaffDao();
+            }
+            return instance;
+        }
+
         public Staff CheckLogin(string username, string password) {
             string storeProcedure = "spCheckLogin";
             object[] parms = { "@STAFF_USERNAME", username, "@STAFF_PASSWORD", password };

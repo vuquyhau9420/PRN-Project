@@ -47,3 +47,29 @@ AS
 GO
 
 EXEC spGetProducts AP06
+
+CREATE PROCEDURE spUpdateProduct(
+					@PRODUCT_GROUP_ID varchar(10),
+					@PRODUCT_ID nvarchar(50),
+					@PRODUCT_NAME nvarchar(100),
+					@PRODUCT_QUANTITY int,
+					@PRODUCT_IMPORT_PRICE decimal,
+					@PRODUCT_SALE_PRICE decimal,
+					@PRODUCT_DESCRIPTION nvarchar(MAX),
+					@PRODUCT_IMAGE varchar(MAX),
+					@PRODUCT_STATUS bit)
+AS
+BEGIN
+	UPDATE product
+	SET product_name = @PRODUCT_NAME,
+		product_quantity = @PRODUCT_QUANTITY,
+		product_import_price = @PRODUCT_IMPORT_PRICE,
+		product_sale_price = @PRODUCT_SALE_PRICE,
+		product_description = @PRODUCT_DESCRIPTION,
+		product_image = @PRODUCT_IMAGE,
+		product_status = @PRODUCT_STATUS,
+		product_group_id = @PRODUCT_GROUP_ID
+	WHERE product_id = @PRODUCT_ID
+END
+
+drop proc spUpdateProduct

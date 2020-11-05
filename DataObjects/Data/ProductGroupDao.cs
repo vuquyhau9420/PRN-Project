@@ -10,6 +10,15 @@ using System.Threading.Tasks;
 namespace DataObjects.Data {
     public class ProductGroupDao : IProductGroupDao {
 
+        private static ProductGroupDao instance;
+
+        public static ProductGroupDao getInstance() {
+            if (instance == null) {
+                instance = new ProductGroupDao();
+            }
+            return instance;
+        }
+
         static DBHelpers db = new DBHelpers();
 
         public string GetName(string productGroupId) {
