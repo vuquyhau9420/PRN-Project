@@ -13,7 +13,7 @@ namespace DataObjects {
 
         void InsertProduct(Product product);
 
-        bool UpdateProduct(Product product);
+        bool UpdateProduct(string productGroupId, string productId, string productName, int quantity, double importPrice, double salePrice, string description, string image, bool status);
 
         void DeleteProduct(Product product);
 

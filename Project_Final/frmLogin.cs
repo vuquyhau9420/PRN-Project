@@ -18,9 +18,9 @@ namespace Project_Final {
 
         private LoginPresenter loginPresenter;
 
-        public string Username { get => txtUsername.Text.Trim(); }
+        public string Username => txtUsername.Text.Trim();
 
-        public string Password { get => txtPassword.Text.Trim(); }
+        public string Password => txtPassword.Text.Trim();
 
         public frmLogin() {
             InitializeComponent();

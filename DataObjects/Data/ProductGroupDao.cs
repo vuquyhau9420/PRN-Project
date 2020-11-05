@@ -12,7 +12,7 @@ namespace DataObjects.Data {
 
         private static ProductGroupDao instance;
 
-        public static ProductGroupDao getInstance() {
+        public static ProductGroupDao GetInstance() {
             if (instance == null) {
                 instance = new ProductGroupDao();
             }

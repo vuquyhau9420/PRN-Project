@@ -12,11 +12,11 @@ using Project_Final.Views;
 using Project_Final.Model.Models;
 
 namespace Project_Final.ucControl {
-    public partial class ucProductMainFrm : UserControl, ICategoryView, IProductGroupView, IProductView {
+    public partial class ucProductMainFrm : UserControl, ICategoryView, IProductGroupsView, IProductsView {
 
         private CategoryPresenter categoryPresenter;
-        private ProductGroupPresenter productGroupPresenter;
-        private ProductPresenter productPresenter;
+        private ProductGroupsPresenter productGroupPresenter;
+        private ProductsPresenter productPresenter;
 
         private CategoryModel currentCategory;
         private ProductGroupModel currentProductGroup;
@@ -25,8 +25,8 @@ namespace Project_Final.ucControl {
             InitializeComponent();
 
             categoryPresenter = new CategoryPresenter(this);
-            productGroupPresenter = new ProductGroupPresenter(this);
-            productPresenter = new ProductPresenter(this);
+            productGroupPresenter = new ProductGroupsPresenter(this);
+            productPresenter = new ProductsPresenter(this);
         }
 
         private void ucProductMainFrm_Load(object sender, EventArgs e) {
@@ -52,6 +52,9 @@ namespace Project_Final.ucControl {
 
         // List Product Group theo tung Category
         public IList<ProductGroupModel> ProductGroups {
+            get {
+                return currentCategory.ProductGroups;
+            }
             set {
                 var productGroups = value;
                 var category = treeViewCategory.SelectedNode.Tag as CategoryModel;
@@ -84,6 +87,8 @@ namespace Project_Final.ucControl {
         private void BindingProductGroup(IList<ProductGroupModel> productGroups) {
             if (productGroups != null) {
                 dgvProductGroup.DataSource = productGroups;
+
+                // Add tag vao tung row cua Data Grid View
                 for (int i = 0; i < dgvProductGroup.Rows.Count; i++) {
                     dgvProductGroup.Rows[i].Tag = productGroups[i];
                 }
@@ -108,6 +113,11 @@ namespace Project_Final.ucControl {
             if (products != null) {
                 dgvProduct.DataSource = products;
                 dgvProduct.ReadOnly = true;
+
+                // Add tag vao tung row cua Data Grid View
+                for (int i = 0; i < dgvProduct.Rows.Count; i++) {
+                    dgvProduct.Rows[i].Tag = products[i];
+                }
 
                 dgvProduct.Columns["ProductGroupId"].Visible = false;
                 dgvProduct.Columns["Id"].Visible = false;
@@ -140,32 +150,30 @@ namespace Project_Final.ucControl {
         #region Su kien sau khi chon node tren tree view
         private void treeViewCategory_AfterSelect(object sender, TreeViewEventArgs e) {
             var category = treeViewCategory.SelectedNode.Tag as CategoryModel;
-
             if (category != null) {
                 currentCategory = category;
-
-                // Kiem tra xem List Product Group cua Category co ton tai chua
-                if (category.ProductGroups != null) {
-                    if (category.ProductGroups.Count > 0) {
-                        BindingProductGroup(category.ProductGroups);
-
-                        currentProductGroup = category.ProductGroups[0];
-                        // Load Product Data Grid View theo Product Group dau tien trong list
-                        productPresenter.Display(currentProductGroup.Id);
-                        BindingProduct(currentProductGroup.ListProducts);
-                    }
-                }
-                else {
-                    this.Cursor = Cursors.WaitCursor;
-                    productGroupPresenter.Display(category.Id);
-                    BindingProductGroup(category.ProductGroups);
-                    this.Cursor = Cursors.Default;
-                }
+                LoadDataFromDB(category);
             }
         }
         #endregion
 
-        #region Su kien click vao cell cua Data grid view Product Group 
+        #region Lay du lieu tu DB va load len usercontrol
+        private void LoadDataFromDB(CategoryModel category) {
+            this.Cursor = Cursors.WaitCursor;
+            productGroupPresenter.Display(category.Id);
+            BindingProductGroup(category.ProductGroups);
+
+            // Lay product group dau tien trong list
+            currentProductGroup = category.ProductGroups[0];
+
+            // Load Product Data Grid View theo Product Group dau tien trong list
+            productPresenter.Display(currentProductGroup.Id);
+            BindingProduct(currentProductGroup.ListProducts);
+            this.Cursor = Cursors.Default;
+        }
+        #endregion
+
+        #region Su kien click vao cell cua Data Grod View Product Group 
         private void dgvProductGroup_CellClick(object sender, DataGridViewCellEventArgs e) {
             int index = dgvProductGroup.SelectedCells[0].RowIndex;
             var productGroup = dgvProductGroup.Rows[index].Tag as ProductGroupModel;
@@ -185,6 +193,20 @@ namespace Project_Final.ucControl {
                     BindingProduct(productGroup.ListProducts);
                     this.Cursor = Cursors.Default;
                 }
+            }
+        }
+        #endregion
+
+        #region Su kien double clik vao Data Grid View Product
+        private void dgvProduct_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
+            int index = dgvProduct.SelectedCells[0].RowIndex;
+            var product = dgvProduct.Rows[index].Tag as ProductModel;
+
+            frmAddEditProduct frmProductDetail = new frmAddEditProduct() { ProductSelected = product, ProductGroups = ProductGroups };
+            frmProductDetail.ShowDialog();
+
+            if (currentCategory != null) {
+                LoadDataFromDB(currentCategory);
             }
         }
         #endregion

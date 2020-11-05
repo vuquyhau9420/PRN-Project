@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Project_Final.Views {
-    public interface IProductGroupView : IView {
-        IList<ProductGroupModel> ProductGroups { set; }
+    public interface IProductsView : IView {
+        IList<ProductModel> Products { set; }
     }
 }

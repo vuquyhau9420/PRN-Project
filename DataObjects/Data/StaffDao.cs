@@ -15,7 +15,7 @@ namespace DataObjects.Data {
 
         private static StaffDao instance;
 
-        public static StaffDao getInstance() {
+        public static StaffDao GetInstance() {
             if (instance == null) {
                 instance = new StaffDao();
             }

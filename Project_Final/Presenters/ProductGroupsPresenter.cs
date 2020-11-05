@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Project_Final.Presenters {
-    public class ProductGroupPresenter : Presenter<IProductGroupView> {
+    public class ProductGroupsPresenter : Presenter<IProductGroupsView> {
 
-        public ProductGroupPresenter(IProductGroupView view) : base(view) {
+        public ProductGroupsPresenter(IProductGroupsView view) : base(view) {
 
         }
 

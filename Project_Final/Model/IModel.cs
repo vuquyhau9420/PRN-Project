@@ -20,7 +20,7 @@ namespace Project_Final.Model {
 
         #region Product
         List<ProductModel> GetProducts(string productGroupId);
-        bool UpdateProduct(ProductModel product);
+        bool UpdateProduct(string productGroupId, string productId, string productName, int quantity, double importPrice, double salePrice, string description, string image, bool status);
         #endregion
     }
 }

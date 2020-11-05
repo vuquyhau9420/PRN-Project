@@ -8,15 +8,22 @@ using System.Threading.Tasks;
 
 namespace Project_Final.Presenters {
     public class ProductPresenter : Presenter<IProductView> {
+
         public ProductPresenter(IProductView view) : base(view) {
 
         }
-        public void Display(string productGroupId) {
-            View.Products = Model.GetProducts(productGroupId);
-        }
 
-        public bool Update(ProductModel product) {
-            return Model.UpdateProduct(product);
+        public bool Update() {
+            string productGroupId = View.ProductGroupId;
+            string productId = View.ProductID;
+            string productName = View.ProductName;
+            int quantity = View.Quantity;
+            double importPrice = View.ImportPrice;
+            double salePrice = View.SalePrice;
+            string description = View.Description;
+            string image = View.ProductImage;
+            bool status = View.Status;
+            return Model.UpdateProduct(productGroupId, productId, productName, quantity, importPrice, salePrice, description, image, status);
         }
     }
 }

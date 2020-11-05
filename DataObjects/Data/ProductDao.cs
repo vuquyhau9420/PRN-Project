@@ -12,7 +12,7 @@ namespace DataObjects.Data {
 
         private static ProductDao instance;
 
-        public static ProductDao getInstance() {
+        public static ProductDao GetInstance() {
             if (instance == null) {
                 instance = new ProductDao();
             }
@@ -42,12 +42,12 @@ namespace DataObjects.Data {
             throw new NotImplementedException();
         }
 
-        public bool UpdateProduct(Product product) {
+        public bool UpdateProduct(string productGroupId, string productId, string productName, int quantity, double importPrice, double salePrice, string description, string image, bool status) {
             string storeProcedure = "spUpdateProduct";
-            object[] parms = { "@PRODUCT_ID", product.Id, "@PRODUCT_NAME", product.Name,
-                               "@PRODUCT_QUANTITY", product.Quantity, "@PRODUCT_IMPORT_PRICE", product.ImportPrice,
-                               "@PRODUCT_SALE_PRICE", product.SalePrice, "@PRODUCT_DESCRIPTION", product.Description,
-                               "@PRODUCT_IMAGE", product.Image, "@PRODUCT_STATUS", product.Status };
+            object[] parms = { "@PRODUCT_GROUP_ID", productGroupId, "@PRODUCT_ID", productId, "@PRODUCT_NAME", productName,
+                               "@PRODUCT_QUANTITY", quantity, "@PRODUCT_IMPORT_PRICE", importPrice,
+                               "@PRODUCT_SALE_PRICE", salePrice, "@PRODUCT_DESCRIPTION", description,
+                               "@PRODUCT_IMAGE", image, "@PRODUCT_STATUS", status };
             if (db.Update(storeProcedure, parms) > 0) {
                 return true;
             }

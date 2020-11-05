@@ -14,7 +14,7 @@ namespace DataObjects.Data {
 
         static DBHelpers db = new DBHelpers();
 
-        public static CategoryDao getInstance() {
+        public static CategoryDao GetInstance() {
             if (instance == null) {
                 instance = new CategoryDao();
             }
