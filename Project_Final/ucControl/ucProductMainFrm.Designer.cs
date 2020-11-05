@@ -59,8 +59,9 @@
             this.dgvProductGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProductGroup.Location = new System.Drawing.Point(3, 16);
             this.dgvProductGroup.Name = "dgvProductGroup";
-            this.dgvProductGroup.Size = new System.Drawing.Size(629, 300);
+            this.dgvProductGroup.Size = new System.Drawing.Size(629, 463);
             this.dgvProductGroup.TabIndex = 1;
+            this.dgvProductGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductGroup_CellClick);
             // 
             // dgvProduct
             // 
@@ -69,7 +70,7 @@
             this.dgvProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProduct.Location = new System.Drawing.Point(3, 16);
             this.dgvProduct.Name = "dgvProduct";
-            this.dgvProduct.Size = new System.Drawing.Size(629, 271);
+            this.dgvProduct.Size = new System.Drawing.Size(629, 102);
             this.dgvProduct.TabIndex = 4;
             // 
             // label3
@@ -121,7 +122,7 @@
             this.groupBox1.Controls.Add(this.dgvProductGroup);
             this.groupBox1.Location = new System.Drawing.Point(190, 56);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(635, 319);
+            this.groupBox1.Size = new System.Drawing.Size(635, 482);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Product Group";
@@ -133,9 +134,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.AutoSize = true;
             this.groupBox2.Controls.Add(this.dgvProduct);
-            this.groupBox2.Location = new System.Drawing.Point(190, 375);
+            this.groupBox2.Location = new System.Drawing.Point(190, 544);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(635, 290);
+            this.groupBox2.Size = new System.Drawing.Size(635, 121);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Product";

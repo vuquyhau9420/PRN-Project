@@ -16,7 +16,7 @@ CREATE TABLE product(
 	product_import_price decimal not null,-- gia tien nhap
 	product_sale_price decimal not null,--Giá tiền bán
 	product_description nvarchar(max) not null,--Ghi chú
-	product_imgage varchar(max) not null,--Ảnh
+	product_image varchar(max) not null,--Ảnh
 	product_status bit default 1 not null,
 	Foreign Key(product_group_id) REFERENCES product_group(product_group_id)
 	ON UPDATE CASCADE

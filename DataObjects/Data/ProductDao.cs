@@ -44,10 +44,10 @@ namespace DataObjects.Data {
             Name = reader["product_name"].AsString(),
             Quantity = reader["product_quantity"].AsInt(),
             ImportPrice = reader["product_import_price"].AsDouble(),
-            SalePrice = reader["product_sale_price "].AsDouble(),
-            Description = reader["product_description "].AsString(),
-            Image = reader["product_imgage"].AsString(),
-            Status = reader["product_status "].AsBoolean()
+            SalePrice = reader["product_sale_price"].AsDouble(),
+            Description = reader["product_description"].AsString(),
+            Image = reader["product_image"].AsString(),
+            Status = reader["product_status"].AsBoolean()
         };
     }
 }

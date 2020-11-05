@@ -30,18 +30,23 @@ namespace Project_Final {
 
         private void btnSumbit_Click(object sender, EventArgs e) {
             try {
-                StaffModel currentStaff = loginPresenter.Login();
-                if (currentStaff == null) {
-                    MessageBox.Show("Login Fail");
+                if (!txtUsername.Text.Equals("") && !txtPassword.Text.Equals("")) {
+                    StaffModel currentStaff = loginPresenter.Login();
+                    if (currentStaff == null) {
+                        MessageBox.Show("Login Fail", "Login Status");
+                    }
+                    else {
+                        MessageBox.Show("Login Success", "Login Status");
+                        Role = currentStaff.Role;
+                        this.Dispose();
+                    }
                 }
                 else {
-                    MessageBox.Show("Login Success");
-                    Role = currentStaff.Role;
+                    MessageBox.Show("Login Fail", "Login Status");
                 }
-                this.Dispose();
             }
             catch (ApplicationException ex) {
-                MessageBox.Show(ex.Message, "Login Fail");
+                MessageBox.Show(ex.Message, "Login Status");
             }
         }
 
