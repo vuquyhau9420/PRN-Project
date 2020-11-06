@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Project_Final.Presenters;
 using Project_Final.Views;
 using Project_Final.Model.Models;
+using System.Collections;
 
 namespace Project_Final.ucControl {
     public partial class ucProductMainFrm : UserControl, ICategoryView, IProductGroupsView, IProductsView {
@@ -32,12 +33,23 @@ namespace Project_Final.ucControl {
         private void ucProductMainFrm_Load(object sender, EventArgs e) {
             // Hien thi cac category tren tree view
             categoryPresenter.Display();
-            //productGroupPresenter.Display(1);
+            treeViewCategory.Show();
+            currentCategory = Categories[0];
+            LoadDataFromDB(currentCategory);
         }
 
         #region List cac model tu view
         // List Categories
         public IList<CategoryModel> Categories {
+            get {
+                List<CategoryModel> listCategory = new List<CategoryModel>();
+                var root = treeViewCategory.Nodes[0];
+                var listNodes = root.Nodes;
+                for (int i = 0; i < listNodes.Count; i++) {
+                    listCategory.Add((CategoryModel)listNodes[i].Tag);
+                }
+                return listCategory;
+            }
             set {
                 var category = value;
                 var root = treeViewCategory.Nodes[0];
@@ -57,8 +69,9 @@ namespace Project_Final.ucControl {
             }
             set {
                 var productGroups = value;
-                var category = treeViewCategory.SelectedNode.Tag as CategoryModel;
-                category.ProductGroups = productGroups;
+                Console.WriteLine("Load list vao current cate");
+                currentCategory.ProductGroups = productGroups;
+                currentProductGroup = productGroups[0];
 
                 BindingProductGroup(productGroups);
             }
@@ -68,11 +81,8 @@ namespace Project_Final.ucControl {
         public IList<ProductModel> Products {
             set {
                 var products = value;
-                int index = dgvProductGroup.SelectedCells[0].RowIndex;
-                var productGroup = dgvProductGroup.Rows[index].Tag as ProductGroupModel;
                 foreach (var item in currentCategory.ProductGroups) {
-                    if (item.Id.Equals(productGroup.Id)) {
-                        currentProductGroup = item;
+                    if (item.Id.Equals(currentProductGroup.Id)) {
                         item.ListProducts = products;
 
                         BindingProduct(products);
@@ -115,6 +125,7 @@ namespace Project_Final.ucControl {
                 dgvProduct.ReadOnly = true;
 
                 // Add tag vao tung row cua Data Grid View
+                Console.WriteLine("binding r");
                 for (int i = 0; i < dgvProduct.Rows.Count; i++) {
                     dgvProduct.Rows[i].Tag = products[i];
                 }
@@ -152,7 +163,7 @@ namespace Project_Final.ucControl {
             var category = treeViewCategory.SelectedNode.Tag as CategoryModel;
             if (category != null) {
                 currentCategory = category;
-                LoadDataFromDB(category);
+                LoadDataFromDB(currentCategory);
             }
         }
         #endregion
@@ -162,9 +173,6 @@ namespace Project_Final.ucControl {
             this.Cursor = Cursors.WaitCursor;
             productGroupPresenter.Display(category.Id);
             BindingProductGroup(category.ProductGroups);
-
-            // Lay product group dau tien trong list
-            currentProductGroup = category.ProductGroups[0];
 
             // Load Product Data Grid View theo Product Group dau tien trong list
             productPresenter.Display(currentProductGroup.Id);
@@ -181,18 +189,10 @@ namespace Project_Final.ucControl {
             if (productGroup != null) {
                 currentProductGroup = productGroup;
 
-                // Kiem tra xem List Product cua Product Group co ton tai chua
-                if (productGroup.ListProducts != null) {
-                    if (productGroup.ListProducts.Count > 0) {
-                        BindingProduct(productGroup.ListProducts);
-                    }
-                }
-                else {
-                    this.Cursor = Cursors.WaitCursor;
-                    productPresenter.Display(productGroup.Id);
-                    BindingProduct(productGroup.ListProducts);
-                    this.Cursor = Cursors.Default;
-                }
+                this.Cursor = Cursors.WaitCursor;
+                productPresenter.Display(productGroup.Id);
+                BindingProduct(productGroup.ListProducts);
+                this.Cursor = Cursors.Default;
             }
         }
         #endregion
@@ -202,13 +202,24 @@ namespace Project_Final.ucControl {
             int index = dgvProduct.SelectedCells[0].RowIndex;
             var product = dgvProduct.Rows[index].Tag as ProductModel;
 
-            frmAddEditProduct frmProductDetail = new frmAddEditProduct() { ProductSelected = product, ProductGroups = ProductGroups };
-            frmProductDetail.ShowDialog();
+            using (frmAddEditProduct frmProductDetail = new frmAddEditProduct() { ProductSelected = product, ProductGroups = this.ProductGroups, Categories = this.Categories, CurrentCategoryId = currentCategory.Id }) {
+                frmProductDetail.ShowDialog();
 
-            if (currentCategory != null) {
-                LoadDataFromDB(currentCategory);
+                if (currentCategory != null) {
+                    LoadDataFromDB(currentCategory);
+                }
             }
         }
         #endregion
+
+        private void btnAddProduct_Click(object sender, EventArgs e) {
+            using (frmAddEditProduct frmProductDetail = new frmAddEditProduct() { ProductGroups = this.ProductGroups, Categories = this.Categories, CurrentCategoryId = currentCategory.Id }) {
+                frmProductDetail.ShowDialog();
+
+                if (currentCategory != null) {
+                    LoadDataFromDB(currentCategory);
+                }
+            }
+        }
     }
 }

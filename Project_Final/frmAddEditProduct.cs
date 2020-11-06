@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,11 @@ namespace Project_Final {
 
         public IList<ProductGroupModel> ProductGroups { get; set; }
 
-        public string ProductGroupId => ProductSelected.ProductGroupId;
+        public IList<CategoryModel> Categories { get; set; }
+
+        public int CurrentCategoryId { get; set; }
+
+        public string ProductGroupId => GetProductGroupID();
 
         public string ProductID => txtProductID.Text;
 
@@ -54,8 +59,42 @@ namespace Project_Final {
         }
 
         private void frmAddEditProduct_Load(object sender, EventArgs e) {
-            cboProductGroup.DataSource = ProductGroups;
-            LoadProductToComponent();
+            LoadComboBox();
+            if (ProductSelected != null) {
+                LoadProductToComponent();
+                btnSave.Text = "Save";
+            }
+        }
+
+        private void LoadComboBox() {
+            foreach (var item in ProductGroups) {
+                cboProductGroup.Items.Add(item.Name);
+                if (ProductSelected != null) {
+                    if (item.Id.Equals(ProductSelected.ProductGroupId)) {
+                        cboProductGroup.SelectedItem = item.Name;
+                    }
+                }
+            }
+
+            foreach (var item in Categories) {
+                cboCategory.Items.Add(item.Name);
+                if (ProductSelected != null) {
+                    if (item.Id == CurrentCategoryId) {
+                        cboCategory.SelectedItem = item.Name;
+                        cboCategory.Enabled = false;
+                    }
+                }
+            }
+        }
+
+        private string GetProductGroupID() {
+            Console.WriteLine(cboProductGroup.SelectedItem.ToString());
+            foreach (var item in ProductGroups) {
+                if (item.Name.Equals(cboProductGroup.SelectedItem.ToString())) {
+                    return item.Id;
+                }
+            }
+            return string.Empty;
         }
 
         private void LoadProductToComponent() {
@@ -68,8 +107,10 @@ namespace Project_Final {
             txtImage.Text = ProductSelected.Image;
             chkStatus.Checked = ProductSelected.Status;
 
-            pbProductImage.Image = Image.FromFile(ProductSelected.Image);
-            pbProductImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            if (File.Exists(ProductSelected.Image)) {
+                pbProductImage.Image = Image.FromFile(ProductSelected.Image);
+                pbProductImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
@@ -147,6 +188,24 @@ namespace Project_Final {
 
         private void btnCancel_Click(object sender, EventArgs e) {
             this.Dispose();
+        }
+
+        private void txtImportPrice_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSalePrice_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
+                e.Handled = true;
+            }
+        }
+
+        private void txtQuantity_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -27,9 +27,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cboCategory = new System.Windows.Forms.ComboBox();
             this.cboProductGroup = new System.Windows.Forms.ComboBox();
-            this.btnAddCategory = new System.Windows.Forms.Button();
-            this.btnAddProductGroup = new System.Windows.Forms.Button();
-            this.btnDeleteCatagory = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtProductID = new System.Windows.Forms.TextBox();
             this.txtProductName = new System.Windows.Forms.TextBox();
@@ -49,7 +46,6 @@
             this.btnChooseImg = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnDeleteProductGroup = new System.Windows.Forms.Button();
             this.pbProductImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbProductImage)).BeginInit();
             this.SuspendLayout();
@@ -97,45 +93,6 @@
             this.cboProductGroup.Name = "cboProductGroup";
             this.cboProductGroup.Size = new System.Drawing.Size(164, 21);
             this.cboProductGroup.TabIndex = 3;
-            // 
-            // btnAddCategory
-            // 
-            this.btnAddCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCategory.Location = new System.Drawing.Point(312, 27);
-            this.btnAddCategory.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAddCategory.Name = "btnAddCategory";
-            this.btnAddCategory.Size = new System.Drawing.Size(37, 19);
-            this.btnAddCategory.TabIndex = 4;
-            this.btnAddCategory.Text = "+";
-            this.btnAddCategory.UseVisualStyleBackColor = true;
-            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
-            // 
-            // btnAddProductGroup
-            // 
-            this.btnAddProductGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddProductGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddProductGroup.Location = new System.Drawing.Point(311, 54);
-            this.btnAddProductGroup.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAddProductGroup.Name = "btnAddProductGroup";
-            this.btnAddProductGroup.Size = new System.Drawing.Size(37, 19);
-            this.btnAddProductGroup.TabIndex = 5;
-            this.btnAddProductGroup.Text = "+";
-            this.btnAddProductGroup.UseVisualStyleBackColor = true;
-            this.btnAddProductGroup.Click += new System.EventHandler(this.btnAddProductGroup_Click);
-            // 
-            // btnDeleteCatagory
-            // 
-            this.btnDeleteCatagory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDeleteCatagory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteCatagory.Location = new System.Drawing.Point(353, 27);
-            this.btnDeleteCatagory.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDeleteCatagory.Name = "btnDeleteCatagory";
-            this.btnDeleteCatagory.Size = new System.Drawing.Size(42, 20);
-            this.btnDeleteCatagory.TabIndex = 26;
-            this.btnDeleteCatagory.Text = "-";
-            this.btnDeleteCatagory.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDeleteCatagory.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -246,6 +203,7 @@
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(163, 20);
             this.txtQuantity.TabIndex = 15;
+            this.txtQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantity_KeyPress);
             // 
             // txtImportPrice
             // 
@@ -256,6 +214,7 @@
             this.txtImportPrice.Name = "txtImportPrice";
             this.txtImportPrice.Size = new System.Drawing.Size(163, 20);
             this.txtImportPrice.TabIndex = 16;
+            this.txtImportPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImportPrice_KeyPress);
             // 
             // txtSalePrice
             // 
@@ -266,6 +225,7 @@
             this.txtSalePrice.Name = "txtSalePrice";
             this.txtSalePrice.Size = new System.Drawing.Size(163, 20);
             this.txtSalePrice.TabIndex = 17;
+            this.txtSalePrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalePrice_KeyPress);
             // 
             // txtDesciption
             // 
@@ -334,7 +294,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(101, 41);
             this.btnSave.TabIndex = 24;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "Add";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -353,18 +313,6 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // btnDeleteProductGroup
-            // 
-            this.btnDeleteProductGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDeleteProductGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteProductGroup.Location = new System.Drawing.Point(352, 54);
-            this.btnDeleteProductGroup.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDeleteProductGroup.Name = "btnDeleteProductGroup";
-            this.btnDeleteProductGroup.Size = new System.Drawing.Size(43, 19);
-            this.btnDeleteProductGroup.TabIndex = 27;
-            this.btnDeleteProductGroup.Text = "-";
-            this.btnDeleteProductGroup.UseVisualStyleBackColor = true;
-            // 
             // pbProductImage
             // 
             this.pbProductImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -382,8 +330,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(466, 614);
             this.Controls.Add(this.pbProductImage);
-            this.Controls.Add(this.btnDeleteProductGroup);
-            this.Controls.Add(this.btnDeleteCatagory);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnChooseImg);
@@ -403,8 +349,6 @@
             this.Controls.Add(this.txtProductName);
             this.Controls.Add(this.txtProductID);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnAddProductGroup);
-            this.Controls.Add(this.btnAddCategory);
             this.Controls.Add(this.cboProductGroup);
             this.Controls.Add(this.cboCategory);
             this.Controls.Add(this.label2);
@@ -428,8 +372,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboCategory;
         private System.Windows.Forms.ComboBox cboProductGroup;
-        private System.Windows.Forms.Button btnAddCategory;
-        private System.Windows.Forms.Button btnAddProductGroup;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtProductID;
         private System.Windows.Forms.TextBox txtProductName;
@@ -449,8 +391,6 @@
         private System.Windows.Forms.Button btnChooseImg;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnDeleteCatagory;
-        private System.Windows.Forms.Button btnDeleteProductGroup;
         private System.Windows.Forms.PictureBox pbProductImage;
     }
 }

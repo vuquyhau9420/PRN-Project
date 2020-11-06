@@ -22,10 +22,8 @@ namespace Project_Final {
             //Hide button when user haven't logged in yet
         }
         private void EnabledFunctionForSpecificRole(string role) {
-            btnProductFrm.Show();
-            btnCustomerFrm.Show();
-            btnPOSFrm.Show();
-
+            ShowButtonFeature();
+            btnLogin.Hide();
             ucProductMainFrm = new ucProductMainFrm();
             ucProductMainFrm.Size = ContentPanel.Size;
             ContentPanel.Controls.Add(ucProductMainFrm);
@@ -42,7 +40,6 @@ namespace Project_Final {
             {
 
             }
-            btnLogin.Hide();
         }
         private void btnLogin_Click(object sender, EventArgs e) {
             using (var frmLogin = new frmLogin()) {
@@ -75,6 +72,27 @@ namespace Project_Final {
             foreach (Control ucControl in ContentPanel.Controls) {   //Hide all control before show a specific control
                 ucControl.Hide();                                   //for a specific function
             }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e) {
+            HideAllUcControl();
+            btnLogin.Show();
+            lbUnsignIn.Show();
+            HideButtonFeature();
+        }
+
+        private void ShowButtonFeature() {
+            btnProductFrm.Show();
+            btnCustomerFrm.Show();
+            btnPOSFrm.Show();
+            btnLogout.Show();
+        }
+
+        private void HideButtonFeature() {
+            btnProductFrm.Hide();
+            btnCustomerFrm.Hide();
+            btnPOSFrm.Hide();
+            btnLogout.Hide();
         }
     }
 }

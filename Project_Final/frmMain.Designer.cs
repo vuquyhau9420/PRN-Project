@@ -36,6 +36,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.ContentPanel = new System.Windows.Forms.Panel();
             this.lbUnsignIn = new System.Windows.Forms.Label();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBLogo)).BeginInit();
             this.ContentPanel.SuspendLayout();
@@ -45,6 +46,7 @@
             // 
             this.MenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.MenuPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MenuPanel.BackgroundImage")));
+            this.MenuPanel.Controls.Add(this.btnLogout);
             this.MenuPanel.Controls.Add(this.pBLogo);
             this.MenuPanel.Controls.Add(this.btnImportFrm);
             this.MenuPanel.Controls.Add(this.btnPOSFrm);
@@ -57,7 +59,7 @@
             this.MenuPanel.Location = new System.Drawing.Point(0, 0);
             this.MenuPanel.Margin = new System.Windows.Forms.Padding(2);
             this.MenuPanel.Name = "MenuPanel";
-            this.MenuPanel.Size = new System.Drawing.Size(187, 624);
+            this.MenuPanel.Size = new System.Drawing.Size(187, 756);
             this.MenuPanel.TabIndex = 0;
             // 
             // pBLogo
@@ -76,7 +78,7 @@
             // btnImportFrm
             // 
             this.btnImportFrm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnImportFrm.Location = new System.Drawing.Point(32, 411);
+            this.btnImportFrm.Location = new System.Drawing.Point(32, 543);
             this.btnImportFrm.Name = "btnImportFrm";
             this.btnImportFrm.Size = new System.Drawing.Size(116, 41);
             this.btnImportFrm.TabIndex = 7;
@@ -87,7 +89,7 @@
             // btnPOSFrm
             // 
             this.btnPOSFrm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPOSFrm.Location = new System.Drawing.Point(32, 214);
+            this.btnPOSFrm.Location = new System.Drawing.Point(32, 346);
             this.btnPOSFrm.Name = "btnPOSFrm";
             this.btnPOSFrm.Size = new System.Drawing.Size(116, 45);
             this.btnPOSFrm.TabIndex = 6;
@@ -100,7 +102,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(9, 596);
+            this.label2.Location = new System.Drawing.Point(9, 728);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(167, 21);
@@ -110,7 +112,7 @@
             // btnCustomerFrm
             // 
             this.btnCustomerFrm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCustomerFrm.Location = new System.Drawing.Point(32, 312);
+            this.btnCustomerFrm.Location = new System.Drawing.Point(32, 444);
             this.btnCustomerFrm.Margin = new System.Windows.Forms.Padding(2);
             this.btnCustomerFrm.Name = "btnCustomerFrm";
             this.btnCustomerFrm.Size = new System.Drawing.Size(116, 44);
@@ -122,7 +124,7 @@
             // btnOrderFrm
             // 
             this.btnOrderFrm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnOrderFrm.Location = new System.Drawing.Point(32, 360);
+            this.btnOrderFrm.Location = new System.Drawing.Point(32, 492);
             this.btnOrderFrm.Margin = new System.Windows.Forms.Padding(2);
             this.btnOrderFrm.Name = "btnOrderFrm";
             this.btnOrderFrm.Size = new System.Drawing.Size(116, 46);
@@ -135,7 +137,7 @@
             // 
             this.btnProductFrm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnProductFrm.AutoSize = true;
-            this.btnProductFrm.Location = new System.Drawing.Point(32, 264);
+            this.btnProductFrm.Location = new System.Drawing.Point(32, 396);
             this.btnProductFrm.Margin = new System.Windows.Forms.Padding(2);
             this.btnProductFrm.Name = "btnProductFrm";
             this.btnProductFrm.Size = new System.Drawing.Size(116, 44);
@@ -148,7 +150,9 @@
             // btnLogin
             // 
             this.btnLogin.AutoSize = true;
+            this.btnLogin.BackColor = System.Drawing.Color.Lime;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnLogin.Location = new System.Drawing.Point(32, 150);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
@@ -156,7 +160,7 @@
             this.btnLogin.Size = new System.Drawing.Size(116, 46);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // panel2
@@ -167,7 +171,7 @@
             this.panel2.Location = new System.Drawing.Point(187, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(751, 35);
+            this.panel2.Size = new System.Drawing.Size(917, 35);
             this.panel2.TabIndex = 1;
             // 
             // ContentPanel
@@ -179,7 +183,7 @@
             this.ContentPanel.Location = new System.Drawing.Point(187, 35);
             this.ContentPanel.Margin = new System.Windows.Forms.Padding(2);
             this.ContentPanel.Name = "ContentPanel";
-            this.ContentPanel.Size = new System.Drawing.Size(751, 589);
+            this.ContentPanel.Size = new System.Drawing.Size(917, 721);
             this.ContentPanel.TabIndex = 2;
             this.ContentPanel.SizeChanged += new System.EventHandler(this.ContentPanel_SizeChanged);
             // 
@@ -195,12 +199,25 @@
             this.lbUnsignIn.TabIndex = 0;
             this.lbUnsignIn.Text = "Welcome to my app, plese login to use its features !!";
             // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.Red;
+            this.btnLogout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLogout.Location = new System.Drawing.Point(32, 675);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(116, 41);
+            this.btnLogout.TabIndex = 9;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Visible = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(938, 624);
+            this.ClientSize = new System.Drawing.Size(1104, 756);
             this.Controls.Add(this.ContentPanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.MenuPanel);
@@ -233,6 +250,7 @@
         private System.Windows.Forms.Button btnImportFrm;
         private System.Windows.Forms.PictureBox pBLogo;
         private System.Windows.Forms.Label lbUnsignIn;
+        private System.Windows.Forms.Button btnLogout;
     }
 }
 
