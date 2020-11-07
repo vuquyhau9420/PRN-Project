@@ -54,6 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmDeleteProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeleteProduct.Designer.cs">
+      <DependentUpon>frmDeleteProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmProductDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,7 +116,7 @@
     <Compile Include="Model\Models\StaffModel.cs" />
     <Compile Include="Model\Models\StaffRoleModel.cs" />
     <Compile Include="Model\Models\SupplierModel.cs" />
-    <Compile Include="Presenters\CategoryPresenter.cs" />
+    <Compile Include="Presenters\CategorysPresenter.cs" />
     <Compile Include="Presenters\LoginPresenter.cs" />
     <Compile Include="Presenters\Presenter.cs" />
     <Compile Include="Presenters\ProductGroupsPresenter.cs" />
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddEditSupplier.resx">
       <DependentUpon>frmAddEditSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDeleteProduct.resx">
+      <DependentUpon>frmDeleteProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

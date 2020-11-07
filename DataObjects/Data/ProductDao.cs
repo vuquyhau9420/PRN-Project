@@ -20,8 +20,13 @@ namespace DataObjects.Data {
         }
 
         static DBHelpers db = new DBHelpers();
-        public void DeleteProduct(Product product) {
-            throw new NotImplementedException();
+        public bool DeleteProduct(string productId) {
+            string storeProcedure = "spDeleteProduct";
+            object[] parms = { "@PRODUCT_ID", productId };
+            if (db.Update(storeProcedure, parms) > 0) {
+                return true;
+            }
+            return false;
         }
 
         public Product GetProduct(string productId) {
@@ -38,8 +43,16 @@ namespace DataObjects.Data {
             throw new NotImplementedException();
         }
 
-        public void InsertProduct(Product product) {
-            throw new NotImplementedException();
+        public bool InsertProduct(string productGroupId, string productId, string productName, int quantity, double importPrice, double salePrice, string description, string image, bool status) {
+            string storeProcedure = "spInsertProduct";
+            object[] parms = { "@PRODUCT_GROUP_ID", productGroupId, "@PRODUCT_ID", productId, "@PRODUCT_NAME", productName,
+                               "@PRODUCT_QUANTITY", quantity, "@PRODUCT_IMPORT_PRICE", importPrice,
+                               "@PRODUCT_SALE_PRICE", salePrice, "@PRODUCT_DESCRIPTION", description,
+                               "@PRODUCT_IMAGE", image, "@PRODUCT_STATUS", status };
+            if (db.Update(storeProcedure, parms) > 0) {
+                return true;
+            }
+            return false;
         }
 
         public bool UpdateProduct(string productGroupId, string productId, string productName, int quantity, double importPrice, double salePrice, string description, string image, bool status) {

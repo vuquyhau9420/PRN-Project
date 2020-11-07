@@ -15,7 +15,7 @@ using System.Collections;
 namespace Project_Final.ucControl {
     public partial class ucProductMainFrm : UserControl, ICategoryView, IProductGroupsView, IProductsView {
 
-        private CategoryPresenter categoryPresenter;
+        private CategorysPresenter categoryPresenter;
         private ProductGroupsPresenter productGroupPresenter;
         private ProductsPresenter productPresenter;
 
@@ -25,7 +25,7 @@ namespace Project_Final.ucControl {
         public ucProductMainFrm() {
             InitializeComponent();
 
-            categoryPresenter = new CategoryPresenter(this);
+            categoryPresenter = new CategorysPresenter(this);
             productGroupPresenter = new ProductGroupsPresenter(this);
             productPresenter = new ProductsPresenter(this);
         }
@@ -33,9 +33,12 @@ namespace Project_Final.ucControl {
         private void ucProductMainFrm_Load(object sender, EventArgs e) {
             // Hien thi cac category tren tree view
             categoryPresenter.Display();
-            treeViewCategory.Show();
             currentCategory = Categories[0];
             LoadDataFromDB(currentCategory);
+            dgvProduct.DataSource = null;
+            dgvProduct.Rows.Clear();
+            dgvProductGroup.DataSource = null;
+            dgvProductGroup.Rows.Clear();
         }
 
         #region List cac model tu view
@@ -45,6 +48,8 @@ namespace Project_Final.ucControl {
                 List<CategoryModel> listCategory = new List<CategoryModel>();
                 var root = treeViewCategory.Nodes[0];
                 var listNodes = root.Nodes;
+
+                // Doc tu list nodes add vao list tra ve
                 for (int i = 0; i < listNodes.Count; i++) {
                     listCategory.Add((CategoryModel)listNodes[i].Tag);
                 }
@@ -59,6 +64,7 @@ namespace Project_Final.ucControl {
                     // Add tung Category vao Tree View
                     AddCategoryToTree(item);
                 }
+                treeViewCategory.ExpandAll();
             }
         }
 
@@ -69,7 +75,6 @@ namespace Project_Final.ucControl {
             }
             set {
                 var productGroups = value;
-                Console.WriteLine("Load list vao current cate");
                 currentCategory.ProductGroups = productGroups;
                 currentProductGroup = productGroups[0];
 
@@ -125,7 +130,6 @@ namespace Project_Final.ucControl {
                 dgvProduct.ReadOnly = true;
 
                 // Add tag vao tung row cua Data Grid View
-                Console.WriteLine("binding r");
                 for (int i = 0; i < dgvProduct.Rows.Count; i++) {
                     dgvProduct.Rows[i].Tag = products[i];
                 }
@@ -216,9 +220,15 @@ namespace Project_Final.ucControl {
             using (frmAddEditProduct frmProductDetail = new frmAddEditProduct() { ProductGroups = this.ProductGroups, Categories = this.Categories, CurrentCategoryId = currentCategory.Id }) {
                 frmProductDetail.ShowDialog();
 
-                if (currentCategory != null) {
-                    LoadDataFromDB(currentCategory);
-                }
+                LoadDataFromDB(currentCategory);
+            }
+        }
+
+        private void btnDeleteProduct_Click(object sender, EventArgs e) {
+            using (frmDeleteProduct formDeleteProduct = new frmDeleteProduct()) {
+                formDeleteProduct.ShowDialog();
+
+                LoadDataFromDB(currentCategory);
             }
         }
     }

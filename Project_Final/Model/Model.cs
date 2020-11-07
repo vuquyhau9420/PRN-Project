@@ -46,6 +46,12 @@ namespace Project_Final.Model {
         public bool UpdateProduct(string productGroupId, string productId, string productName, int quantity, double importPrice, double salePrice, string description, string image, bool status) {
             return service.UpdateProduct(productGroupId, productId, productName, quantity, importPrice, salePrice, description, image, status);
         }
+        public bool InsertProduct(string productGroupId, string productId, string productName, int quantity, double importPrice, double salePrice, string description, string image, bool status) {
+            return service.InsertProduct(productGroupId, productId, productName, quantity, importPrice, salePrice, description, image, status);
+        }
+        public bool DeleteProduct(string productId) {
+            return service.DeleteProduct(productId);
+        }
         #endregion
     }
 }

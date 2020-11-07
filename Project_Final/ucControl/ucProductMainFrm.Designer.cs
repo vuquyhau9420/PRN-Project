@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Category");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Category");
             this.treeViewCategory = new System.Windows.Forms.TreeView();
             this.dgvProductGroup = new System.Windows.Forms.DataGridView();
             this.dgvProduct = new System.Windows.Forms.DataGridView();
@@ -52,10 +52,10 @@
             this.treeViewCategory.Dock = System.Windows.Forms.DockStyle.Left;
             this.treeViewCategory.Location = new System.Drawing.Point(0, 0);
             this.treeViewCategory.Name = "treeViewCategory";
-            treeNode8.Name = "Node0";
-            treeNode8.Text = "Category";
+            treeNode1.Name = "Node0";
+            treeNode1.Text = "Category";
             this.treeViewCategory.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode8});
+            treeNode1});
             this.treeViewCategory.Size = new System.Drawing.Size(184, 678);
             this.treeViewCategory.TabIndex = 0;
             this.treeViewCategory.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCategory_AfterSelect);
@@ -197,6 +197,7 @@
             this.btnDeleteProduct.TabIndex = 12;
             this.btnDeleteProduct.Text = "Delete";
             this.btnDeleteProduct.UseVisualStyleBackColor = true;
+            this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
             // 
             // ucProductMainFrm
             // 

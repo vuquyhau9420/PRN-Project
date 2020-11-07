@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -48,21 +49,16 @@ namespace Project_Final {
             productPresenter = new ProductPresenter(this);
         }
 
-        private void btnAddProductGroup_Click(object sender, EventArgs e) {
-            frmAddEditProductGroup frmAddEditProductGroup = new frmAddEditProductGroup();
-            frmAddEditProductGroup.ShowDialog();
-        }
-
-        private void btnAddCategory_Click(object sender, EventArgs e) {
-            frmAddCatogory frmAddCatogory = new frmAddCatogory();
-            frmAddCatogory.ShowDialog();
-        }
-
         private void frmAddEditProduct_Load(object sender, EventArgs e) {
             LoadComboBox();
             if (ProductSelected != null) {
                 LoadProductToComponent();
+                txtProductID.Enabled = false;
                 btnSave.Text = "Save";
+            }
+            else {
+                lblCategory.Visible = false;
+                cboCategory.Visible = false;
             }
         }
 
@@ -115,13 +111,40 @@ namespace Project_Final {
 
         private void btnSave_Click(object sender, EventArgs e) {
             if (ValidateDetail()) {
-                bool result = productPresenter.Update();
-                if (result) {
-                    MessageBox.Show("Update Success.", "Update Status");
-                    this.Dispose();
+                if (ProductSelected != null) {
+                    try {
+                        bool result = productPresenter.Update();
+                        if (result) {
+                            MessageBox.Show("Update Success.", "Update Status");
+                            this.Dispose();
+                        }
+                        else {
+                            MessageBox.Show("Update Fail.", "Update Status");
+                        }
+                    }
+                    catch (SqlException ex) {
+                        MessageBox.Show(ex.Message, "Update status");
+                    }
                 }
                 else {
-                    MessageBox.Show("Update Fail.", "Update Status");
+                    try {
+                        bool result = productPresenter.Insert();
+                        if (result) {
+                            MessageBox.Show("Add Success.", "Insert Status");
+                            this.Dispose();
+                        }
+                        else {
+                            MessageBox.Show("Add Fail.", "Insert Status");
+                        }
+                    }
+                    catch (SqlException ex) {
+                        if (ex.Message.Contains("duplicate")) {
+                            MessageBox.Show("Product ID is already existed. Please choose another.", "Insert Status");
+                        }
+                        else {
+                            MessageBox.Show(ex.Message, "Insert status");
+                        }
+                    }
                 }
             }
         }

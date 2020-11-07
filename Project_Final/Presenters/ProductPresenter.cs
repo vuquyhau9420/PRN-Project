@@ -25,5 +25,23 @@ namespace Project_Final.Presenters {
             bool status = View.Status;
             return Model.UpdateProduct(productGroupId, productId, productName, quantity, importPrice, salePrice, description, image, status);
         }
+
+        public bool Insert() {
+            string productGroupId = View.ProductGroupId;
+            string productId = View.ProductID;
+            string productName = View.ProductName;
+            int quantity = View.Quantity;
+            double importPrice = View.ImportPrice;
+            double salePrice = View.SalePrice;
+            string description = View.Description;
+            string image = View.ProductImage;
+            bool status = View.Status;
+            return Model.InsertProduct(productGroupId, productId, productName, quantity, importPrice, salePrice, description, image, status);
+        }
+
+        public bool Delete() {
+            string productId = View.ProductID;
+            return Model.DeleteProduct(productId);
+        }
     }
 }

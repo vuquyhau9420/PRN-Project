@@ -73,3 +73,36 @@ BEGIN
 END
 
 drop proc spUpdateProduct
+
+CREATE PROCEDURE spInsertProduct(
+					@PRODUCT_GROUP_ID varchar(10),
+					@PRODUCT_ID nvarchar(50),
+					@PRODUCT_NAME nvarchar(100),
+					@PRODUCT_QUANTITY int,
+					@PRODUCT_IMPORT_PRICE decimal,
+					@PRODUCT_SALE_PRICE decimal,
+					@PRODUCT_DESCRIPTION nvarchar(MAX),
+					@PRODUCT_IMAGE varchar(MAX),
+					@PRODUCT_STATUS bit)
+AS
+BEGIN
+	INSERT INTO product(product_id, product_name, product_quantity, product_import_price, product_sale_price, product_description, product_image, product_status, product_group_id)
+	VALUES(
+		@PRODUCT_ID,
+		@PRODUCT_NAME,
+		@PRODUCT_QUANTITY,
+		@PRODUCT_IMPORT_PRICE,
+		@PRODUCT_SALE_PRICE,
+		@PRODUCT_DESCRIPTION,
+		@PRODUCT_IMAGE,
+		@PRODUCT_STATUS,
+		@PRODUCT_GROUP_ID)
+END
+
+CREATE PROCEDURE spDeleteProduct(@PRODUCT_ID nvarchar(50))
+AS
+BEGIN
+	UPDATE product
+	SET product_status = 0
+	WHERE product_id = @PRODUCT_ID
+END

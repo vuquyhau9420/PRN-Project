@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Project_Final.Presenters {
-    class CategoryPresenter : Presenter<ICategoryView> {
+    class CategorysPresenter : Presenter<ICategoryView> {
 
-        public CategoryPresenter(ICategoryView view) : base(view) {
+        public CategorysPresenter(ICategoryView view) : base(view) {
 
         }
 

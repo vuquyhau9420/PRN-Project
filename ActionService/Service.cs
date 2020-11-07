@@ -41,6 +41,14 @@ namespace ActionService {
         public bool UpdateProduct(string productGroupId, string productId, string productName, int quantity, double importPrice, double salePrice, string description, string image, bool status) {
             return productDao.UpdateProduct(productGroupId, productId, productName, quantity, importPrice, salePrice, description, image, status);
         }
+
+        public bool InsertProduct(string productGroupId, string productId, string productName, int quantity, double importPrice, double salePrice, string description, string image, bool status) {
+            return productDao.InsertProduct(productGroupId, productId, productName, quantity, importPrice, salePrice, description, image, status);
+        }
+
+        public bool DeleteProduct(string productId) {
+            return productDao.DeleteProduct(productId);
+        }
         #endregion
     }
 }
