@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Project_Final.Model {
     public class Model : IModel {
@@ -69,5 +70,9 @@ namespace Project_Final.Model {
             return Mapper.Map<List<Supplier>, List<SupplierModel>>(service.GetSuppliersActive());
         }
         #endregion
+        public List<StaffModel> GetAllStaff()
+        {
+            return Mapper.Map<List<Staff>, List<StaffModel>>(service.GetAllStaff());
+        }
     }
 }

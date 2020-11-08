@@ -13,6 +13,7 @@ namespace Project_Final {
     public partial class frmMain : Form {
 
         ucProductMainFrm ucProductMainFrm = null;
+        ucStaff ucStaff = null;
         public frmMain() {
             InitializeComponent();
         }
@@ -27,6 +28,10 @@ namespace Project_Final {
             ucProductMainFrm = new ucProductMainFrm();
             ucProductMainFrm.Size = ContentPanel.Size;
             ContentPanel.Controls.Add(ucProductMainFrm);
+
+            /*ucStaff = new ucStaff();
+            ucStaff.Size = ContentPanel.Size;
+            ContentPanel.Controls.Add(ucStaff);*/
 
             if (role.Equals("O"))//Owner
             {

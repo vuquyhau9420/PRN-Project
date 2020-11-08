@@ -69,5 +69,10 @@ namespace ActionService {
             return supplierDao.GetSuppliersActive();
         }
         #endregion
+
+        public List<Staff> GetAllStaff()
+        {
+            return staffDao.GetStaffs();
+        }
     }
 }
