@@ -16,5 +16,10 @@ namespace Project_Final.ucControl
         {
             InitializeComponent();
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
