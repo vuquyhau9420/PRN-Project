@@ -15,12 +15,13 @@ namespace ActionService {
         #endregion
 
         #region Product_Group
-        List<ProductGroup> GetProductGroupsActiveBaseCategory(int category_id);
-        List<ProductGroup> GetAllProductGroupsBaseCategory(int category_id);
-        List<ProductGroup> GetProductGroupsActiveBaseSupplier(int supplier_id);
-        List<ProductGroup> GetAllProductGroupsBaseSupplier(int supplier_id);
-        bool CheckStocking(string product_group_id);
-        bool UpdateStocking(string product_group_id, bool status);
+        List<ProductGroup> GetProductGroupsActiveBaseCategory(int categoryId);
+        List<ProductGroup> GetAllProductGroupsBaseCategory(int categoryId);
+        List<ProductGroup> GetProductGroupsActiveBaseSupplier(int supplierId);
+        List<ProductGroup> GetAllProductGroupsBaseSupplier(int supplierId);
+        bool CheckStocking(string productGroupId);
+        bool UpdateStocking(string productGroupId, bool status);
+        bool InsertProductGroup(string productGroupId, string productGroupName, int supplierId, int categoryId, bool isStocking, bool status);
         #endregion
 
         #region Product

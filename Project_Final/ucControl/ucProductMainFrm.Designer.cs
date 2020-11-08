@@ -189,6 +189,7 @@
             this.btnAddProductGroup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddProductGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddProductGroup.UseVisualStyleBackColor = true;
+            this.btnAddProductGroup.Click += new System.EventHandler(this.btnAddProductGroup_Click);
             // 
             // btnDeleteProductGroup
             // 

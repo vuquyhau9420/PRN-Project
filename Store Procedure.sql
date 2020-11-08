@@ -72,7 +72,6 @@ drop proc spGetAllProductGroupBaseCategory
 EXEC spGetAllProductGroupBaseCategory @CATEGORY_ID = 1
 
 
-
 CREATE PROCEDURE spGetProductGroupActiveBaseSupplier(@SUPPLIER_ID int)
 AS
 	BEGIN
@@ -100,8 +99,6 @@ GO
 drop proc spGetAllProductGroupBaseSupplier
 
 EXEC spGetAllProductGroupBaseSupplier 1
-
-
 
 
 CREATE PROCEDURE spCheckStocking(@PRODUCT_GROUP_ID varchar(10))
@@ -148,6 +145,8 @@ BEGIN
 		@PRODUCT_GROUP_STOCKING,
 		@PRODUCT_GROUP_STATUS)
 END
+
+EXEC spInsertProductGroup 'AK001', N'Khung long con', 300, 2, 0, 1
 
 CREATE PROCEDURE spUpdateProductGroup(
 					@PRODUCT_GROUP_ID varchar(10),

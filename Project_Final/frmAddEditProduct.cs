@@ -64,8 +64,8 @@ namespace Project_Final {
 
             if (ProductSelected != null) {
                 cboCategory.Enabled = false;
+                cboProductGroup.Enabled = false;
                 LoadProductToFields();
-                txtProductID.Enabled = false;
                 btnSave.Text = "Save";
             }
         }
@@ -292,7 +292,6 @@ namespace Project_Final {
             string productGroupId = productGroupItem.Split(new char[] { '-' })[0].Trim();
             if (!productGroupId.Equals("")) {
                 lblProductGroupId.Text = productGroupId + "_";
-                txtProductID.Mask = "aaaaaaaaaa";
                 txtProductID.Enabled = true;
             }
         }
@@ -306,6 +305,8 @@ namespace Project_Final {
             cboProductGroup.Enabled = true;
             if (ProductGroups != null) {
                 LoadProductGroups();
+                cboProductGroup.Text = "";
+                lblProductGroupId.Text = "";
             }
         }
         #endregion

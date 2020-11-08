@@ -29,27 +29,31 @@ namespace ActionService {
         #endregion
 
         #region Product_Group
-        public List<ProductGroup> GetProductGroupsActiveBaseCategory(int category_id) {
-            return productGroupDao.GetProductGroupsActiveBaseCategory(category_id);
+        public List<ProductGroup> GetProductGroupsActiveBaseCategory(int categoryId) {
+            return productGroupDao.GetProductGroupsActiveBaseCategory(categoryId);
         }
 
-        public List<ProductGroup> GetAllProductGroupsBaseCategory(int category_id) {
-            return productGroupDao.GetAllProductGroupsBaseCategory(category_id);
+        public List<ProductGroup> GetAllProductGroupsBaseCategory(int categoryId) {
+            return productGroupDao.GetAllProductGroupsBaseCategory(categoryId);
         }
 
-        public List<ProductGroup> GetProductGroupsActiveBaseSupplier(int supplier_id) {
-            return productGroupDao.GetProductGroupsActiveBaseSupplier(supplier_id);
+        public List<ProductGroup> GetProductGroupsActiveBaseSupplier(int supplierId) {
+            return productGroupDao.GetProductGroupsActiveBaseSupplier(supplierId);
         }
 
-        public List<ProductGroup> GetAllProductGroupsBaseSupplier(int supplier_id) {
-            return productGroupDao.GetAllProductGroupsBaseSupplier(supplier_id);
+        public List<ProductGroup> GetAllProductGroupsBaseSupplier(int supplierId) {
+            return productGroupDao.GetAllProductGroupsBaseSupplier(supplierId);
         }
-        public bool CheckStocking(string product_group_id) {
-            return productGroupDao.CheckStocking(product_group_id);
+        public bool CheckStocking(string productGroupId) {
+            return productGroupDao.CheckStocking(productGroupId);
         }
 
-        public bool UpdateStocking(string product_group_id, bool status) {
-            return productGroupDao.UpdateStocking(product_group_id, status);
+        public bool UpdateStocking(string productGroupId, bool status) {
+            return productGroupDao.UpdateStocking(productGroupId, status);
+        }
+
+        public bool InsertProductGroup(string productGroupId, string productGroupName, int supplierId, int categoryId, bool isStocking, bool status) {
+            return productGroupDao.InsertProductGroup(productGroupId, productGroupName, supplierId, categoryId, isStocking, status);
         }
         #endregion
 

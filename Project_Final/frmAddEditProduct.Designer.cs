@@ -46,8 +46,8 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.pbProductImage = new System.Windows.Forms.PictureBox();
-            this.txtProductID = new System.Windows.Forms.MaskedTextBox();
             this.lblProductGroupId = new System.Windows.Forms.Label();
+            this.txtProductID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbProductImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -318,14 +318,6 @@
             this.pbProductImage.TabIndex = 29;
             this.pbProductImage.TabStop = false;
             // 
-            // txtProductID
-            // 
-            this.txtProductID.Location = new System.Drawing.Point(220, 92);
-            this.txtProductID.Name = "txtProductID";
-            this.txtProductID.PromptChar = ' ';
-            this.txtProductID.Size = new System.Drawing.Size(88, 20);
-            this.txtProductID.TabIndex = 30;
-            // 
             // lblProductGroupId
             // 
             this.lblProductGroupId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -339,13 +331,20 @@
             this.lblProductGroupId.TabIndex = 31;
             this.lblProductGroupId.Text = "id";
             // 
+            // txtProductID
+            // 
+            this.txtProductID.Location = new System.Drawing.Point(208, 92);
+            this.txtProductID.Name = "txtProductID";
+            this.txtProductID.Size = new System.Drawing.Size(100, 20);
+            this.txtProductID.TabIndex = 32;
+            // 
             // frmAddEditProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(466, 614);
-            this.Controls.Add(this.lblProductGroupId);
             this.Controls.Add(this.txtProductID);
+            this.Controls.Add(this.lblProductGroupId);
             this.Controls.Add(this.pbProductImage);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -407,7 +406,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.PictureBox pbProductImage;
-        private System.Windows.Forms.MaskedTextBox txtProductID;
         private System.Windows.Forms.Label lblProductGroupId;
+        private System.Windows.Forms.TextBox txtProductID;
     }
 }

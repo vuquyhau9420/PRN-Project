@@ -321,5 +321,13 @@ namespace Project_Final.ucControl {
                 LoadDataFromDBBaseSupplier(currentSupplier);
             }
         }
+
+        private void btnAddProductGroup_Click(object sender, EventArgs e) {
+            using (frmAddEditProductGroup formAddEditProductGroup = new frmAddEditProductGroup()) {
+                formAddEditProductGroup.ShowDialog();
+
+                StartUp();
+            }
+        }
     }
 }

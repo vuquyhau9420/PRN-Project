@@ -34,28 +34,32 @@ namespace Project_Final.Model {
         #endregion
 
         #region Product Group
-        public List<ProductGroupModel> GetProductGroupsActiveBaseCategory(int category_id) {
-            return Mapper.Map<List<ProductGroup>, List<ProductGroupModel>>(service.GetProductGroupsActiveBaseCategory(category_id));
+        public List<ProductGroupModel> GetProductGroupsActiveBaseCategory(int categoryId) {
+            return Mapper.Map<List<ProductGroup>, List<ProductGroupModel>>(service.GetProductGroupsActiveBaseCategory(categoryId));
         }
 
-        public List<ProductGroupModel> GetAllProductGroupsBaseCategory(int category_id) {
-            return Mapper.Map<List<ProductGroup>, List<ProductGroupModel>>(service.GetAllProductGroupsBaseCategory(category_id));
+        public List<ProductGroupModel> GetAllProductGroupsBaseCategory(int categoryId) {
+            return Mapper.Map<List<ProductGroup>, List<ProductGroupModel>>(service.GetAllProductGroupsBaseCategory(categoryId));
         }
 
-        public List<ProductGroupModel> GetProductGroupsActiveBaseSupplier(int supplier_id) {
-            return Mapper.Map<List<ProductGroup>, List<ProductGroupModel>>(service.GetProductGroupsActiveBaseSupplier(supplier_id));
+        public List<ProductGroupModel> GetProductGroupsActiveBaseSupplier(int supplierId) {
+            return Mapper.Map<List<ProductGroup>, List<ProductGroupModel>>(service.GetProductGroupsActiveBaseSupplier(supplierId));
         }
 
-        public List<ProductGroupModel> GetAllProductGroupsBaseSupplier(int supplier_id) {
-            return Mapper.Map<List<ProductGroup>, List<ProductGroupModel>>(service.GetAllProductGroupsBaseSupplier(supplier_id));
+        public List<ProductGroupModel> GetAllProductGroupsBaseSupplier(int supplierId) {
+            return Mapper.Map<List<ProductGroup>, List<ProductGroupModel>>(service.GetAllProductGroupsBaseSupplier(supplierId));
         }
 
-        public bool CheckStocking(string product_group_id) {
-            return service.CheckStocking(product_group_id);
+        public bool CheckStocking(string productGroupId) {
+            return service.CheckStocking(productGroupId);
         }
 
-        public bool UpdateStocking(string product_group_id, bool status) {
-            return service.UpdateStocking(product_group_id, status);
+        public bool UpdateStocking(string productGroupId, bool status) {
+            return service.UpdateStocking(productGroupId, status);
+        }
+
+        public bool InsertProductGroup(string productGroupId, string productGroupName, int supplierId, int categoryId, bool isStocking, bool status) {
+            return service.InsertProductGroup(productGroupId, productGroupName, supplierId, categoryId, isStocking, status);
         }
         #endregion
 

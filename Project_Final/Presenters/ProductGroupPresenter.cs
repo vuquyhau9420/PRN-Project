@@ -12,14 +12,24 @@ namespace Project_Final.Presenters {
         }
 
         public bool CheckStocking() {
-            string product_group_id = View.Id;
-            return Model.CheckStocking(product_group_id);
+            string productGroupId = View.Id;
+            return Model.CheckStocking(productGroupId);
         }
 
-        public bool UpdateStocking() {
-            string product_group_id = View.Id;
+        public bool UpdateStocking(bool status) {
+            string productGroupId = View.Id;
+            return Model.UpdateStocking(productGroupId, status);
+        }
+
+        public bool Insert() {
+            string productGroupId = View.Id;
+            string productGroupName = View.Name;
+            int supplierId = View.Supplier;
+            int productGroupCategory = View.ProductGroupCategory;
+            bool isStocking = View.IsStocking;
             bool status = View.Status;
-            return Model.UpdateStocking(product_group_id, status);
+
+            return Model.InsertProductGroup(productGroupId, productGroupName, supplierId, productGroupCategory, isStocking, status);
         }
     }
 }

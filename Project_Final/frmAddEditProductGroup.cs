@@ -15,7 +15,6 @@ namespace Project_Final {
     public partial class frmAddEditProductGroup : Form, IProductGroupView, ICategoryView, ISuppliersView {
 
         private CategorysPresenter categorysPresenter;
-        private ProductGroupsPresenter productGroupsPresenter;
         private ProductGroupPresenter productGroupPresenter;
         private SuppliersPresenter suppliersPresenter;
 
@@ -31,10 +30,12 @@ namespace Project_Final {
         }
 
         public string Id { get => GetProductGroupId(); }
-        public string SupplierName { get => GetSupplierId(); }
-        public string ProductGroupCategory { get => GetCategoryId(); }
+        public string ProductGroupNameName => txtGroupName.Text.Trim();
+        public int Supplier { get => int.Parse(GetSupplierId().Trim()); }
+        public int ProductGroupCategory { get => int.Parse(GetCategoryId().Trim()); }
         public bool IsStocking { get => chkStock.Checked; }
         public bool Status { get => chkStatus.Checked; }
+        public ProductGroupModel ProductGroupSelected { get; set; }
 
         public IList<CategoryModel> Categories {
             set {
@@ -68,6 +69,7 @@ namespace Project_Final {
             categorysPresenter.Display();
             suppliersPresenter.Display();
             LoadCategoryCombobox();
+            LoadSupplierCombobox();
         }
 
         private void LoadCategoryCombobox() {
@@ -82,8 +84,96 @@ namespace Project_Final {
             }
         }
 
-        private void cboCategory_SelectedIndexChanged(object sender, EventArgs e) {
+        private bool ValidateFields() {
+            bool valid = true;
+            string errors = "";
 
+            // Check product group id
+            string productGroupId = GetProductGroupId();
+            if (productGroupId.Length <= lblId.Text.Length || productGroupId.Length > 10) {
+                valid = false;
+                errors += "Product Group ID can contain maximum 10 characters and can't be empty.";
+            }
+
+            // Check product group name
+            string productGroupName = txtGroupName.Text.Trim();
+            if (productGroupName.Length <= 0 || productGroupName.Length > 50) {
+                valid = false;
+                errors += "Product Group name can contain maximum 50 characters and can't be empty.";
+            }
+
+            if (!valid) {
+                MessageBox.Show(errors, "Warning");
+            }
+            return valid;
+        }
+
+        private void cboCategory_SelectedIndexChanged(object sender, EventArgs e) {
+            string categoryItem = cboCategory.SelectedItem.ToString();
+            string categoryName = categoryItem.Split(new char[] { '-' })[1].Trim();
+            if (!categoryName.Equals("")) {
+                if (categoryName.Contains(" ")) {
+                    lblId.Text = RemoveUnicode(categoryName[0] + GetFirstCharacter(categoryName)).ToUpper();
+                }
+                else {
+                    lblId.Text = RemoveUnicode(categoryName).ToUpper();
+                }
+
+                txtGroupID.Enabled = true;
+            }
+        }
+
+        private string GetFirstCharacter(string src) {
+            string result = "";
+            int index = src.IndexOf(" ");
+            char firstChar = src[index + 1];
+            result += firstChar;
+            string subString = src.Substring(index + 1);
+            if (subString.Contains(" ")) {
+                GetFirstCharacter(subString);
+            }
+            return result;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e) {
+            if (ValidateFields()) {
+                if (ProductGroupSelected == null) {
+                    bool result = productGroupPresenter.Insert();
+                    if (result) {
+                        MessageBox.Show("Add Success.", "Insert Status");
+                        this.Dispose();
+                    }
+                    else {
+                        MessageBox.Show("Add Fail.", "Insert Status");
+                    }
+                }
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e) {
+
+        }
+
+        public string RemoveUnicode(string text) {
+            string[] arr1 = new string[] { "á", "à", "ả", "ã", "ạ", "â", "ấ", "ầ", "ẩ", "ẫ", "ậ", "ă", "ắ", "ằ", "ẳ", "ẵ", "ặ",
+                                            "đ",
+                                            "é","è","ẻ","ẽ","ẹ","ê","ế","ề","ể","ễ","ệ",
+                                            "í","ì","ỉ","ĩ","ị",
+                                            "ó","ò","ỏ","õ","ọ","ô","ố","ồ","ổ","ỗ","ộ","ơ","ớ","ờ","ở","ỡ","ợ",
+                                            "ú","ù","ủ","ũ","ụ","ư","ứ","ừ","ử","ữ","ự",
+                                            "ý","ỳ","ỷ","ỹ","ỵ",};
+            string[] arr2 = new string[] { "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+                                            "d",
+                                            "e","e","e","e","e","e","e","e","e","e","e",
+                                            "i","i","i","i","i",
+                                            "o","o","o","o","o","o","o","o","o","o","o","o","o","o","o","o","o",
+                                            "u","u","u","u","u","u","u","u","u","u","u",
+                                            "y","y","y","y","y",};
+            for (int i = 0; i < arr1.Length; i++) {
+                text = text.Replace(arr1[i], arr2[i]);
+                text = text.Replace(arr1[i].ToUpper(), arr2[i].ToUpper());
+            }
+            return text;
         }
     }
 }

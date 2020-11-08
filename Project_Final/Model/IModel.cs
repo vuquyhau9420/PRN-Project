@@ -15,12 +15,13 @@ namespace Project_Final.Model {
         #endregion
 
         #region Product Group
-        List<ProductGroupModel> GetProductGroupsActiveBaseCategory(int category_id);
-        List<ProductGroupModel> GetAllProductGroupsBaseCategory(int category_id);
-        List<ProductGroupModel> GetProductGroupsActiveBaseSupplier(int supplier_id);
-        List<ProductGroupModel> GetAllProductGroupsBaseSupplier(int supplier_id);
-        bool CheckStocking(string product_group_id);
-        bool UpdateStocking(string product_group_id, bool status);
+        List<ProductGroupModel> GetProductGroupsActiveBaseCategory(int categoryId);
+        List<ProductGroupModel> GetAllProductGroupsBaseCategory(int categoryId);
+        List<ProductGroupModel> GetProductGroupsActiveBaseSupplier(int supplierId);
+        List<ProductGroupModel> GetAllProductGroupsBaseSupplier(int supplierId);
+        bool CheckStocking(string productGroupId);
+        bool UpdateStocking(string productGroupId, bool status);
+        bool InsertProductGroup(string productGroupId, string productGroupName, int supplierId, int categoryId, bool isStocking, bool status);
         #endregion
 
         #region Product
