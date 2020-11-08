@@ -155,6 +155,12 @@
     <Compile Include="ucControl\ucMakeOrder.Designer.cs">
       <DependentUpon>ucMakeOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucControl\ucStaff.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucControl\ucStaff.Designer.cs">
+      <DependentUpon>ucStaff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ICategoryView.cs" />
     <Compile Include="Views\ILoginView.cs" />
     <Compile Include="Views\IProductGroupsView.cs" />

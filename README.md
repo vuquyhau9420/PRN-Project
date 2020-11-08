@@ -12,5 +12,6 @@
 - 5:18 PM 2-11-2020 (HauVQ): Add ucMakeOrder, add ucProduct into frmProductDetails
 - 5:20 PM 2-11-2020 (HieuLM): Binding dgvProductGroup
 - 11:10 PM 2-11-2020 (HauVQ): Complete ucMakeOrder
+- 5:35 PM 8-11-2020 (HauVQ): add ucStaff
 
 
