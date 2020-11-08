@@ -11,18 +11,24 @@ namespace Project_Final.Model {
         StaffModel Login(string username, string password);
 
         #region Category
-        List<CategoryModel> GetCategories();
+        List<CategoryModel> GetAllCategories();
         #endregion
 
         #region Product Group
-        List<ProductGroupModel> GetProductGroups(int category_id);
+        List<ProductGroupModel> GetAllProductGroups(int category_id);
+        bool CheckStocking(string product_group_id);
+        bool UpdateStocking(string product_group_id, bool status);
         #endregion
 
         #region Product
-        List<ProductModel> GetProducts(string productGroupId);
+        List<ProductModel> GetAllProducts(string productGroupId);
         bool UpdateProduct(string productGroupId, string productId, string productName, int quantity, double importPrice, double salePrice, string description, string image, bool status);
         bool InsertProduct(string productGroupId, string productId, string productName, int quantity, double importPrice, double salePrice, string description, string image, bool status);
         bool DeleteProduct(string productId);
+        #endregion
+        #region Supplier
+        List<SupplierModel> GetAllSuppliers();
+        List<SupplierModel> GetSuppliersActive();
         #endregion
     }
 }

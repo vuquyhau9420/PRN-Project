@@ -25,8 +25,13 @@ namespace DataObjects.Data {
             throw new NotImplementedException();
         }
 
-        public List<Category> GetCategories() {
-            string storeProcedure = "spGetCategorys";
+        public List<Category> GetAllCategories() {
+            string storeProcedure = "spGetAllCategories";
+            return db.Read(storeProcedure, make).ToList();
+        }
+
+        public List<Category> GetCategoriesActive() {
+            string storeProcedure = "spGetCategoriesActive";
             return db.Read(storeProcedure, make).ToList();
         }
 

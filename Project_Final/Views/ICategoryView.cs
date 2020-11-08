@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 
 namespace Project_Final.Views {
     public interface ICategoryView : IView {
-        IList<CategoryModel> Categories { get; set; }
+        IList<CategoryModel> Categories { set; }
     }
 }

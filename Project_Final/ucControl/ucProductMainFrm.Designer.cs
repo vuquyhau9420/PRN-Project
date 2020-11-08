@@ -23,15 +23,18 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Category");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucProductMainFrm));
             this.treeViewCategory = new System.Windows.Forms.TreeView();
+            this.imageListCategory = new System.Windows.Forms.ImageList(this.components);
             this.dgvProductGroup = new System.Windows.Forms.DataGridView();
             this.dgvProduct = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnAddCategory = new System.Windows.Forms.Button();
             this.btnDeleteCategory = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnAddCategory = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnAddProductGroup = new System.Windows.Forms.Button();
             this.btnDeleteProductGroup = new System.Windows.Forms.Button();
@@ -50,15 +53,26 @@
             // treeViewCategory
             // 
             this.treeViewCategory.Dock = System.Windows.Forms.DockStyle.Left;
+            this.treeViewCategory.ImageIndex = 0;
+            this.treeViewCategory.ImageList = this.imageListCategory;
             this.treeViewCategory.Location = new System.Drawing.Point(0, 0);
             this.treeViewCategory.Name = "treeViewCategory";
             treeNode1.Name = "Node0";
             treeNode1.Text = "Category";
             this.treeViewCategory.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1});
+            this.treeViewCategory.SelectedImageIndex = 0;
             this.treeViewCategory.Size = new System.Drawing.Size(184, 678);
             this.treeViewCategory.TabIndex = 0;
             this.treeViewCategory.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCategory_AfterSelect);
+            // 
+            // imageListCategory
+            // 
+            this.imageListCategory.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListCategory.ImageStream")));
+            this.imageListCategory.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListCategory.Images.SetKeyName(0, "category.png");
+            this.imageListCategory.Images.SetKeyName(1, "on_star.png");
+            this.imageListCategory.Images.SetKeyName(2, "off_star.png");
             // 
             // dgvProductGroup
             // 
@@ -70,6 +84,7 @@
             this.dgvProductGroup.Size = new System.Drawing.Size(629, 463);
             this.dgvProductGroup.TabIndex = 1;
             this.dgvProductGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductGroup_CellClick);
+            this.dgvProductGroup.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductGroup_CellDoubleClick);
             // 
             // dgvProduct
             // 
@@ -110,23 +125,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Product";
             // 
-            // btnAddCategory
-            // 
-            this.btnAddCategory.Location = new System.Drawing.Point(6, 16);
-            this.btnAddCategory.Name = "btnAddCategory";
-            this.btnAddCategory.Size = new System.Drawing.Size(97, 28);
-            this.btnAddCategory.TabIndex = 11;
-            this.btnAddCategory.Text = "Add";
-            this.btnAddCategory.UseVisualStyleBackColor = true;
-            // 
             // btnDeleteCategory
             // 
+            this.btnDeleteCategory.Image = global::Project_Final.Properties.Resources.delete_16px;
             this.btnDeleteCategory.Location = new System.Drawing.Point(107, 16);
             this.btnDeleteCategory.Name = "btnDeleteCategory";
             this.btnDeleteCategory.Size = new System.Drawing.Size(90, 28);
             this.btnDeleteCategory.TabIndex = 12;
             this.btnDeleteCategory.Text = "Delete";
+            this.btnDeleteCategory.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeleteCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeleteCategory.UseVisualStyleBackColor = true;
+            this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
             // 
             // groupBox3
             // 
@@ -138,6 +148,18 @@
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Category Control";
+            // 
+            // btnAddCategory
+            // 
+            this.btnAddCategory.Image = global::Project_Final.Properties.Resources.add_16px;
+            this.btnAddCategory.Location = new System.Drawing.Point(6, 16);
+            this.btnAddCategory.Name = "btnAddCategory";
+            this.btnAddCategory.Size = new System.Drawing.Size(97, 28);
+            this.btnAddCategory.TabIndex = 11;
+            this.btnAddCategory.Text = "Add";
+            this.btnAddCategory.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddCategory.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -152,21 +174,28 @@
             // 
             // btnAddProductGroup
             // 
+            this.btnAddProductGroup.Image = global::Project_Final.Properties.Resources.add_16px;
             this.btnAddProductGroup.Location = new System.Drawing.Point(6, 16);
             this.btnAddProductGroup.Name = "btnAddProductGroup";
             this.btnAddProductGroup.Size = new System.Drawing.Size(97, 28);
             this.btnAddProductGroup.TabIndex = 11;
             this.btnAddProductGroup.Text = "Add";
+            this.btnAddProductGroup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddProductGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddProductGroup.UseVisualStyleBackColor = true;
             // 
             // btnDeleteProductGroup
             // 
+            this.btnDeleteProductGroup.Image = global::Project_Final.Properties.Resources.delete_16px;
             this.btnDeleteProductGroup.Location = new System.Drawing.Point(107, 16);
             this.btnDeleteProductGroup.Name = "btnDeleteProductGroup";
             this.btnDeleteProductGroup.Size = new System.Drawing.Size(90, 28);
             this.btnDeleteProductGroup.TabIndex = 12;
             this.btnDeleteProductGroup.Text = "Delete";
+            this.btnDeleteProductGroup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeleteProductGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeleteProductGroup.UseVisualStyleBackColor = true;
+            this.btnDeleteProductGroup.Click += new System.EventHandler(this.btnDeleteProductGroup_Click);
             // 
             // groupBox5
             // 
@@ -181,21 +210,27 @@
             // 
             // btnAddProduct
             // 
+            this.btnAddProduct.Image = global::Project_Final.Properties.Resources.add_16px;
             this.btnAddProduct.Location = new System.Drawing.Point(6, 16);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(97, 28);
             this.btnAddProduct.TabIndex = 11;
             this.btnAddProduct.Text = "Add";
+            this.btnAddProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddProduct.UseVisualStyleBackColor = true;
             this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // btnDeleteProduct
             // 
+            this.btnDeleteProduct.Image = global::Project_Final.Properties.Resources.delete_16px;
             this.btnDeleteProduct.Location = new System.Drawing.Point(107, 16);
             this.btnDeleteProduct.Name = "btnDeleteProduct";
             this.btnDeleteProduct.Size = new System.Drawing.Size(90, 28);
             this.btnDeleteProduct.TabIndex = 12;
             this.btnDeleteProduct.Text = "Delete";
+            this.btnDeleteProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeleteProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeleteProduct.UseVisualStyleBackColor = true;
             this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
             // 
@@ -241,5 +276,6 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button btnAddProduct;
         private System.Windows.Forms.Button btnDeleteProduct;
+        private System.Windows.Forms.ImageList imageListCategory;
     }
 }

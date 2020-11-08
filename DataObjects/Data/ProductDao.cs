@@ -29,12 +29,14 @@ namespace DataObjects.Data {
             return false;
         }
 
-        public Product GetProduct(string productId) {
-            throw new NotImplementedException();
+        public List<Product> GetProductsActive(string productGroupId) {
+            string storeProcedure = "spGetProductsActive";
+            object[] parms = { "@PRODUCT_GROUP_ID", productGroupId };
+            return db.Read(storeProcedure, make, parms).ToList();
         }
 
-        public List<Product> GetProducts(string productGroupId) {
-            string storeProcedure = "spGetProducts";
+        public List<Product> GetAllProducts(string productGroupId) {
+            string storeProcedure = "spGetAllProducts";
             object[] parms = { "@PRODUCT_GROUP_ID", productGroupId };
             return db.Read(storeProcedure, make, parms).ToList();
         }
@@ -65,6 +67,10 @@ namespace DataObjects.Data {
                 return true;
             }
             return false;
+        }
+
+        public Product GetProduct(string productId) {
+            throw new NotImplementedException();
         }
 
         static Func<IDataReader, Product> make = reader => new Product

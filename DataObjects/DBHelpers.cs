@@ -37,6 +37,19 @@ namespace DataObjects {
             }
         }
 
+        public int Count(string sql, params object[] parms) {
+            using (var connection = CreateConnection()) {
+                using (var command = CreateCommand(sql, connection, parms)) {
+                    if (command.ExecuteScalar() != DBNull.Value) {
+                        return int.Parse(command.ExecuteScalar().ToString());
+                    }
+                    else {
+                        return -1;
+                    }
+                }
+            }
+        }
+
         public int Update(string sql, params object[] parms) {
             using (var connection = CreateConnection()) {
                 using (var command = CreateCommand(sql, connection, parms)) {

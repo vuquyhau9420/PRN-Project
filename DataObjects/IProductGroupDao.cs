@@ -7,8 +7,13 @@ using System.Threading.Tasks;
 
 namespace DataObjects {
     public interface IProductGroupDao {
-        string GetName(string productGroupId);
 
-        List<ProductGroup> GetProductGroups(int category_id);
+        List<ProductGroup> GetProductGroupsActive(int category_id);
+
+        List<ProductGroup> GetAllProductGroups(int category_id);
+
+        bool CheckStocking(string product_group_id);
+
+        bool UpdateStocking(string product_group_id, bool status);
     }
 }

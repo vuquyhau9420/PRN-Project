@@ -12,18 +12,38 @@ DROP PROC spCheckLogin
 
 EXEC spCheckLogin @STAFF_USERNAME = 'hieulm', @STAFF_PASSWORD = '123456'
 
-CREATE PROCEDURE spGetCategorys
+
+
+/* Category */
+
+CREATE PROCEDURE spGetAllCategories
 AS
 	BEGIN
 		SELECT category_id, category_name, category_status
         FROM category 
-        WHERE category_status = 1
 	END
 GO
 
-EXEC spGetCategorys
+DROP PROC spGetAllCategories
 
-CREATE PROCEDURE spGetProductGroup(@CATEGORY_ID int)
+EXEC spGetAllCategories
+
+CREATE PROCEDURE spGetCategoriesActive
+AS
+	BEGIN
+		SELECT category_id, category_name, category_status
+        FROM category 
+		WHERE category_status = 1
+	END
+GO
+
+DROP PROC spGetCategoriesActive
+
+EXEC spGetCategoriesActive
+
+/* Product Group */
+
+CREATE PROCEDURE spGetProductGroupActive(@CATEGORY_ID int)
 AS
 	BEGIN
 		SELECT product_group_id, product_group_name, supplier_name, category_name, product_group_stocking, product_group_status
@@ -33,11 +53,97 @@ AS
 	END
 GO
 
-drop proc spGetProductGroup
+drop proc spGetProductGroupActive
 
-EXEC spGetProductGroup @CATEGORY_ID = 1
+EXEC spGetProductGroupActive @CATEGORY_ID = 1
 
-CREATE PROCEDURE spGetProducts(@PRODUCT_GROUP_ID varchar(10))
+CREATE PROCEDURE spGetAllProductGroup(@CATEGORY_ID int)
+AS
+	BEGIN
+		SELECT product_group_id, product_group_name, supplier_name, category_name, product_group_stocking, product_group_status
+        FROM product_group, category, supplier 
+        WHERE product_group_catgory = @CATEGORY_ID AND category.category_id = product_group.product_group_catgory
+				AND supplier.supplier_id = product_group.supplier_id
+	END
+GO
+
+drop proc spGetAllProductGroup
+
+EXEC spGetAllProductGroup @CATEGORY_ID = 1
+
+CREATE PROCEDURE spCheckStocking(@PRODUCT_GROUP_ID varchar(10))
+AS
+	BEGIN
+		SELECT SUM(product_quantity) AS 'Total Quantity'
+        FROM product
+        WHERE product_group_id = @PRODUCT_GROUP_ID AND product_status = 1
+	END
+GO
+
+drop proc spCheckStocking
+
+EXEC spCheckStocking @PRODUCT_GROUP_ID = 'AP10'
+
+CREATE PROCEDURE spUpdateStocking(@PRODUCT_GROUP_ID varchar(10), @STATUS bit)
+AS
+	BEGIN
+		UPDATE product_group
+		SET product_group_stocking = @STATUS
+		WHERE product_group_id = @PRODUCT_GROUP_ID
+	END
+GO
+
+drop proc spUpdateStocking
+
+EXEC spUpdateStocking 'AP018', 1
+
+CREATE PROCEDURE spInsertProductGroup(
+					@PRODUCT_GROUP_ID varchar(10),
+					@PRODUCT_GROUP_NAME nvarchar(50),
+					@SUPPLIER_ID int,
+					@PRODUCT_GROUP_CATEGORY int,
+					@PRODUCT_GROUP_STOCKING bit,
+					@PRODUCT_GROUP_STATUS bit)
+AS
+BEGIN
+	INSERT INTO product_group(product_group_id, product_group_name, supplier_id, product_group_catgory, product_group_stocking, product_group_status)
+	VALUES(
+		@PRODUCT_GROUP_ID,
+		@PRODUCT_GROUP_NAME,
+		@SUPPLIER_ID,
+		@PRODUCT_GROUP_CATEGORY,
+		@PRODUCT_GROUP_STOCKING,
+		@PRODUCT_GROUP_STATUS)
+END
+
+CREATE PROCEDURE spUpdateProductGroup(
+					@PRODUCT_GROUP_ID varchar(10),
+					@PRODUCT_GROUP_NAME nvarchar(50),
+					@SUPPLIER_ID int,
+					@PRODUCT_GROUP_CATEGORY int,
+					@PRODUCT_GROUP_STOCKING bit,
+					@PRODUCT_GROUP_STATUS bit)
+AS
+BEGIN
+	UPDATE product_group
+	SET product_group_name = @PRODUCT_GROUP_NAME,
+		supplier_id = @SUPPLIER_ID,
+		product_group_catgory = @PRODUCT_GROUP_CATEGORY,
+		product_group_stocking = @PRODUCT_GROUP_STOCKING,
+		product_group_status = @PRODUCT_GROUP_STATUS
+	WHERE product_group_id = @PRODUCT_GROUP_ID
+END
+
+CREATE PROCEDURE spDeleteProductGroup(@PRODUCT_GROUP_ID varchar(10))
+AS
+BEGIN
+	UPDATE product_group
+	SET product_group_status = 0
+	WHERE product_group_id = @PRODUCT_GROUP_ID;
+END
+
+/* Product */
+CREATE PROCEDURE spGetProductsActive(@PRODUCT_GROUP_ID varchar(10))
 AS
 	BEGIN
 		SELECT product_group_id, product_id, product_name, product_quantity, product_import_price, product_sale_price, product_description, product_image, product_status
@@ -46,7 +152,22 @@ AS
 	END
 GO
 
-EXEC spGetProducts AP06
+DROP PROC spGetProductsActive
+
+EXEC spGetProductsActive AP06
+
+CREATE PROCEDURE spGetAllProducts(@PRODUCT_GROUP_ID varchar(10))
+AS
+	BEGIN
+		SELECT product_group_id, product_id, product_name, product_quantity, product_import_price, product_sale_price, product_description, product_image, product_status
+        FROM product 
+        WHERE product_group_id = @PRODUCT_GROUP_ID
+	END
+GO
+
+DROP PROC spGetAllProducts
+
+EXEC spGetAllProducts AP06
 
 CREATE PROCEDURE spUpdateProduct(
 					@PRODUCT_GROUP_ID varchar(10),
@@ -106,3 +227,29 @@ BEGIN
 	SET product_status = 0
 	WHERE product_id = @PRODUCT_ID
 END
+
+CREATE PROCEDURE spDeleteProducts(@PRODUCT_GROUP_ID varchar(10))
+AS
+BEGIN
+	UPDATE product
+	SET product_status = 0
+	WHERE product_group_id = @PRODUCT_GROUP_ID
+END
+
+/* Supplier */
+CREATE PROCEDURE spGetSupplierActive
+AS
+	BEGIN
+		SELECT supplier_id, supplier_name, supplier_phone, supplier_address, supplier_status
+        FROM supplier 
+        WHERE supplier_status = 1
+	END
+GO
+
+CREATE PROCEDURE spGetAllSupplier
+AS
+	BEGIN
+		SELECT supplier_id, supplier_name, supplier_phone, supplier_address, supplier_status
+        FROM supplier
+	END
+GO

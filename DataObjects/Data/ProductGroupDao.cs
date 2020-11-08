@@ -24,10 +24,35 @@ namespace DataObjects.Data {
         public string GetName(string productGroupId) {
             throw new NotImplementedException();
         }
-        public List<ProductGroup> GetProductGroups(int category_id) {
-            string storeProcedure = "spGetProductGroup";
+        public List<ProductGroup> GetProductGroupsActive(int category_id) {
+            string storeProcedure = "spGetProductGroupActive";
             object[] parms = { "@CATEGORY_ID", category_id };
             return db.Read(storeProcedure, make, parms).ToList();
+        }
+
+        public List<ProductGroup> GetAllProductGroups(int category_id) {
+            string storeProcedure = "spGetAllProductGroup";
+            object[] parms = { "@CATEGORY_ID", category_id };
+            return db.Read(storeProcedure, make, parms).ToList();
+        }
+
+        public bool CheckStocking(string product_group_id) {
+            string storeProcedure = "spCheckStocking";
+            object[] parms = { "@PRODUCT_GROUP_ID", product_group_id };
+
+            if (db.Count(storeProcedure, parms) > 0) {
+                return true;
+            }
+            return false;
+        }
+
+        public bool UpdateStocking(string product_group_id, bool status) {
+            string storeProcedure = "spUpdateStocking";
+            object[] parms = { "@PRODUCT_GROUP_ID", product_group_id, "@STATUS", status };
+            if (db.Update(storeProcedure, parms) > 0) {
+                return true;
+            }
+            return false;
         }
 
         static Func<IDataReader, ProductGroup> make = reader => new ProductGroup

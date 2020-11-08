@@ -28,7 +28,6 @@
             this.cboCategory = new System.Windows.Forms.ComboBox();
             this.cboProductGroup = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtProductID = new System.Windows.Forms.TextBox();
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -47,6 +46,8 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.pbProductImage = new System.Windows.Forms.PictureBox();
+            this.txtProductID = new System.Windows.Forms.MaskedTextBox();
+            this.lblProductGroupId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbProductImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,24 +77,26 @@
             // 
             this.cboCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboCategory.Enabled = false;
             this.cboCategory.FormattingEnabled = true;
             this.cboCategory.Location = new System.Drawing.Point(144, 27);
             this.cboCategory.Margin = new System.Windows.Forms.Padding(8, 2, 2, 2);
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(164, 21);
             this.cboCategory.TabIndex = 2;
+            this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cboCategory_SelectedIndexChanged);
             // 
             // cboProductGroup
             // 
             this.cboProductGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboProductGroup.Enabled = false;
             this.cboProductGroup.FormattingEnabled = true;
             this.cboProductGroup.Location = new System.Drawing.Point(144, 53);
             this.cboProductGroup.Margin = new System.Windows.Forms.Padding(2);
             this.cboProductGroup.Name = "cboProductGroup";
             this.cboProductGroup.Size = new System.Drawing.Size(164, 21);
             this.cboProductGroup.TabIndex = 3;
+            this.cboProductGroup.SelectedIndexChanged += new System.EventHandler(this.cboProductGroup_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -106,16 +109,6 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "ProductID";
             // 
-            // txtProductID
-            // 
-            this.txtProductID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProductID.Location = new System.Drawing.Point(144, 89);
-            this.txtProductID.Margin = new System.Windows.Forms.Padding(2);
-            this.txtProductID.Name = "txtProductID";
-            this.txtProductID.Size = new System.Drawing.Size(163, 20);
-            this.txtProductID.TabIndex = 7;
-            // 
             // txtProductName
             // 
             this.txtProductName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -124,7 +117,7 @@
             this.txtProductName.Margin = new System.Windows.Forms.Padding(2);
             this.txtProductName.Multiline = true;
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(164, 19);
+            this.txtProductName.Size = new System.Drawing.Size(165, 19);
             this.txtProductName.TabIndex = 8;
             this.txtProductName.WordWrap = false;
             // 
@@ -201,7 +194,7 @@
             this.txtQuantity.Location = new System.Drawing.Point(143, 154);
             this.txtQuantity.Margin = new System.Windows.Forms.Padding(2);
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(163, 20);
+            this.txtQuantity.Size = new System.Drawing.Size(165, 20);
             this.txtQuantity.TabIndex = 15;
             this.txtQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantity_KeyPress);
             // 
@@ -212,7 +205,7 @@
             this.txtImportPrice.Location = new System.Drawing.Point(143, 190);
             this.txtImportPrice.Margin = new System.Windows.Forms.Padding(2);
             this.txtImportPrice.Name = "txtImportPrice";
-            this.txtImportPrice.Size = new System.Drawing.Size(163, 20);
+            this.txtImportPrice.Size = new System.Drawing.Size(165, 20);
             this.txtImportPrice.TabIndex = 16;
             this.txtImportPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImportPrice_KeyPress);
             // 
@@ -223,7 +216,7 @@
             this.txtSalePrice.Location = new System.Drawing.Point(144, 228);
             this.txtSalePrice.Margin = new System.Windows.Forms.Padding(2);
             this.txtSalePrice.Name = "txtSalePrice";
-            this.txtSalePrice.Size = new System.Drawing.Size(163, 20);
+            this.txtSalePrice.Size = new System.Drawing.Size(164, 20);
             this.txtSalePrice.TabIndex = 17;
             this.txtSalePrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalePrice_KeyPress);
             // 
@@ -234,13 +227,14 @@
             this.txtDesciption.Location = new System.Drawing.Point(144, 265);
             this.txtDesciption.Margin = new System.Windows.Forms.Padding(2);
             this.txtDesciption.Name = "txtDesciption";
-            this.txtDesciption.Size = new System.Drawing.Size(163, 20);
+            this.txtDesciption.Size = new System.Drawing.Size(164, 20);
             this.txtDesciption.TabIndex = 18;
             // 
             // txtImage
             // 
             this.txtImage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtImage.Enabled = false;
             this.txtImage.Location = new System.Drawing.Point(143, 336);
             this.txtImage.Margin = new System.Windows.Forms.Padding(2);
             this.txtImage.Name = "txtImage";
@@ -324,11 +318,34 @@
             this.pbProductImage.TabIndex = 29;
             this.pbProductImage.TabStop = false;
             // 
+            // txtProductID
+            // 
+            this.txtProductID.Location = new System.Drawing.Point(220, 92);
+            this.txtProductID.Name = "txtProductID";
+            this.txtProductID.PromptChar = ' ';
+            this.txtProductID.Size = new System.Drawing.Size(88, 20);
+            this.txtProductID.TabIndex = 30;
+            // 
+            // lblProductGroupId
+            // 
+            this.lblProductGroupId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblProductGroupId.AutoSize = true;
+            this.lblProductGroupId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductGroupId.Location = new System.Drawing.Point(143, 94);
+            this.lblProductGroupId.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblProductGroupId.Name = "lblProductGroupId";
+            this.lblProductGroupId.Size = new System.Drawing.Size(17, 15);
+            this.lblProductGroupId.TabIndex = 31;
+            this.lblProductGroupId.Text = "id";
+            // 
             // frmAddEditProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(466, 614);
+            this.Controls.Add(this.lblProductGroupId);
+            this.Controls.Add(this.txtProductID);
             this.Controls.Add(this.pbProductImage);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -347,7 +364,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtProductName);
-            this.Controls.Add(this.txtProductID);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cboProductGroup);
             this.Controls.Add(this.cboCategory);
@@ -373,7 +389,6 @@
         private System.Windows.Forms.ComboBox cboCategory;
         private System.Windows.Forms.ComboBox cboProductGroup;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtProductID;
         private System.Windows.Forms.TextBox txtProductName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -392,5 +407,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.PictureBox pbProductImage;
+        private System.Windows.Forms.MaskedTextBox txtProductID;
+        private System.Windows.Forms.Label lblProductGroupId;
     }
 }

@@ -22,6 +22,10 @@ namespace Project_Final.ucControl {
         private CategoryModel currentCategory;
         private ProductGroupModel currentProductGroup;
 
+        private List<CategoryModel> listCategories;
+        private List<ProductGroupModel> listProductGroups;
+        private List<ProductModel> listsProducts;
+
         public ucProductMainFrm() {
             InitializeComponent();
 
@@ -32,8 +36,12 @@ namespace Project_Final.ucControl {
 
         private void ucProductMainFrm_Load(object sender, EventArgs e) {
             // Hien thi cac category tren tree view
+            StartUp();
+        }
+
+        private void StartUp() {
             categoryPresenter.Display();
-            currentCategory = Categories[0];
+            currentCategory = listCategories[0];
             LoadDataFromDB(currentCategory);
             dgvProduct.DataSource = null;
             dgvProduct.Rows.Clear();
@@ -44,23 +52,13 @@ namespace Project_Final.ucControl {
         #region List cac model tu view
         // List Categories
         public IList<CategoryModel> Categories {
-            get {
-                List<CategoryModel> listCategory = new List<CategoryModel>();
-                var root = treeViewCategory.Nodes[0];
-                var listNodes = root.Nodes;
-
-                // Doc tu list nodes add vao list tra ve
-                for (int i = 0; i < listNodes.Count; i++) {
-                    listCategory.Add((CategoryModel)listNodes[i].Tag);
-                }
-                return listCategory;
-            }
             set {
-                var category = value;
+                var categories = value;
+                listCategories = (List<CategoryModel>)categories;
                 var root = treeViewCategory.Nodes[0];
                 root.Nodes.Clear();
 
-                foreach (var item in category) {
+                foreach (var item in categories) {
                     // Add tung Category vao Tree View
                     AddCategoryToTree(item);
                 }
@@ -70,11 +68,9 @@ namespace Project_Final.ucControl {
 
         // List Product Group theo tung Category
         public IList<ProductGroupModel> ProductGroups {
-            get {
-                return currentCategory.ProductGroups;
-            }
             set {
                 var productGroups = value;
+                listProductGroups = (List<ProductGroupModel>)productGroups;
                 currentCategory.ProductGroups = productGroups;
                 currentProductGroup = productGroups[0];
 
@@ -86,6 +82,7 @@ namespace Project_Final.ucControl {
         public IList<ProductModel> Products {
             set {
                 var products = value;
+                listsProducts = (List<ProductModel>)products;
                 foreach (var item in currentCategory.ProductGroups) {
                     if (item.Id.Equals(currentProductGroup.Id)) {
                         item.ListProducts = products;
@@ -111,8 +108,9 @@ namespace Project_Final.ucControl {
 
                 dgvProductGroup.Columns["Supplier"].Visible = false;
                 dgvProductGroup.Columns["Category"].Visible = false;
-                dgvProductGroup.Columns["Id"].Visible = false;
+                dgvProductGroup.Columns["ListProducts"].Visible = false;
 
+                dgvProductGroup.Columns["Id"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvProductGroup.Columns["Name"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvProductGroup.Columns["SupplierName"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvProductGroup.Columns["SupplierName"].HeaderText = "Supplier";
@@ -120,6 +118,7 @@ namespace Project_Final.ucControl {
                 dgvProductGroup.Columns["ProductGroupCategory"].HeaderText = "Category";
                 dgvProductGroup.Columns["IsStocking"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvProductGroup.Columns["IsStocking"].HeaderText = "Stocking";
+                dgvProductGroup.Columns["Status"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
         }
 
@@ -135,11 +134,10 @@ namespace Project_Final.ucControl {
                 }
 
                 dgvProduct.Columns["ProductGroupId"].Visible = false;
-                dgvProduct.Columns["Id"].Visible = false;
                 dgvProduct.Columns["Image"].Visible = false;
                 dgvProduct.Columns["ProductGroup"].Visible = false;
-                dgvProduct.Columns["Status"].Visible = false;
 
+                dgvProduct.Columns["Id"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvProduct.Columns["Name"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvProduct.Columns["Quantity"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvProduct.Columns["ImportPrice"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -147,6 +145,7 @@ namespace Project_Final.ucControl {
                 dgvProduct.Columns["SalePrice"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvProduct.Columns["SalePrice"].HeaderText = "Sale Price";
                 dgvProduct.Columns["Description"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvProduct.Columns["Status"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
         }
         #endregion
@@ -156,6 +155,13 @@ namespace Project_Final.ucControl {
             var node = new TreeNode();
             node.Text = category.Name;
             // Set obj cho node
+
+            if (category.Status) {
+                node.ImageIndex = 1;
+            }
+            else {
+                node.ImageIndex = 2;
+            }
             node.Tag = category;
             this.treeViewCategory.Nodes[0].Nodes.Add(node);
             return node;
@@ -164,6 +170,7 @@ namespace Project_Final.ucControl {
 
         #region Su kien sau khi chon node tren tree view
         private void treeViewCategory_AfterSelect(object sender, TreeViewEventArgs e) {
+            treeViewCategory.SelectedImageIndex = treeViewCategory.SelectedNode.ImageIndex;
             var category = treeViewCategory.SelectedNode.Tag as CategoryModel;
             if (category != null) {
                 currentCategory = category;
@@ -206,7 +213,7 @@ namespace Project_Final.ucControl {
             int index = dgvProduct.SelectedCells[0].RowIndex;
             var product = dgvProduct.Rows[index].Tag as ProductModel;
 
-            using (frmAddEditProduct frmProductDetail = new frmAddEditProduct() { ProductSelected = product, ProductGroups = this.ProductGroups, Categories = this.Categories, CurrentCategoryId = currentCategory.Id }) {
+            using (frmAddEditProduct frmProductDetail = new frmAddEditProduct() { ProductSelected = product, Categories = listCategories, CurrentCategoryId = currentCategory.Id }) {
                 frmProductDetail.ShowDialog();
 
                 if (currentCategory != null) {
@@ -217,7 +224,7 @@ namespace Project_Final.ucControl {
         #endregion
 
         private void btnAddProduct_Click(object sender, EventArgs e) {
-            using (frmAddEditProduct frmProductDetail = new frmAddEditProduct() { ProductGroups = this.ProductGroups, Categories = this.Categories, CurrentCategoryId = currentCategory.Id }) {
+            using (frmAddEditProduct frmProductDetail = new frmAddEditProduct() { Categories = listCategories, CurrentCategoryId = currentCategory.Id }) {
                 frmProductDetail.ShowDialog();
 
                 LoadDataFromDB(currentCategory);
@@ -225,10 +232,35 @@ namespace Project_Final.ucControl {
         }
 
         private void btnDeleteProduct_Click(object sender, EventArgs e) {
-            using (frmDeleteProduct formDeleteProduct = new frmDeleteProduct()) {
+            using (frmDelete formDeleteProduct = new frmDelete() { Type = "Product" }) {
                 formDeleteProduct.ShowDialog();
 
-                LoadDataFromDB(currentCategory);
+                StartUp();
+            }
+        }
+
+        private void dgvProductGroup_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
+            int index = dgvProductGroup.SelectedCells[0].RowIndex;
+            var productGroup = dgvProductGroup.Rows[index].Tag as ProductGroupModel;
+
+            if (productGroup != null) {
+
+            }
+        }
+
+        private void btnDeleteProductGroup_Click(object sender, EventArgs e) {
+            using (frmDelete formDeleteProduct = new frmDelete() { Type = "Product Group" }) {
+                formDeleteProduct.ShowDialog();
+
+                StartUp();
+            }
+        }
+
+        private void btnDeleteCategory_Click(object sender, EventArgs e) {
+            using (frmDelete formDeleteProduct = new frmDelete() { Type = "Category" }) {
+                formDeleteProduct.ShowDialog();
+
+                StartUp();
             }
         }
     }

@@ -14,6 +14,7 @@ namespace ActionService {
         static readonly ICategoryDao categoryDao = CategoryDao.GetInstance();
         static readonly IProductGroupDao productGroupDao = ProductGroupDao.GetInstance();
         static readonly IProductDao productDao = ProductDao.GetInstance();
+        static readonly ISupplierDao supplierDao = SupplierDao.GetInstance();
 
         #region Login
         public Staff CheckLogin(string username, string password) {
@@ -22,20 +23,28 @@ namespace ActionService {
         #endregion
 
         #region Category
-        public List<Category> GetCategories() {
-            return categoryDao.GetCategories();
+        public List<Category> GetAllCategories() {
+            return categoryDao.GetAllCategories();
         }
         #endregion
 
         #region Product_Group
-        public List<ProductGroup> GetProductGroups(int category_id) {
-            return productGroupDao.GetProductGroups(category_id);
+        public List<ProductGroup> GetAllProductGroups(int category_id) {
+            return productGroupDao.GetAllProductGroups(category_id);
+        }
+
+        public bool CheckStocking(string product_group_id) {
+            return productGroupDao.CheckStocking(product_group_id);
+        }
+
+        public bool UpdateStocking(string product_group_id, bool status) {
+            return productGroupDao.UpdateStocking(product_group_id, status);
         }
         #endregion
 
         #region Product
-        public List<Product> GetProducts(string productGroupId) {
-            return productDao.GetProducts(productGroupId);
+        public List<Product> GetAllProducts(string productGroupId) {
+            return productDao.GetAllProducts(productGroupId);
         }
 
         public bool UpdateProduct(string productGroupId, string productId, string productName, int quantity, double importPrice, double salePrice, string description, string image, bool status) {
@@ -48,6 +57,16 @@ namespace ActionService {
 
         public bool DeleteProduct(string productId) {
             return productDao.DeleteProduct(productId);
+        }
+
+        #endregion
+        #region Supplier
+        public List<Supplier> GetAllSuppliers() {
+            return supplierDao.GetAllSuppliers();
+        }
+
+        public List<Supplier> GetSuppliersActive() {
+            return supplierDao.GetSuppliersActive();
         }
         #endregion
     }

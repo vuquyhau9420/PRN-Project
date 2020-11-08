@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DataObjects {
-    interface ISupplierDao {
-        string GetSupplierName(string supplierId);
+    public interface ISupplierDao {
+        List<Supplier> GetAllSuppliers();
 
-        Supplier GetSupplierInfo(string supplierId);
+        List<Supplier> GetSuppliersActive();
     }
 }

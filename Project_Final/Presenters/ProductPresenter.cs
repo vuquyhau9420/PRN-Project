@@ -43,5 +43,15 @@ namespace Project_Final.Presenters {
             string productId = View.ProductID;
             return Model.DeleteProduct(productId);
         }
+
+        public bool CheckStocking() {
+            string product_group_id = View.ProductGroupId;
+            return Model.CheckStocking(product_group_id);
+        }
+
+        public bool UpdateStocking(bool status) {
+            string product_group_id = View.ProductGroupId;
+            return Model.UpdateStocking(product_group_id, status);
+        }
     }
 }

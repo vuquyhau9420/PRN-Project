@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace DataObjects {
     public interface IProductDao {
-        List<Product> GetProducts(string productGroupId);
+        List<Product> GetAllProducts(string productGroupId);
+
+        List<Product> GetProductsActive(string productGroupId);
 
         Product GetProduct(string productId);
 

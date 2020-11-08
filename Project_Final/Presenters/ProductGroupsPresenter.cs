@@ -13,7 +13,7 @@ namespace Project_Final.Presenters {
         }
 
         public void Display(int category_id) {
-            View.ProductGroups = Model.GetProductGroups(category_id);
+            View.ProductGroups = Model.GetAllProductGroups(category_id);
         }
     }
 }

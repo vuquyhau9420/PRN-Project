@@ -1,5 +1,5 @@
 ﻿namespace Project_Final {
-    partial class frmDeleteProduct {
+    partial class frmDelete {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -25,9 +25,9 @@
         private void InitializeComponent() {
             this.cboProductGroup = new System.Windows.Forms.ComboBox();
             this.cboCategory = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblProductGroup = new System.Windows.Forms.Label();
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.lblProduct = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.cboProductName = new System.Windows.Forms.ComboBox();
@@ -57,38 +57,38 @@
             this.cboCategory.TabIndex = 10;
             this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cboCategory_SelectedIndexChanged);
             // 
-            // label2
+            // lblProductGroup
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(57, 67);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 17);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Product Group";
+            this.lblProductGroup.AutoSize = true;
+            this.lblProductGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductGroup.Location = new System.Drawing.Point(57, 67);
+            this.lblProductGroup.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblProductGroup.Name = "lblProductGroup";
+            this.lblProductGroup.Size = new System.Drawing.Size(114, 17);
+            this.lblProductGroup.TabIndex = 9;
+            this.lblProductGroup.Text = "Product Group";
             // 
-            // label1
+            // lblCategory
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(98, 42);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 17);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Category";
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory.Location = new System.Drawing.Point(98, 42);
+            this.lblCategory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(73, 17);
+            this.lblCategory.TabIndex = 8;
+            this.lblCategory.Text = "Category";
             // 
-            // label3
+            // lblProduct
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(61, 103);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 17);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Product Name";
+            this.lblProduct.AutoSize = true;
+            this.lblProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProduct.Location = new System.Drawing.Point(61, 103);
+            this.lblProduct.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblProduct.Name = "lblProduct";
+            this.lblProduct.Size = new System.Drawing.Size(110, 17);
+            this.lblProduct.TabIndex = 13;
+            this.lblProduct.Text = "Product Name";
             // 
             // btnCancel
             // 
@@ -133,20 +133,21 @@
             this.cboProductName.TabIndex = 11;
             this.cboProductName.SelectedIndexChanged += new System.EventHandler(this.cboProductName_SelectedIndexChanged);
             // 
-            // frmDeleteProduct
+            // frmDelete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 239);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblProduct);
             this.Controls.Add(this.cboProductName);
             this.Controls.Add(this.cboProductGroup);
             this.Controls.Add(this.cboCategory);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Name = "frmDeleteProduct";
+            this.Controls.Add(this.lblProductGroup);
+            this.Controls.Add(this.lblCategory);
+            this.Name = "frmDelete";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDeleteProduct";
             this.Load += new System.EventHandler(this.frmDeleteProduct_Load);
             this.ResumeLayout(false);
@@ -157,9 +158,9 @@
         #endregion
         private System.Windows.Forms.ComboBox cboProductGroup;
         private System.Windows.Forms.ComboBox cboCategory;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblProductGroup;
+        private System.Windows.Forms.Label lblCategory;
+        private System.Windows.Forms.Label lblProduct;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.ComboBox cboProductName;

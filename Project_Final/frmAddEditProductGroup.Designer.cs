@@ -38,14 +38,13 @@
             this.txtGroupID = new System.Windows.Forms.TextBox();
             this.txtGroupName = new System.Windows.Forms.TextBox();
             this.cboSupplier = new System.Windows.Forms.ComboBox();
-            this.cboGroupCategory = new System.Windows.Forms.ComboBox();
+            this.cboCategory = new System.Windows.Forms.ComboBox();
             this.chkStock = new System.Windows.Forms.CheckBox();
             this.chkStatus = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnAddSupplier = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnDeleteSupplier = new System.Windows.Forms.Button();
+            this.lblId = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -118,10 +117,11 @@
             // 
             this.txtGroupID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtGroupID.Location = new System.Drawing.Point(148, 37);
+            this.txtGroupID.Enabled = false;
+            this.txtGroupID.Location = new System.Drawing.Point(236, 37);
             this.txtGroupID.Margin = new System.Windows.Forms.Padding(2);
             this.txtGroupID.Name = "txtGroupID";
-            this.txtGroupID.Size = new System.Drawing.Size(201, 20);
+            this.txtGroupID.Size = new System.Drawing.Size(119, 20);
             this.txtGroupID.TabIndex = 6;
             // 
             // txtGroupName
@@ -131,7 +131,7 @@
             this.txtGroupName.Location = new System.Drawing.Point(148, 68);
             this.txtGroupName.Margin = new System.Windows.Forms.Padding(2);
             this.txtGroupName.Name = "txtGroupName";
-            this.txtGroupName.Size = new System.Drawing.Size(201, 20);
+            this.txtGroupName.Size = new System.Drawing.Size(207, 20);
             this.txtGroupName.TabIndex = 7;
             // 
             // cboSupplier
@@ -142,25 +142,25 @@
             this.cboSupplier.Location = new System.Drawing.Point(148, 93);
             this.cboSupplier.Margin = new System.Windows.Forms.Padding(2);
             this.cboSupplier.Name = "cboSupplier";
-            this.cboSupplier.Size = new System.Drawing.Size(201, 21);
+            this.cboSupplier.Size = new System.Drawing.Size(207, 21);
             this.cboSupplier.TabIndex = 8;
             // 
-            // cboGroupCategory
+            // cboCategory
             // 
-            this.cboGroupCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.cboCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboGroupCategory.FormattingEnabled = true;
-            this.cboGroupCategory.Location = new System.Drawing.Point(148, 119);
-            this.cboGroupCategory.Margin = new System.Windows.Forms.Padding(2);
-            this.cboGroupCategory.Name = "cboGroupCategory";
-            this.cboGroupCategory.Size = new System.Drawing.Size(201, 21);
-            this.cboGroupCategory.TabIndex = 9;
+            this.cboCategory.FormattingEnabled = true;
+            this.cboCategory.Location = new System.Drawing.Point(148, 119);
+            this.cboCategory.Margin = new System.Windows.Forms.Padding(2);
+            this.cboCategory.Name = "cboCategory";
+            this.cboCategory.Size = new System.Drawing.Size(207, 21);
+            this.cboCategory.TabIndex = 9;
+            this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cboCategory_SelectedIndexChanged);
             // 
             // chkStock
             // 
             this.chkStock.AutoSize = true;
-            this.chkStock.Checked = true;
-            this.chkStock.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkStock.Enabled = false;
             this.chkStock.Location = new System.Drawing.Point(148, 148);
             this.chkStock.Margin = new System.Windows.Forms.Padding(2);
             this.chkStock.Name = "chkStock";
@@ -207,46 +207,26 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
-            // btnAddSupplier
+            // lblId
             // 
-            this.btnAddSupplier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddSupplier.AutoSize = true;
-            this.btnAddSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddSupplier.Location = new System.Drawing.Point(353, 93);
-            this.btnAddSupplier.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAddSupplier.Name = "btnAddSupplier";
-            this.btnAddSupplier.Size = new System.Drawing.Size(50, 27);
-            this.btnAddSupplier.TabIndex = 14;
-            this.btnAddSupplier.Text = "+";
-            this.toolTip1.SetToolTip(this.btnAddSupplier, "Click here to add new supplier");
-            this.btnAddSupplier.UseVisualStyleBackColor = true;
-            this.btnAddSupplier.Click += new System.EventHandler(this.btnAddSupplier_Click);
-            // 
-            // btnDeleteSupplier
-            // 
-            this.btnDeleteSupplier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDeleteSupplier.AutoSize = true;
-            this.btnDeleteSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteSupplier.Location = new System.Drawing.Point(407, 93);
-            this.btnDeleteSupplier.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDeleteSupplier.Name = "btnDeleteSupplier";
-            this.btnDeleteSupplier.Size = new System.Drawing.Size(52, 27);
-            this.btnDeleteSupplier.TabIndex = 15;
-            this.btnDeleteSupplier.Text = "-";
-            this.btnDeleteSupplier.UseVisualStyleBackColor = true;
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(148, 40);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(15, 13);
+            this.lblId.TabIndex = 14;
+            this.lblId.Text = "id";
             // 
             // frmAddEditProductGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 296);
-            this.Controls.Add(this.btnDeleteSupplier);
-            this.Controls.Add(this.btnAddSupplier);
+            this.ClientSize = new System.Drawing.Size(408, 296);
+            this.Controls.Add(this.lblId);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.chkStatus);
             this.Controls.Add(this.chkStock);
-            this.Controls.Add(this.cboGroupCategory);
+            this.Controls.Add(this.cboCategory);
             this.Controls.Add(this.cboSupplier);
             this.Controls.Add(this.txtGroupName);
             this.Controls.Add(this.txtGroupID);
@@ -260,6 +240,7 @@
             this.Name = "frmAddEditProductGroup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Product Group ";
+            this.Load += new System.EventHandler(this.frmAddEditProductGroup_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,13 +257,12 @@
         private System.Windows.Forms.TextBox txtGroupID;
         private System.Windows.Forms.TextBox txtGroupName;
         private System.Windows.Forms.ComboBox cboSupplier;
-        private System.Windows.Forms.ComboBox cboGroupCategory;
+        private System.Windows.Forms.ComboBox cboCategory;
         private System.Windows.Forms.CheckBox chkStock;
         private System.Windows.Forms.CheckBox chkStatus;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnAddSupplier;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button btnDeleteSupplier;
+        private System.Windows.Forms.Label lblId;
     }
 }

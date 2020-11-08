@@ -54,11 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmDeleteProduct.cs">
+    <Compile Include="frmDelete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDeleteProduct.Designer.cs">
-      <DependentUpon>frmDeleteProduct.cs</DependentUpon>
+    <Compile Include="frmDelete.Designer.cs">
+      <DependentUpon>frmDelete.cs</DependentUpon>
     </Compile>
     <Compile Include="frmProductDetails.cs">
       <SubType>Form</SubType>
@@ -119,11 +119,18 @@
     <Compile Include="Presenters\CategorysPresenter.cs" />
     <Compile Include="Presenters\LoginPresenter.cs" />
     <Compile Include="Presenters\Presenter.cs" />
+    <Compile Include="Presenters\ProductGroupPresenter.cs" />
     <Compile Include="Presenters\ProductGroupsPresenter.cs" />
     <Compile Include="Presenters\ProductPresenter.cs" />
     <Compile Include="Presenters\ProductsPresenter.cs" />
+    <Compile Include="Presenters\SuppliersPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ucControl\ucProductFrm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -151,8 +158,10 @@
     <Compile Include="Views\ICategoryView.cs" />
     <Compile Include="Views\ILoginView.cs" />
     <Compile Include="Views\IProductGroupsView.cs" />
+    <Compile Include="Views\IProductGroupView.cs" />
     <Compile Include="Views\IProductsView.cs" />
     <Compile Include="Views\IProductView.cs" />
+    <Compile Include="Views\ISuppliersView.cs" />
     <Compile Include="Views\IView.cs" />
     <EmbeddedResource Include="frmAddCatogory.resx">
       <DependentUpon>frmAddCatogory.cs</DependentUpon>
@@ -166,8 +175,8 @@
     <EmbeddedResource Include="frmAddEditSupplier.resx">
       <DependentUpon>frmAddEditSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDeleteProduct.resx">
-      <DependentUpon>frmDeleteProduct.cs</DependentUpon>
+    <EmbeddedResource Include="frmDelete.resx">
+      <DependentUpon>frmDelete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -180,14 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="ucControl\ucMakeOrder.resx">
       <DependentUpon>ucMakeOrder.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,8 +222,36 @@
     <None Include="Image\FunnyIcon1.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Image\order 24px.png" />
+    <None Include="Image\product 24px.png" />
+    <None Include="Image\shopping 20px.png" />
+    <None Include="Image\shopping 24px.png" />
+    <None Include="Image\store black 128px.png" />
+    <None Include="Image\store black 64px.png" />
+    <None Include="Image\store 64px.png" />
+    <None Include="Image\store 48px.png" />
+    <None Include="Image\staff 16px.png" />
+    <None Include="Image\product 16px.png" />
+    <None Include="Image\shopping 16px.png" />
+    <None Include="Image\order 16px.png" />
+    <None Include="Image\cart.png" />
+    <None Include="Image\customer 16px.png" />
+    <None Include="Image\add 16px.png" />
+    <None Include="Image\delete 16px.png" />
+    <None Include="Image\customer 24px.png" />
+    <None Include="Image\customer 32px.png" />
+    <None Include="Image\door out 32px.png" />
+    <None Include="Image\door out 24px.png" />
+    <None Include="Image\door in 24px.png" />
     <Content Include="Image\FunnyIcon1-removebg-preview.png" />
+    <None Include="Image\iconfinder_rules_3018564 20px.png" />
     <Content Include="Image\ImageForPanel2.png" />
+    <None Include="Image\login 16px.png" />
+    <None Include="Image\logout 16px.png" />
+    <None Include="Image\import 16px.png" />
+    <None Include="Image\import 20px.png" />
+    <None Include="Image\import 20pxx.png" />
+    <None Include="Image\import 32px.png" />
     <Content Include="Image\MenuPanel.jpg" />
   </ItemGroup>
   <ItemGroup>

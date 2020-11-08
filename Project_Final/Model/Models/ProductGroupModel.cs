@@ -11,6 +11,7 @@ namespace Project_Final.Model.Models {
         public string SupplierName { get; set; }
         public string ProductGroupCategory { get; set; }
         public bool IsStocking { get; set; }
+        public bool Status { get; set; }
         public IList<ProductModel> ListProducts { get; set; }
 
         // Parent 

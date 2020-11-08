@@ -14,7 +14,7 @@ namespace Project_Final.Presenters {
         }
 
         public void Display() {
-            View.Categories = Model.GetCategories();
+            View.Categories = Model.GetAllCategories();
         }
     }
 }

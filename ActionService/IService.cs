@@ -11,18 +11,25 @@ namespace ActionService {
         Staff CheckLogin(string username, string password);
 
         #region Category
-        List<Category> GetCategories();
+        List<Category> GetAllCategories();
         #endregion
 
         #region Product_Group
-        List<ProductGroup> GetProductGroups(int category_id);
+        List<ProductGroup> GetAllProductGroups(int category_id);
+        bool CheckStocking(string product_group_id);
+        bool UpdateStocking(string product_group_id, bool status);
         #endregion
 
         #region Product
-        List<Product> GetProducts(string productGroupId);
+        List<Product> GetAllProducts(string productGroupId);
         bool UpdateProduct(string productGroupId, string productId, string productName, int quantity, double importPrice, double salePrice, string description, string image, bool status);
         bool InsertProduct(string productGroupId, string productId, string productName, int quantity, double importPrice, double salePrice, string description, string image, bool status);
         bool DeleteProduct(string productId);
+        #endregion
+
+        #region Supplier
+        List<Supplier> GetAllSuppliers();
+        List<Supplier> GetSuppliersActive();
         #endregion
     }
 }

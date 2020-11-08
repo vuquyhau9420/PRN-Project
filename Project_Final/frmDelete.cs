@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Project_Final {
-    public partial class frmDeleteProduct : Form, ICategoryView, IProductsView, IProductView, IProductGroupsView {
+    public partial class frmDelete : Form, ICategoryView, IProductsView, IProductView, IProductGroupsView {
 
         private CategorysPresenter categorysPresenter;
         private ProductGroupsPresenter productGroupsPresenter;
@@ -21,10 +21,12 @@ namespace Project_Final {
         private ProductPresenter productPresenter;
 
         private List<ProductModel> listProducts;
-        private List<CategoryModel> listCategries;
+        private List<CategoryModel> listCategories;
         private List<ProductGroupModel> listProductGroups;
 
-        public frmDeleteProduct() {
+        public string Type { get; set; }
+
+        public frmDelete() {
             InitializeComponent();
             categorysPresenter = new CategorysPresenter(this);
             productGroupsPresenter = new ProductGroupsPresenter(this);
@@ -32,10 +34,11 @@ namespace Project_Final {
             productsPresenter = new ProductsPresenter(this);
         }
 
-        public string ProductGroupId => throw new NotImplementedException();
+        public string ProductGroupId => GetProductGroupID();
 
         public string ProductID => GetProductID();
 
+        #region Unessecary fields
         public int Quantity => throw new NotImplementedException();
 
         public double ImportPrice => throw new NotImplementedException();
@@ -47,6 +50,7 @@ namespace Project_Final {
         public string ProductImage => throw new NotImplementedException();
 
         public bool Status => throw new NotImplementedException();
+        #endregion
 
         public IList<ProductModel> Products {
             set {
@@ -54,15 +58,26 @@ namespace Project_Final {
             }
         }
         public IList<CategoryModel> Categories {
-            get => throw new NotImplementedException();
             set {
-                listCategries = (List<CategoryModel>)value;
+                listCategories = (List<CategoryModel>)value;
             }
         }
         public IList<ProductGroupModel> ProductGroups {
-            get => throw new NotImplementedException();
             set {
                 listProductGroups = (List<ProductGroupModel>)value;
+            }
+        }
+
+        private void ClassifyType() {
+            if (Type.Equals("Product Group")) {
+                cboProductName.Hide();
+                lblProduct.Hide();
+            }
+            else if (Type.Equals("Category")) {
+                cboProductName.Hide();
+                lblProduct.Hide();
+                cboProductGroup.Hide();
+                lblProductGroup.Hide();
             }
         }
 
@@ -70,31 +85,67 @@ namespace Project_Final {
             DialogResult confirm = MessageBox.Show("Do you really want to delete?", "Delete Cofirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (confirm == DialogResult.OK) {
 
-                bool result = productPresenter.Delete();
-                if (result) {
-                    MessageBox.Show("Delete Success.", "Delete Status");
-                    this.Dispose();
+                if (Type.Equals("Product")) {
+                    bool result = productPresenter.Delete();
+                    if (result) {
+                        bool isStocking = productPresenter.CheckStocking();
+                        productPresenter.UpdateStocking(isStocking);
+                        MessageBox.Show("Delete Success.", "Delete Status");
+                        this.Dispose();
+                    }
+                    else {
+                        MessageBox.Show("Delete Fail.", "Delete Status");
+                    }
                 }
-                else {
-                    MessageBox.Show("Delete Fail.", "Delete Status");
+
+                else if (Type.Equals("Product Group")) {
+
+                }
+                else if (Type.Equals("Category")) {
+
                 }
             }
         }
 
+        #region Extend method to get ID
         private string GetProductID() {
             string productItem = cboProductName.SelectedItem.ToString();
-            return productItem.Split(new char[] { '-' })[0];
+            return productItem.Split(new char[] { '-' })[0].Trim();
         }
+
+        private string GetProductGroupID() {
+            string productGroupItem = cboProductGroup.SelectedItem.ToString();
+            return productGroupItem.Split(new char[] { '-' })[0].Trim();
+        }
+        #endregion
 
         private void frmDeleteProduct_Load(object sender, EventArgs e) {
             categorysPresenter.Display();
-            foreach (var item in listCategries) {
-                cboCategory.Items.Add(item.Id + " - " + item.Name);
-            }
+            LoadCategoryCombobox();
 
             cboProductGroup.Enabled = false;
             cboProductName.Enabled = false;
+            ClassifyType();
         }
+
+        #region Load combo box
+        private void LoadCategoryCombobox() {
+            foreach (var item in listCategories) {
+                cboCategory.Items.Add(item.Id + " - " + item.Name);
+            }
+        }
+        private void LoadProductGroupCombobox() {
+            foreach (var productGroup in listProductGroups) {
+                cboProductGroup.Items.Add(productGroup.Id + " - " + productGroup.Name);
+            }
+        }
+
+        private void LoadProductCombobox() {
+            foreach (var product in listProducts) {
+                cboProductName.Items.Add(product.Id + " - " + product.Name);
+            }
+        }
+        #endregion
 
         private void cboCategory_SelectedIndexChanged(object sender, EventArgs e) {
             cboProductGroup.Items.Clear();
@@ -106,14 +157,13 @@ namespace Project_Final {
             string categoryId = categoryItem.Split(new char[] { '-' })[0].Trim();
             cboProductGroup.Items.Clear();
 
-            foreach (var item in listCategries) {
+            foreach (var item in listCategories) {
 
+                // Load list product group
                 if (item.Id == int.Parse(categoryId)) {
                     productGroupsPresenter.Display(item.Id);
 
-                    foreach (var productGroup in listProductGroups) {
-                        cboProductGroup.Items.Add(productGroup.Id + " - " + productGroup.Name);
-                    }
+                    LoadProductGroupCombobox();
 
                     cboProductGroup.Enabled = true;
                 }
@@ -129,13 +179,11 @@ namespace Project_Final {
 
             foreach (var item in listProductGroups) {
 
+                // Load list product
                 if (item.Id.Equals(productGroupId)) {
                     productsPresenter.Display(item.Id);
 
-                    foreach (var product in listProducts) {
-                        Console.WriteLine(product.Id + " - " + product.Name);
-                        cboProductName.Items.Add(product.Id + " - " + product.Name);
-                    }
+                    LoadProductCombobox();
 
                     cboProductName.Enabled = true;
                 }
