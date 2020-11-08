@@ -161,7 +161,7 @@ namespace Project_Final {
 
                 // Load list product group
                 if (item.Id == int.Parse(categoryId)) {
-                    productGroupsPresenter.Display(item.Id);
+                    productGroupsPresenter.DisplayBaseCategory(item.Id);
 
                     LoadProductGroupCombobox();
 

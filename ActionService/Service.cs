@@ -29,10 +29,21 @@ namespace ActionService {
         #endregion
 
         #region Product_Group
-        public List<ProductGroup> GetAllProductGroups(int category_id) {
-            return productGroupDao.GetAllProductGroups(category_id);
+        public List<ProductGroup> GetProductGroupsActiveBaseCategory(int category_id) {
+            return productGroupDao.GetProductGroupsActiveBaseCategory(category_id);
         }
 
+        public List<ProductGroup> GetAllProductGroupsBaseCategory(int category_id) {
+            return productGroupDao.GetAllProductGroupsBaseCategory(category_id);
+        }
+
+        public List<ProductGroup> GetProductGroupsActiveBaseSupplier(int supplier_id) {
+            return productGroupDao.GetProductGroupsActiveBaseSupplier(supplier_id);
+        }
+
+        public List<ProductGroup> GetAllProductGroupsBaseSupplier(int supplier_id) {
+            return productGroupDao.GetAllProductGroupsBaseSupplier(supplier_id);
+        }
         public bool CheckStocking(string product_group_id) {
             return productGroupDao.CheckStocking(product_group_id);
         }

@@ -302,7 +302,7 @@ namespace Project_Final {
         private void cboCategory_SelectedIndexChanged(object sender, EventArgs e) {
             int categoryId = int.Parse(GetCategoryID());
             cboProductGroup.Items.Clear();
-            productGroupsPresenter.Display(categoryId);
+            productGroupsPresenter.DisplayBaseCategory(categoryId);
             cboProductGroup.Enabled = true;
             if (ProductGroups != null) {
                 LoadProductGroups();

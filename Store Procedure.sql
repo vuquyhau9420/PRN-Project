@@ -43,7 +43,7 @@ EXEC spGetCategoriesActive
 
 /* Product Group */
 
-CREATE PROCEDURE spGetProductGroupActive(@CATEGORY_ID int)
+CREATE PROCEDURE spGetProductGroupActiveBaseCategory(@CATEGORY_ID int)
 AS
 	BEGIN
 		SELECT product_group_id, product_group_name, supplier_name, category_name, product_group_stocking, product_group_status
@@ -53,11 +53,11 @@ AS
 	END
 GO
 
-drop proc spGetProductGroupActive
+drop proc spGetProductGroupActiveBaseCategory
 
-EXEC spGetProductGroupActive @CATEGORY_ID = 1
+EXEC spGetProductGroupActiveBaseCategory @CATEGORY_ID = 1
 
-CREATE PROCEDURE spGetAllProductGroup(@CATEGORY_ID int)
+CREATE PROCEDURE spGetAllProductGroupBaseCategory(@CATEGORY_ID int)
 AS
 	BEGIN
 		SELECT product_group_id, product_group_name, supplier_name, category_name, product_group_stocking, product_group_status
@@ -67,9 +67,42 @@ AS
 	END
 GO
 
-drop proc spGetAllProductGroup
+drop proc spGetAllProductGroupBaseCategory
 
-EXEC spGetAllProductGroup @CATEGORY_ID = 1
+EXEC spGetAllProductGroupBaseCategory @CATEGORY_ID = 1
+
+
+
+CREATE PROCEDURE spGetProductGroupActiveBaseSupplier(@SUPPLIER_ID int)
+AS
+	BEGIN
+		SELECT product_group_id, product_group_name, supplier_name, category_name, product_group_stocking, product_group_status
+        FROM product_group, category, supplier 
+        WHERE product_group_status = 1 AND product_group.supplier_id = @SUPPLIER_ID AND category.category_id = product_group.product_group_catgory
+				AND supplier.supplier_id = product_group.supplier_id
+	END
+GO
+
+drop proc spGetProductGroupActiveBaseSupplier
+
+EXEC spGetProductGroupActiveBaseSupplier 1
+
+CREATE PROCEDURE spGetAllProductGroupBaseSupplier(@SUPPLIER_ID int)
+AS
+	BEGIN
+		SELECT product_group_id, product_group_name, supplier_name, category_name, product_group_stocking, product_group_status
+        FROM product_group, category, supplier 
+        WHERE product_group.supplier_id = @SUPPLIER_ID AND category.category_id = product_group.product_group_catgory
+				AND supplier.supplier_id = product_group.supplier_id
+	END
+GO
+
+drop proc spGetAllProductGroupBaseSupplier
+
+EXEC spGetAllProductGroupBaseSupplier 1
+
+
+
 
 CREATE PROCEDURE spCheckStocking(@PRODUCT_GROUP_ID varchar(10))
 AS

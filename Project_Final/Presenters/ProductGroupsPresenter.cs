@@ -12,8 +12,12 @@ namespace Project_Final.Presenters {
 
         }
 
-        public void Display(int category_id) {
-            View.ProductGroups = Model.GetAllProductGroups(category_id);
+        public void DisplayBaseCategory(int category_id) {
+            View.ProductGroups = Model.GetAllProductGroupsBaseCategory(category_id);
+        }
+
+        public void DisplayBaseSupplier(int supplier_id) {
+            View.ProductGroups = Model.GetAllProductGroupsBaseSupplier(supplier_id);
         }
     }
 }

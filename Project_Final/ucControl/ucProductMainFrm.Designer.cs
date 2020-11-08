@@ -26,6 +26,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Category");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucProductMainFrm));
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Supplier");
             this.treeViewCategory = new System.Windows.Forms.TreeView();
             this.imageListCategory = new System.Windows.Forms.ImageList(this.components);
             this.dgvProductGroup = new System.Windows.Forms.DataGridView();
@@ -41,6 +42,10 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btnAddProduct = new System.Windows.Forms.Button();
             this.btnDeleteProduct = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btnAddSupplier = new System.Windows.Forms.Button();
+            this.btnDeleteSupplier = new System.Windows.Forms.Button();
+            this.treeViewSupplier = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -48,6 +53,7 @@
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // treeViewCategory
@@ -81,7 +87,7 @@
             this.dgvProductGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProductGroup.Location = new System.Drawing.Point(3, 16);
             this.dgvProductGroup.Name = "dgvProductGroup";
-            this.dgvProductGroup.Size = new System.Drawing.Size(629, 463);
+            this.dgvProductGroup.Size = new System.Drawing.Size(827, 463);
             this.dgvProductGroup.TabIndex = 1;
             this.dgvProductGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductGroup_CellClick);
             this.dgvProductGroup.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductGroup_CellDoubleClick);
@@ -93,7 +99,7 @@
             this.dgvProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProduct.Location = new System.Drawing.Point(3, 16);
             this.dgvProduct.Name = "dgvProduct";
-            this.dgvProduct.Size = new System.Drawing.Size(629, 102);
+            this.dgvProduct.Size = new System.Drawing.Size(827, 102);
             this.dgvProduct.TabIndex = 4;
             this.dgvProduct.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellDoubleClick);
             // 
@@ -106,7 +112,7 @@
             this.groupBox1.Controls.Add(this.dgvProductGroup);
             this.groupBox1.Location = new System.Drawing.Point(190, 56);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(635, 482);
+            this.groupBox1.Size = new System.Drawing.Size(833, 482);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Product Group";
@@ -120,7 +126,7 @@
             this.groupBox2.Controls.Add(this.dgvProduct);
             this.groupBox2.Location = new System.Drawing.Point(190, 544);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(635, 121);
+            this.groupBox2.Size = new System.Drawing.Size(833, 121);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Product";
@@ -234,6 +240,58 @@
             this.btnDeleteProduct.UseVisualStyleBackColor = true;
             this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.btnAddSupplier);
+            this.groupBox6.Controls.Add(this.btnDeleteSupplier);
+            this.groupBox6.Location = new System.Drawing.Point(820, 0);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(203, 50);
+            this.groupBox6.TabIndex = 14;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Supplier Control";
+            // 
+            // btnAddSupplier
+            // 
+            this.btnAddSupplier.Image = global::Project_Final.Properties.Resources.add_16px;
+            this.btnAddSupplier.Location = new System.Drawing.Point(6, 16);
+            this.btnAddSupplier.Name = "btnAddSupplier";
+            this.btnAddSupplier.Size = new System.Drawing.Size(97, 28);
+            this.btnAddSupplier.TabIndex = 11;
+            this.btnAddSupplier.Text = "Add";
+            this.btnAddSupplier.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddSupplier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddSupplier.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteSupplier
+            // 
+            this.btnDeleteSupplier.Image = global::Project_Final.Properties.Resources.delete_16px;
+            this.btnDeleteSupplier.Location = new System.Drawing.Point(107, 16);
+            this.btnDeleteSupplier.Name = "btnDeleteSupplier";
+            this.btnDeleteSupplier.Size = new System.Drawing.Size(90, 28);
+            this.btnDeleteSupplier.TabIndex = 12;
+            this.btnDeleteSupplier.Text = "Delete";
+            this.btnDeleteSupplier.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeleteSupplier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeleteSupplier.UseVisualStyleBackColor = true;
+            this.btnDeleteSupplier.Click += new System.EventHandler(this.btnDeleteCategory_Click);
+            // 
+            // treeViewSupplier
+            // 
+            this.treeViewSupplier.Dock = System.Windows.Forms.DockStyle.Right;
+            this.treeViewSupplier.ImageIndex = 0;
+            this.treeViewSupplier.ImageList = this.imageListCategory;
+            this.treeViewSupplier.Location = new System.Drawing.Point(1032, 0);
+            this.treeViewSupplier.Name = "treeViewSupplier";
+            treeNode2.Name = "Node0";
+            treeNode2.Text = "Supplier";
+            this.treeViewSupplier.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode2});
+            this.treeViewSupplier.SelectedImageIndex = 0;
+            this.treeViewSupplier.Size = new System.Drawing.Size(184, 678);
+            this.treeViewSupplier.TabIndex = 0;
+            this.treeViewSupplier.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewSupplier_AfterSelect);
+            // 
             // ucProductMainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -241,12 +299,14 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.treeViewSupplier);
             this.Controls.Add(this.treeViewCategory);
             this.Name = "ucProductMainFrm";
-            this.Size = new System.Drawing.Size(838, 678);
+            this.Size = new System.Drawing.Size(1216, 678);
             this.Load += new System.EventHandler(this.ucProductMainFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
@@ -255,6 +315,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,5 +338,9 @@
         private System.Windows.Forms.Button btnAddProduct;
         private System.Windows.Forms.Button btnDeleteProduct;
         private System.Windows.Forms.ImageList imageListCategory;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button btnAddSupplier;
+        private System.Windows.Forms.Button btnDeleteSupplier;
+        private System.Windows.Forms.TreeView treeViewSupplier;
     }
 }

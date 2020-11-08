@@ -11,5 +11,7 @@ namespace Project_Final.Model.Models {
         public string Phone { get; set; }
         public string Address { get; set; }
         public bool Status { get; set; }
+
+        public IList<ProductGroupModel> ProductGroups { get; set; }
     }
 }

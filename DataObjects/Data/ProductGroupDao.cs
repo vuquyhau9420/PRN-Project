@@ -55,6 +55,30 @@ namespace DataObjects.Data {
             return false;
         }
 
+        public List<ProductGroup> GetProductGroupsActiveBaseCategory(int category_id) {
+            string storeProcedure = "spGetProductGroupActiveBaseCategory";
+            object[] parms = { "@CATEGORY_ID", category_id };
+            return db.Read(storeProcedure, make, parms).ToList();
+        }
+
+        public List<ProductGroup> GetAllProductGroupsBaseCategory(int category_id) {
+            string storeProcedure = "spGetAllProductGroupBaseCategory";
+            object[] parms = { "@CATEGORY_ID", category_id };
+            return db.Read(storeProcedure, make, parms).ToList();
+        }
+
+        public List<ProductGroup> GetProductGroupsActiveBaseSupplier(int supplier_id) {
+            string storeProcedure = "spGetProductGroupActiveBaseSupplier";
+            object[] parms = { "@SUPPLIER_ID", supplier_id };
+            return db.Read(storeProcedure, make, parms).ToList();
+        }
+
+        public List<ProductGroup> GetAllProductGroupsBaseSupplier(int supplier_id) {
+            string storeProcedure = "spGetAllProductGroupBaseSupplier";
+            object[] parms = { "@SUPPLIER_ID", supplier_id };
+            return db.Read(storeProcedure, make, parms).ToList();
+        }
+
         static Func<IDataReader, ProductGroup> make = reader => new ProductGroup
         {
             Id = reader["product_group_id"].AsString(),

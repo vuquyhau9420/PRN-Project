@@ -34,8 +34,20 @@ namespace Project_Final.Model {
         #endregion
 
         #region Product Group
-        public List<ProductGroupModel> GetAllProductGroups(int category_id) {
-            return Mapper.Map<List<ProductGroup>, List<ProductGroupModel>>(service.GetAllProductGroups(category_id));
+        public List<ProductGroupModel> GetProductGroupsActiveBaseCategory(int category_id) {
+            return Mapper.Map<List<ProductGroup>, List<ProductGroupModel>>(service.GetProductGroupsActiveBaseCategory(category_id));
+        }
+
+        public List<ProductGroupModel> GetAllProductGroupsBaseCategory(int category_id) {
+            return Mapper.Map<List<ProductGroup>, List<ProductGroupModel>>(service.GetAllProductGroupsBaseCategory(category_id));
+        }
+
+        public List<ProductGroupModel> GetProductGroupsActiveBaseSupplier(int supplier_id) {
+            return Mapper.Map<List<ProductGroup>, List<ProductGroupModel>>(service.GetProductGroupsActiveBaseSupplier(supplier_id));
+        }
+
+        public List<ProductGroupModel> GetAllProductGroupsBaseSupplier(int supplier_id) {
+            return Mapper.Map<List<ProductGroup>, List<ProductGroupModel>>(service.GetAllProductGroupsBaseSupplier(supplier_id));
         }
 
         public bool CheckStocking(string product_group_id) {

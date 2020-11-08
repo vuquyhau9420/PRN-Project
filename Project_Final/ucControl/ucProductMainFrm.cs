@@ -13,18 +13,21 @@ using Project_Final.Model.Models;
 using System.Collections;
 
 namespace Project_Final.ucControl {
-    public partial class ucProductMainFrm : UserControl, ICategoryView, IProductGroupsView, IProductsView {
+    public partial class ucProductMainFrm : UserControl, ICategoryView, IProductGroupsView, IProductsView, ISuppliersView {
 
         private CategorysPresenter categoryPresenter;
         private ProductGroupsPresenter productGroupPresenter;
         private ProductsPresenter productPresenter;
+        private SuppliersPresenter suppliersPresenter;
 
         private CategoryModel currentCategory;
         private ProductGroupModel currentProductGroup;
+        private SupplierModel currentSupplier;
 
         private List<CategoryModel> listCategories;
         private List<ProductGroupModel> listProductGroups;
         private List<ProductModel> listsProducts;
+        private List<SupplierModel> listSuppliers;
 
         public ucProductMainFrm() {
             InitializeComponent();
@@ -32,6 +35,7 @@ namespace Project_Final.ucControl {
             categoryPresenter = new CategorysPresenter(this);
             productGroupPresenter = new ProductGroupsPresenter(this);
             productPresenter = new ProductsPresenter(this);
+            suppliersPresenter = new SuppliersPresenter(this);
         }
 
         private void ucProductMainFrm_Load(object sender, EventArgs e) {
@@ -42,11 +46,13 @@ namespace Project_Final.ucControl {
         private void StartUp() {
             categoryPresenter.Display();
             currentCategory = listCategories[0];
-            LoadDataFromDB(currentCategory);
+            LoadDataFromDBBaseCategory(currentCategory);
             dgvProduct.DataSource = null;
             dgvProduct.Rows.Clear();
             dgvProductGroup.DataSource = null;
             dgvProductGroup.Rows.Clear();
+
+            suppliersPresenter.Display();
         }
 
         #region List cac model tu view
@@ -90,6 +96,22 @@ namespace Project_Final.ucControl {
                         BindingProduct(products);
                     }
                 }
+            }
+        }
+
+        public IList<SupplierModel> Suppliers {
+            set {
+                var suppliers = value;
+                listSuppliers = (List<SupplierModel>)suppliers;
+
+                var root = treeViewSupplier.Nodes[0];
+                root.Nodes.Clear();
+
+                foreach (var item in suppliers) {
+                    // Add tung Category vao Tree View
+                    AddSupplierToTree(item);
+                }
+                treeViewSupplier.ExpandAll();
             }
         }
         #endregion
@@ -166,6 +188,22 @@ namespace Project_Final.ucControl {
             this.treeViewCategory.Nodes[0].Nodes.Add(node);
             return node;
         }
+
+        private TreeNode AddSupplierToTree(SupplierModel supplier) {
+            var node = new TreeNode();
+            node.Text = supplier.Name;
+            // Set obj cho node
+
+            if (supplier.Status) {
+                node.ImageIndex = 1;
+            }
+            else {
+                node.ImageIndex = 2;
+            }
+            node.Tag = supplier;
+            this.treeViewSupplier.Nodes[0].Nodes.Add(node);
+            return node;
+        }
         #endregion
 
         #region Su kien sau khi chon node tren tree view
@@ -174,16 +212,27 @@ namespace Project_Final.ucControl {
             var category = treeViewCategory.SelectedNode.Tag as CategoryModel;
             if (category != null) {
                 currentCategory = category;
-                LoadDataFromDB(currentCategory);
+                LoadDataFromDBBaseCategory(currentCategory);
             }
         }
         #endregion
 
         #region Lay du lieu tu DB va load len usercontrol
-        private void LoadDataFromDB(CategoryModel category) {
+        private void LoadDataFromDBBaseCategory(CategoryModel category) {
             this.Cursor = Cursors.WaitCursor;
-            productGroupPresenter.Display(category.Id);
+            productGroupPresenter.DisplayBaseCategory(category.Id);
             BindingProductGroup(category.ProductGroups);
+
+            // Load Product Data Grid View theo Product Group dau tien trong list
+            productPresenter.Display(currentProductGroup.Id);
+            BindingProduct(currentProductGroup.ListProducts);
+            this.Cursor = Cursors.Default;
+        }
+
+        private void LoadDataFromDBBaseSupplier(SupplierModel supplier) {
+            this.Cursor = Cursors.WaitCursor;
+            productGroupPresenter.DisplayBaseSupplier(supplier.Id);
+            BindingProductGroup(supplier.ProductGroups);
 
             // Load Product Data Grid View theo Product Group dau tien trong list
             productPresenter.Display(currentProductGroup.Id);
@@ -217,7 +266,7 @@ namespace Project_Final.ucControl {
                 frmProductDetail.ShowDialog();
 
                 if (currentCategory != null) {
-                    LoadDataFromDB(currentCategory);
+                    LoadDataFromDBBaseCategory(currentCategory);
                 }
             }
         }
@@ -227,7 +276,7 @@ namespace Project_Final.ucControl {
             using (frmAddEditProduct frmProductDetail = new frmAddEditProduct() { Categories = listCategories, CurrentCategoryId = currentCategory.Id }) {
                 frmProductDetail.ShowDialog();
 
-                LoadDataFromDB(currentCategory);
+                LoadDataFromDBBaseCategory(currentCategory);
             }
         }
 
@@ -261,6 +310,15 @@ namespace Project_Final.ucControl {
                 formDeleteProduct.ShowDialog();
 
                 StartUp();
+            }
+        }
+
+        private void treeViewSupplier_AfterSelect(object sender, TreeViewEventArgs e) {
+            treeViewSupplier.SelectedImageIndex = treeViewSupplier.SelectedNode.ImageIndex;
+            var supplier = treeViewSupplier.SelectedNode.Tag as SupplierModel;
+            if (supplier != null) {
+                currentSupplier = supplier;
+                LoadDataFromDBBaseSupplier(currentSupplier);
             }
         }
     }

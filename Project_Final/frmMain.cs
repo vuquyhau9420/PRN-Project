@@ -56,6 +56,8 @@ namespace Project_Final {
         }
 
         private void ContentPanel_SizeChanged(object sender, EventArgs e) {
+            Console.WriteLine(this.Height);
+            Console.WriteLine(this.Width);
             if (ucProductMainFrm != null) {
                 ucProductMainFrm.Size = ContentPanel.Size;
             }

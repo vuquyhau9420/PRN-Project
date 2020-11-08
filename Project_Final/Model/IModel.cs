@@ -15,7 +15,10 @@ namespace Project_Final.Model {
         #endregion
 
         #region Product Group
-        List<ProductGroupModel> GetAllProductGroups(int category_id);
+        List<ProductGroupModel> GetProductGroupsActiveBaseCategory(int category_id);
+        List<ProductGroupModel> GetAllProductGroupsBaseCategory(int category_id);
+        List<ProductGroupModel> GetProductGroupsActiveBaseSupplier(int supplier_id);
+        List<ProductGroupModel> GetAllProductGroupsBaseSupplier(int supplier_id);
         bool CheckStocking(string product_group_id);
         bool UpdateStocking(string product_group_id, bool status);
         #endregion
