@@ -117,6 +117,7 @@
     <Compile Include="Model\Models\StaffRoleModel.cs" />
     <Compile Include="Model\Models\SupplierModel.cs" />
     <Compile Include="Presenters\CategorysPresenter.cs" />
+    <Compile Include="Presenters\StaffPresenter.cs" />
     <Compile Include="Presenters\LoginPresenter.cs" />
     <Compile Include="Presenters\Presenter.cs" />
     <Compile Include="Presenters\ProductGroupPresenter.cs" />
@@ -167,6 +168,7 @@
     <Compile Include="Views\IProductGroupView.cs" />
     <Compile Include="Views\IProductsView.cs" />
     <Compile Include="Views\IProductView.cs" />
+    <Compile Include="Views\IStaffView.cs" />
     <Compile Include="Views\ISuppliersView.cs" />
     <Compile Include="Views\IView.cs" />
     <EmbeddedResource Include="frmAddCatogory.resx">

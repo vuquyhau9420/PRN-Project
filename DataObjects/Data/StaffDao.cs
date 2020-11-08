@@ -38,7 +38,9 @@ namespace DataObjects.Data {
         }
 
         public List<Staff> GetStaffs() {
-            throw new NotImplementedException();
+            string storeProcedure = "spGetAllStaff";
+
+            return db.Read(storeProcedure, make).ToList();
         }
 
         public void InsertStaff(Staff staff) {

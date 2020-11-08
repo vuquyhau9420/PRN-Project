@@ -18,6 +18,6 @@ namespace Project_Final.Model.Models {
         public bool Status { get; set; }
 
         // Parent
-        public StaffRoleModel StaffRole { get; set; }
+        //public StaffRoleModel StaffRole { get; set; }
     }
 }

@@ -285,3 +285,15 @@ AS
         FROM supplier
 	END
 GO
+
+/* Staff */
+CREATE PROCEDURE spGetAllStaff
+AS
+	BEGIN
+		SELECT staff_id, staff_username, staff_password, staff_fullname, staff_citizen_identification, staff_sex, staff_phone, staff_address, staff_birthday, staff_role, staff_status
+        FROM staff
+		WHERE staff_status = 1
+	END
+GO
+
+EXEC spGetAllStaff

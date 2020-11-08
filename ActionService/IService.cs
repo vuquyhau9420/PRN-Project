@@ -35,5 +35,7 @@ namespace ActionService {
         List<Supplier> GetAllSuppliers();
         List<Supplier> GetSuppliersActive();
         #endregion
+
+        List<Staff> GetAllStaff();
     }
 }

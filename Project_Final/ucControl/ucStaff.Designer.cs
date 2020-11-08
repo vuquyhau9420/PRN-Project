@@ -402,6 +402,7 @@
             this.Controls.Add(this.dgvStaff);
             this.Name = "ucStaff";
             this.Size = new System.Drawing.Size(1275, 733);
+            this.Load += new System.EventHandler(this.ucStaff_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
