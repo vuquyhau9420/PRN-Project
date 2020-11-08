@@ -52,6 +52,7 @@ create table staff(
 	staff_phone varchar(20) not null,
 	staff_address nvarchar(200) not null,
 	staff_birthDate date not null,
+	staff_image varchar(MAX) not null,
 	staff_role varchar(5) foreign key references staff_role(role_id) not null,
 	staff_status bit default 1 not null
 )
