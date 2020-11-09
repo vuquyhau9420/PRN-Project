@@ -71,6 +71,7 @@
             this.treeViewCategory.Size = new System.Drawing.Size(184, 678);
             this.treeViewCategory.TabIndex = 0;
             this.treeViewCategory.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCategory_AfterSelect);
+            this.treeViewCategory.DoubleClick += new System.EventHandler(this.treeViewCategory_DoubleClick);
             // 
             // imageListCategory
             // 
@@ -166,6 +167,7 @@
             this.btnAddCategory.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddCategory.UseVisualStyleBackColor = true;
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
             // 
             // groupBox4
             // 

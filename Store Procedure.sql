@@ -41,6 +41,37 @@ DROP PROC spGetCategoriesActive
 
 EXEC spGetCategoriesActive
 
+CREATE PROCEDURE spDeleteCategory(@CATEGORY_ID int)
+AS
+BEGIN
+	UPDATE category
+	SET category_status = 0
+	WHERE category_id = @CATEGORY_ID;
+END
+
+CREATE PROCEDURE spCheckCategoryName(@CATEGORY_NAME nvarchar(50))
+AS
+BEGIN
+	SELECT category_id, category_name, category_status
+        FROM category 
+		WHERE category_name = @CATEGORY_NAME
+END
+
+CREATE PROCEDURE spInsertCategory(@CATEGORY_NAME nvarchar(50), @CATEGORY_STATUS bit)
+AS
+BEGIN
+	INSERT INTO category(category_name, category_status)
+	VALUES(@CATEGORY_NAME, @CATEGORY_STATUS)
+END
+
+CREATE PROCEDURE spUpdateCategory(@CATEGORY_ID int, @CATEGORY_STATUS bit)
+AS
+BEGIN
+	UPDATE category
+	SET category_status = @CATEGORY_STATUS
+	WHERE category_id = @CATEGORY_ID
+END
+
 /* Product Group */
 
 CREATE PROCEDURE spGetProductGroupActiveBaseCategory(@CATEGORY_ID int)
@@ -174,6 +205,8 @@ BEGIN
 	WHERE product_group_id = @PRODUCT_GROUP_ID;
 END
 
+EXEC spDeleteProductGroup 'AP018'
+
 /* Product */
 CREATE PROCEDURE spGetProductsActive(@PRODUCT_GROUP_ID varchar(10))
 AS
@@ -267,6 +300,8 @@ BEGIN
 	SET product_status = 0
 	WHERE product_group_id = @PRODUCT_GROUP_ID
 END
+
+EXEC spDeleteProducts @PRODUCT_GROUP_ID = 'AP018'
 
 /* Supplier */
 CREATE PROCEDURE spGetSupplierActive

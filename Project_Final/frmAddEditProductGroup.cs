@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Project_Final {
-    public partial class frmAddEditProductGroup : Form, IProductGroupView, ICategoryView, ISuppliersView {
+    public partial class frmAddEditProductGroup : Form, IProductGroupView, ICategoriesView, ISuppliersView {
 
-        private CategorysPresenter categorysPresenter;
+        private CategoriesPresenter categorysPresenter;
         private ProductGroupPresenter productGroupPresenter;
         private SuppliersPresenter suppliersPresenter;
 
@@ -23,15 +23,15 @@ namespace Project_Final {
 
         public frmAddEditProductGroup() {
             InitializeComponent();
-            categorysPresenter = new CategorysPresenter(this);
+            categorysPresenter = new CategoriesPresenter(this);
             productGroupPresenter = new ProductGroupPresenter(this);
             suppliersPresenter = new SuppliersPresenter(this);
 
         }
 
-        public string Id { get => GetProductGroupId(); }
+        public string GroupId { get => GetProductGroupId(); }
         public string ProductGroupName => txtGroupName.Text.Trim();
-        public int Supplier { get => int.Parse(GetSupplierId().Trim()); }
+        public int ProductGroupSupplier { get => int.Parse(GetSupplierId().Trim()); }
         public int ProductGroupCategory { get => int.Parse(GetCategoryId().Trim()); }
         public bool IsStocking { get => chkStock.Checked; }
         public bool Status { get => chkStatus.Checked; }
@@ -96,6 +96,9 @@ namespace Project_Final {
                     if (item.Name.Equals(ProductGroupSelected.SupplierName)) {
                         cboSupplier.SelectedItem = item.Id + " - " + item.Name;
                     }
+                }
+                else {
+                    cboSupplier.SelectedIndex = 0;
                 }
             }
         }
@@ -184,7 +187,14 @@ namespace Project_Final {
                     }
                 }
                 else {
-
+                    bool result = productGroupPresenter.Update();
+                    if (result) {
+                        MessageBox.Show("Update Success.", "Update Status");
+                        this.Dispose();
+                    }
+                    else {
+                        MessageBox.Show("Update Fail.", "Update Status");
+                    }
                 }
             }
         }

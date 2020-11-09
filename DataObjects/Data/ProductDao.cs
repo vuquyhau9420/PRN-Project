@@ -41,10 +41,6 @@ namespace DataObjects.Data {
             return db.Read(storeProcedure, make, parms).ToList();
         }
 
-        public int GetQuantity(string productId) {
-            throw new NotImplementedException();
-        }
-
         public bool InsertProduct(string productGroupId, string productId, string productName, int quantity, double importPrice, double salePrice, string description, string image, bool status) {
             string storeProcedure = "spInsertProduct";
             object[] parms = { "@PRODUCT_GROUP_ID", productGroupId, "@PRODUCT_ID", productId, "@PRODUCT_NAME", productName,
@@ -69,8 +65,13 @@ namespace DataObjects.Data {
             return false;
         }
 
-        public Product GetProduct(string productId) {
-            throw new NotImplementedException();
+        public bool DeleteProducts(string productGroupId) {
+            string storeProcedure = "spDeleteProducts";
+            object[] parms = { "@PRODUCT_GROUP_ID", productGroupId };
+            if (db.Update(storeProcedure, parms) > 0) {
+                return true;
+            }
+            return false;
         }
 
         static Func<IDataReader, Product> make = reader => new Product

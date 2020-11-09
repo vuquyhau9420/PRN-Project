@@ -21,10 +21,6 @@ namespace DataObjects.Data {
 
         static DBHelpers db = new DBHelpers();
 
-        public string GetName(string productGroupId) {
-            throw new NotImplementedException();
-        }
-
         public bool CheckStocking(string productGroupId) {
             string storeProcedure = "spCheckStocking";
             object[] parms = { "@PRODUCT_GROUP_ID", productGroupId };
@@ -79,8 +75,24 @@ namespace DataObjects.Data {
             return false;
         }
 
-        public bool UpdateProductGroup(string product_group_id, string product_group_name, int supplier_id, int category_id, bool is_stocking, bool status) {
-            throw new NotImplementedException();
+        public bool UpdateProductGroup(string productGroupId, string productGroupName, int supplierId, int categoryId, bool isStocking, bool status) {
+            string storeProcedure = "spUpdateProductGroup";
+            object[] parms = { "@PRODUCT_GROUP_ID", productGroupId, "@PRODUCT_GROUP_NAME", productGroupName,
+                               "@SUPPLIER_ID", supplierId, "@PRODUCT_GROUP_CATEGORY", categoryId,
+                                "@PRODUCT_GROUP_STOCKING", isStocking, "@PRODUCT_GROUP_STATUS", status };
+            if (db.Update(storeProcedure, parms) > 0) {
+                return true;
+            }
+            return false;
+        }
+
+        public bool DeleteProductGroup(string productGroupId) {
+            string storeProcedure = "spDeleteProductGroup";
+            object[] parms = { "@PRODUCT_GROUP_ID", productGroupId };
+            if (db.Update(storeProcedure, parms) > 0) {
+                return true;
+            }
+            return false;
         }
 
         static Func<IDataReader, ProductGroup> make = reader => new ProductGroup

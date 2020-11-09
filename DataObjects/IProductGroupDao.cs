@@ -23,5 +23,7 @@ namespace DataObjects {
         bool InsertProductGroup(string productGroupId, string productGroupName, int supplierId, int categoryId, bool isStocking, bool status);
 
         bool UpdateProductGroup(string productGroupId, string productGroupName, int supplierId, int categoryId, bool isStocking, bool status);
+
+        bool DeleteProductGroup(string productGroupId);
     }
 }

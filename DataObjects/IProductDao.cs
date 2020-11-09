@@ -11,14 +11,12 @@ namespace DataObjects {
 
         List<Product> GetProductsActive(string productGroupId);
 
-        Product GetProduct(string productId);
+        bool DeleteProducts(string productGroupId);
 
         bool InsertProduct(string productGroupId, string productId, string productName, int quantity, double importPrice, double salePrice, string description, string image, bool status);
 
         bool UpdateProduct(string productGroupId, string productId, string productName, int quantity, double importPrice, double salePrice, string description, string image, bool status);
 
         bool DeleteProduct(string productId);
-
-        int GetQuantity(string productId);
     }
 }

@@ -11,8 +11,13 @@ namespace Project_Final.Presenters {
         public ProductsPresenter(IProductsView view) : base(view) {
 
         }
+
         public void Display(string productGroupId) {
             View.Products = Model.GetAllProducts(productGroupId);
+        }
+
+        public void DisplayActiveProducts(string productGroupId) {
+            View.Products = Model.GetProductsActive(productGroupId);
         }
     }
 }

@@ -32,6 +32,26 @@ namespace Project_Final.Model {
         public List<CategoryModel> GetAllCategories() {
             return Mapper.Map<List<Category>, List<CategoryModel>>(service.GetAllCategories());
         }
+
+        public List<CategoryModel> GetCategoriesActive() {
+            return Mapper.Map<List<Category>, List<CategoryModel>>(service.GetCategoriesActive());
+        }
+
+        public bool DeleteCategory(int categoryId) {
+            return service.DeleteCategory(categoryId);
+        }
+
+        public bool AddCategory(string categoryName, bool status) {
+            return service.AddCategory(categoryName, status);
+        }
+
+        public bool CheckCategoryName(string categoryName) {
+            return service.CheckCategoryName(categoryName);
+        }
+
+        public bool UpdateCategory(int categoryId, bool status) {
+            return service.UpdateCategory(categoryId, status);
+        }
         #endregion
 
         #region Product Group
@@ -62,11 +82,22 @@ namespace Project_Final.Model {
         public bool InsertProductGroup(string productGroupId, string productGroupName, int supplierId, int categoryId, bool isStocking, bool status) {
             return service.InsertProductGroup(productGroupId, productGroupName, supplierId, categoryId, isStocking, status);
         }
+
+        public bool UpdateProductGroup(string productGroupId, string productGroupName, int supplierId, int categoryId, bool isStocking, bool status) {
+            return service.UpdateProductGroup(productGroupId, productGroupName, supplierId, categoryId, isStocking, status);
+        }
+
+        public bool DeleteProductGroup(string productGroupId) {
+            return service.DeleteProductGroup(productGroupId);
+        }
         #endregion
 
         #region Product
         public List<ProductModel> GetAllProducts(string productGroupId) {
             return Mapper.Map<List<Product>, List<ProductModel>>(service.GetAllProducts(productGroupId));
+        }
+        public List<ProductModel> GetProductsActive(string productGroupId) {
+            return Mapper.Map<List<Product>, List<ProductModel>>(service.GetProductsActive(productGroupId));
         }
         public bool UpdateProduct(string productGroupId, string productId, string productName, int quantity, double importPrice, double salePrice, string description, string image, bool status) {
             return service.UpdateProduct(productGroupId, productId, productName, quantity, importPrice, salePrice, description, image, status);
@@ -77,7 +108,12 @@ namespace Project_Final.Model {
         public bool DeleteProduct(string productId) {
             return service.DeleteProduct(productId);
         }
+
+        public bool DeleteProducts(string productGroupId) {
+            return service.DeleteProducts(productGroupId);
+        }
         #endregion
+
         #region Supplier
         public List<SupplierModel> GetAllSuppliers() {
             return Mapper.Map<List<Supplier>, List<SupplierModel>>(service.GetAllSuppliers());
@@ -86,9 +122,11 @@ namespace Project_Final.Model {
             return Mapper.Map<List<Supplier>, List<SupplierModel>>(service.GetSuppliersActive());
         }
         #endregion
-        public List<StaffModel> GetAllStaff()
-        {
+
+        #region Staff
+        public List<StaffModel> GetAllStaff() {
             return Mapper.Map<List<Staff>, List<StaffModel>>(service.GetAllStaff());
         }
+        #endregion
     }
 }

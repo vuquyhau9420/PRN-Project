@@ -116,7 +116,8 @@
     <Compile Include="Model\Models\StaffModel.cs" />
     <Compile Include="Model\Models\StaffRoleModel.cs" />
     <Compile Include="Model\Models\SupplierModel.cs" />
-    <Compile Include="Presenters\CategorysPresenter.cs" />
+    <Compile Include="Presenters\CategoriesPresenter.cs" />
+    <Compile Include="Presenters\CategoryPresenter.cs" />
     <Compile Include="Presenters\StaffPresenter.cs" />
     <Compile Include="Presenters\LoginPresenter.cs" />
     <Compile Include="Presenters\Presenter.cs" />
@@ -162,6 +163,7 @@
     <Compile Include="ucControl\ucStaff.Designer.cs">
       <DependentUpon>ucStaff.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ICategoriesView.cs" />
     <Compile Include="Views\ICategoryView.cs" />
     <Compile Include="Views\ILoginView.cs" />
     <Compile Include="Views\IProductGroupsView.cs" />

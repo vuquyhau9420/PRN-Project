@@ -16,6 +16,10 @@ namespace Project_Final.Presenters {
             View.ProductGroups = Model.GetAllProductGroupsBaseCategory(category_id);
         }
 
+        public void DisplayActiveGroupsBaseCategory(int category_id) {
+            View.ProductGroups = Model.GetProductGroupsActiveBaseCategory(category_id);
+        }
+
         public void DisplayBaseSupplier(int supplier_id) {
             View.ProductGroups = Model.GetAllProductGroupsBaseSupplier(supplier_id);
         }

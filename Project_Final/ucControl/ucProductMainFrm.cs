@@ -13,9 +13,9 @@ using Project_Final.Model.Models;
 using System.Collections;
 
 namespace Project_Final.ucControl {
-    public partial class ucProductMainFrm : UserControl, ICategoryView, IProductGroupsView, IProductsView, ISuppliersView {
+    public partial class ucProductMainFrm : UserControl, ICategoriesView, IProductGroupsView, IProductsView, ISuppliersView {
 
-        private CategorysPresenter categoryPresenter;
+        private CategoriesPresenter categoryPresenter;
         private ProductGroupsPresenter productGroupPresenter;
         private ProductsPresenter productPresenter;
         private SuppliersPresenter suppliersPresenter;
@@ -32,7 +32,7 @@ namespace Project_Final.ucControl {
         public ucProductMainFrm() {
             InitializeComponent();
 
-            categoryPresenter = new CategorysPresenter(this);
+            categoryPresenter = new CategoriesPresenter(this);
             productGroupPresenter = new ProductGroupsPresenter(this);
             productPresenter = new ProductsPresenter(this);
             suppliersPresenter = new SuppliersPresenter(this);
@@ -78,7 +78,9 @@ namespace Project_Final.ucControl {
                 var productGroups = value;
                 listProductGroups = (List<ProductGroupModel>)productGroups;
                 currentCategory.ProductGroups = productGroups;
-                currentProductGroup = productGroups[0];
+                if (productGroups.Count > 0) {
+                    currentProductGroup = productGroups[0];
+                }
 
                 BindingProductGroup(productGroups);
             }
@@ -135,7 +137,7 @@ namespace Project_Final.ucControl {
                 dgvProductGroup.Columns["Id"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvProductGroup.Columns["Name"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvProductGroup.Columns["SupplierName"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dgvProductGroup.Columns["SupplierName"].HeaderText = "Supplier";
+                dgvProductGroup.Columns["SupplierName"].HeaderText = "ProductGroupSupplier";
                 dgvProductGroup.Columns["ProductGroupCategory"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvProductGroup.Columns["ProductGroupCategory"].HeaderText = "Category";
                 dgvProductGroup.Columns["IsStocking"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -159,7 +161,7 @@ namespace Project_Final.ucControl {
                 dgvProduct.Columns["Image"].Visible = false;
                 dgvProduct.Columns["ProductGroup"].Visible = false;
 
-                dgvProduct.Columns["Id"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvProduct.Columns["ProductGroupId"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvProduct.Columns["Name"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvProduct.Columns["Quantity"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvProduct.Columns["ImportPrice"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -213,6 +215,10 @@ namespace Project_Final.ucControl {
             if (category != null) {
                 currentCategory = category;
                 LoadDataFromDBBaseCategory(currentCategory);
+                if (listProductGroups.Count < 1) {
+                    dgvProduct.DataSource = null;
+                    dgvProduct.Rows.Clear();
+                }
             }
         }
         #endregion
@@ -331,6 +337,25 @@ namespace Project_Final.ucControl {
                 formAddEditProductGroup.ShowDialog();
 
                 StartUp();
+            }
+        }
+
+        private void btnAddCategory_Click(object sender, EventArgs e) {
+            using (frmAddCatogory formAddCategory = new frmAddCatogory()) {
+                formAddCategory.ShowDialog();
+
+                StartUp();
+            }
+        }
+
+        private void treeViewCategory_DoubleClick(object sender, EventArgs e) {
+            var category = treeViewCategory.SelectedNode.Tag as CategoryModel;
+            if (category != null) {
+                using (frmAddCatogory formEditCategory = new frmAddCatogory() { CategorySelected = category }) {
+                    formEditCategory.ShowDialog();
+
+                    StartUp();
+                }
             }
         }
     }

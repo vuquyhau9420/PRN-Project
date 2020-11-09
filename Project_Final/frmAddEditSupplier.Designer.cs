@@ -49,7 +49,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Supplier Name";
+            this.label1.Text = "ProductGroupSupplier Name";
             // 
             // label2
             // 
@@ -60,7 +60,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(132, 17);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Supplier Address";
+            this.label2.Text = "ProductGroupSupplier Address";
             // 
             // label3
             // 
@@ -71,7 +71,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 17);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Supplier Phone";
+            this.label3.Text = "ProductGroupSupplier Phone";
             // 
             // label4
             // 

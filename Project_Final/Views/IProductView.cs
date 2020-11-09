@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project_Final.Views {
     public interface IProductView : IView {
-        string ProductGroupId { get; }
+        string GroupId { get; }
         string ProductID { get; }
         string ProductName { get; }
         int Quantity { get; }

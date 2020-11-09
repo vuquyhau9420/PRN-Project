@@ -12,24 +12,45 @@ namespace Project_Final.Presenters {
         }
 
         public bool CheckStocking() {
-            string productGroupId = View.Id;
+            string productGroupId = View.GroupId;
             return Model.CheckStocking(productGroupId);
         }
 
         public bool UpdateStocking(bool status) {
-            string productGroupId = View.Id;
+            string productGroupId = View.GroupId;
             return Model.UpdateStocking(productGroupId, status);
         }
 
         public bool Insert() {
-            string productGroupId = View.Id;
+            string productGroupId = View.GroupId;
             string productGroupName = View.ProductGroupName;
-            int supplierId = View.Supplier;
+            int supplierId = View.ProductGroupSupplier;
             int productGroupCategory = View.ProductGroupCategory;
             bool isStocking = View.IsStocking;
             bool status = View.Status;
 
             return Model.InsertProductGroup(productGroupId, productGroupName, supplierId, productGroupCategory, isStocking, status);
+        }
+
+        public bool Update() {
+            string productGroupId = View.GroupId;
+            string productGroupName = View.ProductGroupName;
+            int supplierId = View.ProductGroupSupplier;
+            int productGroupCategory = View.ProductGroupCategory;
+            bool isStocking = View.IsStocking;
+            bool status = View.Status;
+
+            return Model.UpdateProductGroup(productGroupId, productGroupName, supplierId, productGroupCategory, isStocking, status);
+        }
+
+        public bool DeleteProducts() {
+            string productGroupId = View.GroupId;
+            return Model.DeleteProducts(productGroupId);
+        }
+
+        public bool Delete() {
+            string productGroupId = View.GroupId;
+            return Model.DeleteProductGroup(productGroupId);
         }
     }
 }

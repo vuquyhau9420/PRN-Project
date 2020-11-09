@@ -26,6 +26,26 @@ namespace ActionService {
         public List<Category> GetAllCategories() {
             return categoryDao.GetAllCategories();
         }
+
+        public List<Category> GetCategoriesActive() {
+            return categoryDao.GetCategoriesActive();
+        }
+
+        public bool DeleteCategory(int categoryId) {
+            return categoryDao.DeleteCategory(categoryId);
+        }
+
+        public bool AddCategory(string categoryName, bool status) {
+            return categoryDao.AddCategory(categoryName, status);
+        }
+
+        public bool CheckCategoryName(string categoryName) {
+            return categoryDao.CheckCategoryName(categoryName);
+        }
+
+        public bool UpdateCategory(int categoryId, bool status) {
+            return categoryDao.UpdateCategory(categoryId, status);
+        }
         #endregion
 
         #region Product_Group
@@ -55,11 +75,23 @@ namespace ActionService {
         public bool InsertProductGroup(string productGroupId, string productGroupName, int supplierId, int categoryId, bool isStocking, bool status) {
             return productGroupDao.InsertProductGroup(productGroupId, productGroupName, supplierId, categoryId, isStocking, status);
         }
+
+        public bool UpdateProductGroup(string productGroupId, string productGroupName, int supplierId, int categoryId, bool isStocking, bool status) {
+            return productGroupDao.UpdateProductGroup(productGroupId, productGroupName, supplierId, categoryId, isStocking, status);
+        }
+
+        public bool DeleteProductGroup(string productGroupId) {
+            return productGroupDao.DeleteProductGroup(productGroupId);
+        }
         #endregion
 
         #region Product
         public List<Product> GetAllProducts(string productGroupId) {
             return productDao.GetAllProducts(productGroupId);
+        }
+
+        public List<Product> GetProductsActive(string productGroupId) {
+            return productDao.GetProductsActive(productGroupId);
         }
 
         public bool UpdateProduct(string productGroupId, string productId, string productName, int quantity, double importPrice, double salePrice, string description, string image, bool status) {
@@ -74,7 +106,12 @@ namespace ActionService {
             return productDao.DeleteProduct(productId);
         }
 
+        public bool DeleteProducts(string productGroupId) {
+            return productDao.DeleteProducts(productGroupId);
+        }
+
         #endregion
+
         #region Supplier
         public List<Supplier> GetAllSuppliers() {
             return supplierDao.GetAllSuppliers();
@@ -85,9 +122,10 @@ namespace ActionService {
         }
         #endregion
 
-        public List<Staff> GetAllStaff()
-        {
+        #region Staff
+        public List<Staff> GetAllStaff() {
             return staffDao.GetStaffs();
         }
+        #endregion
     }
 }

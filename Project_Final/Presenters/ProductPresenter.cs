@@ -14,7 +14,7 @@ namespace Project_Final.Presenters {
         }
 
         public bool Update() {
-            string productGroupId = View.ProductGroupId;
+            string productGroupId = View.GroupId;
             string productId = View.ProductID;
             string productName = View.ProductName;
             int quantity = View.Quantity;
@@ -27,7 +27,7 @@ namespace Project_Final.Presenters {
         }
 
         public bool Insert() {
-            string productGroupId = View.ProductGroupId;
+            string productGroupId = View.GroupId;
             string productId = View.ProductID;
             string productName = View.ProductName;
             int quantity = View.Quantity;
@@ -45,12 +45,12 @@ namespace Project_Final.Presenters {
         }
 
         public bool CheckStocking() {
-            string product_group_id = View.ProductGroupId;
+            string product_group_id = View.GroupId;
             return Model.CheckStocking(product_group_id);
         }
 
         public bool UpdateStocking(bool status) {
-            string product_group_id = View.ProductGroupId;
+            string product_group_id = View.GroupId;
             return Model.UpdateStocking(product_group_id, status);
         }
     }

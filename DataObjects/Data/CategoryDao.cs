@@ -21,10 +21,6 @@ namespace DataObjects.Data {
             return instance;
         }
 
-        public string GetCategoryName(string categoryId) {
-            throw new NotImplementedException();
-        }
-
         public List<Category> GetAllCategories() {
             string storeProcedure = "spGetAllCategories";
             return db.Read(storeProcedure, make).ToList();
@@ -33,6 +29,42 @@ namespace DataObjects.Data {
         public List<Category> GetCategoriesActive() {
             string storeProcedure = "spGetCategoriesActive";
             return db.Read(storeProcedure, make).ToList();
+        }
+
+        public bool DeleteCategory(int categoryId) {
+            string storeProcedure = "spDeleteCategory";
+            object[] parms = { "@CATEGORY_ID", categoryId };
+            if (db.Update(storeProcedure, parms) > 0) {
+                return true;
+            }
+            return false;
+        }
+
+        public bool AddCategory(string categoryName, bool status) {
+            string storeProcedure = "spInsertCategory";
+            object[] parms = { "@CATEGORY_NAME", categoryName, "@CATEGORY_STATUS", status };
+            if (db.Update(storeProcedure, parms) > 0) {
+                return true;
+            }
+            return false;
+        }
+
+        public bool CheckCategoryName(string categoryName) {
+            string storeProcedure = "spCheckCategoryName";
+            object[] parms = { "@CATEGORY_NAME", categoryName };
+            if (db.Read(storeProcedure, make, parms).FirstOrDefault() != null) {
+                return true;
+            }
+            return false;
+        }
+
+        public bool UpdateCategory(int categoryId, bool status) {
+            string storeProcedure = "spUpdateCategory";
+            object[] parms = { "@CATEGORY_ID", categoryId, "@CATEGORY_STATUS", status };
+            if (db.Update(storeProcedure, parms) > 0) {
+                return true;
+            }
+            return false;
         }
 
         static Func<IDataReader, Category> make = reader => new Category

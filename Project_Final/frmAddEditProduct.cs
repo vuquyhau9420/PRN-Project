@@ -14,10 +14,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Project_Final {
-    public partial class frmAddEditProduct : Form, IProductView, ICategoryView, IProductGroupsView {
+    public partial class frmAddEditProduct : Form, IProductView, ICategoriesView, IProductGroupsView {
 
         private ProductPresenter productPresenter;
-        private CategorysPresenter categorysPresenter;
+        private CategoriesPresenter categorysPresenter;
         private ProductGroupsPresenter productGroupsPresenter;
 
         public ProductModel ProductSelected { get; set; }
@@ -28,7 +28,7 @@ namespace Project_Final {
 
         public int CurrentCategoryId { get; set; }
 
-        public string ProductGroupId => GetProductGroupID().Trim();
+        public string GroupId => GetProductGroupID().Trim();
 
         public string ProductID => GetProductID().Trim();
 
@@ -49,7 +49,7 @@ namespace Project_Final {
         public frmAddEditProduct() {
             InitializeComponent();
             productPresenter = new ProductPresenter(this);
-            categorysPresenter = new CategorysPresenter(this);
+            categorysPresenter = new CategoriesPresenter(this);
             productGroupsPresenter = new ProductGroupsPresenter(this);
         }
 
@@ -91,9 +91,9 @@ namespace Project_Final {
             }
 
             //for (int i = 0; i < ProductGroups.Count; i++) {
-            //    cboProductGroup.Items.Add(ProductGroups[i].Id + " - " + ProductGroups[i].Name);
+            //    cboProductGroup.Items.Add(ProductGroups[i].GroupId + " - " + ProductGroups[i].Name);
             //    if (ProductSelected != null) {
-            //        if (ProductGroups[i].Id.Equals(ProductSelected.ProductGroupId)) {
+            //        if (ProductGroups[i].GroupId.Equals(ProductSelected.GroupId)) {
             //            cboProductGroup.SelectedIndex = i;
             //        }
             //    }

@@ -7,10 +7,16 @@ using System.Threading.Tasks;
 
 namespace DataObjects {
     public interface ICategoryDao {
-        string GetCategoryName(string categoryId);
-
         List<Category> GetAllCategories();
 
         List<Category> GetCategoriesActive();
+
+        bool DeleteCategory(int categoryId);
+
+        bool AddCategory(string categoryName, bool status);
+
+        bool CheckCategoryName(string categoryName);
+
+        bool UpdateCategory(int categoryId, bool status);
     }
 }
