@@ -20,6 +20,8 @@ namespace Project_Final.Model {
             Mapper.CreateMap<ProductGroup, ProductGroupModel>();
             Mapper.CreateMap<Product, ProductModel>();
             Mapper.CreateMap<Supplier, SupplierModel>();
+            Mapper.CreateMap<StaffRole, StaffRoleModel>();
+            Mapper.CreateMap<StaffRoleModel, StaffRole>();
         }
 
         #region Login
@@ -89,6 +91,11 @@ namespace Project_Final.Model {
         public List<StaffModel> GetAllStaff()
         {
             return Mapper.Map<List<Staff>, List<StaffModel>>(service.GetAllStaff());
+        }
+
+        public List<StaffRoleModel> GetAllStaffRole()
+        {
+            return Mapper.Map<List<StaffRole>, List<StaffRoleModel>>(service.GetAllStaffRole());
         }
     }
 }

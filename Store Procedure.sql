@@ -1,7 +1,7 @@
 CREATE PROCEDURE spCheckLogin(@STAFF_USERNAME VARCHAR(100), @STAFF_PASSWORD VARCHAR(30))
 AS
 	BEGIN
-		SELECT staff_id, staff_username, staff_password, staff_fullname, staff_citizen_identification, staff_sex, staff_phone, staff_address, staff_birthday, staff_role, staff_status
+		SELECT staff_id, staff_username, staff_password, staff_fullname, staff_citizen_identification, staff_sex, staff_phone, staff_address, staff_birthday, staff_role, staff_status, staff_image
         FROM staff 
         WHERE staff_username = @STAFF_USERNAME 
               AND staff_password = @STAFF_PASSWORD AND staff_status = 1
@@ -287,13 +287,26 @@ AS
 GO
 
 /* Staff */
+DROP PROC spGetAllStaff
 CREATE PROCEDURE spGetAllStaff
 AS
 	BEGIN
-		SELECT staff_id, staff_username, staff_password, staff_fullname, staff_citizen_identification, staff_sex, staff_phone, staff_address, staff_birthday, staff_role, staff_status
+		SELECT staff_id, staff_username, staff_password, staff_fullname, staff_citizen_identification, staff_sex, staff_phone, staff_address, staff_birthday, staff_role, staff_status, staff_image
         FROM staff
 		WHERE staff_status = 1
 	END
 GO
 
 EXEC spGetAllStaff
+
+Drop PROC spGetAllStaffRole
+
+CREATE PROCEDURE spGetAllStaffRole
+AS
+	BEGIN
+		SELECT role_id, role_name
+        FROM staff_role
+	END
+GO
+
+EXEC spGetAllStaffRole

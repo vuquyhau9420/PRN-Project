@@ -14,5 +14,6 @@
 - 11:10 PM 2-11-2020 (HauVQ): Complete ucMakeOrder
 - 5:35 PM 8-11-2020 (HauVQ): add ucStaff
 - 10:37 PM 8-11-2020 (HauVQ): complete load staff list
+- 11:39 PM 9-11-2020 (HauVQ): load staff role, if login fail drop PROC spCheckLogin and create again , Binding for all text
 
 

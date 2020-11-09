@@ -57,6 +57,9 @@ create table staff(
 	staff_status bit default 1 not null
 )
 
+select * from staff
+
+
 create table staff_role(
 	role_id varchar(5) primary key not null,
 	role_name nvarchar(20) not null

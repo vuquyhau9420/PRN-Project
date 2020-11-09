@@ -36,5 +36,7 @@ namespace Project_Final.Model {
         #endregion
 
         List<StaffModel> GetAllStaff();
+
+        List<StaffRoleModel> GetAllStaffRole();
     }
 }

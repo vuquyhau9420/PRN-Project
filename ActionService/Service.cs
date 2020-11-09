@@ -15,6 +15,7 @@ namespace ActionService {
         static readonly IProductGroupDao productGroupDao = ProductGroupDao.GetInstance();
         static readonly IProductDao productDao = ProductDao.GetInstance();
         static readonly ISupplierDao supplierDao = SupplierDao.GetInstance();
+        static readonly IStaffRoleDao staffRoleDao = StaffRoleDao.GetInstance();
 
         #region Login
         public Staff CheckLogin(string username, string password) {
@@ -85,9 +86,18 @@ namespace ActionService {
         }
         #endregion
 
+        #region Staff
         public List<Staff> GetAllStaff()
         {
             return staffDao.GetStaffs();
         }
+        #endregion
+
+        #region Staff Role
+        public List<StaffRole> GetAllStaffRole()
+        {
+            return staffRoleDao.GetAllRoles();
+        }
+        #endregion
     }
 }

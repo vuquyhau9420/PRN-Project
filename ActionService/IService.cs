@@ -37,5 +37,7 @@ namespace ActionService {
         #endregion
 
         List<Staff> GetAllStaff();
+
+        List<StaffRole> GetAllStaffRole();
     }
 }
