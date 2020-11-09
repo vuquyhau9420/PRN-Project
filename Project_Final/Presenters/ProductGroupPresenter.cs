@@ -23,7 +23,7 @@ namespace Project_Final.Presenters {
 
         public bool Insert() {
             string productGroupId = View.Id;
-            string productGroupName = View.Name;
+            string productGroupName = View.ProductGroupName;
             int supplierId = View.Supplier;
             int productGroupCategory = View.ProductGroupCategory;
             bool isStocking = View.IsStocking;

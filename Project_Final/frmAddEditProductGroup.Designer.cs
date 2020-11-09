@@ -121,6 +121,7 @@
             this.txtGroupID.Name = "txtGroupID";
             this.txtGroupID.Size = new System.Drawing.Size(119, 20);
             this.txtGroupID.TabIndex = 6;
+            this.txtGroupID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGroupID_KeyPress);
             // 
             // txtGroupName
             // 

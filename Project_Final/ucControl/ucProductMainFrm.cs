@@ -293,7 +293,11 @@ namespace Project_Final.ucControl {
             var productGroup = dgvProductGroup.Rows[index].Tag as ProductGroupModel;
 
             if (productGroup != null) {
+                using (frmAddEditProductGroup formEditProductGroup = new frmAddEditProductGroup() { ProductGroupSelected = productGroup }) {
+                    formEditProductGroup.ShowDialog();
 
+                    StartUp();
+                }
             }
         }
 

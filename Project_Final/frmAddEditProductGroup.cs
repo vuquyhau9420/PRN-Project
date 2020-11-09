@@ -30,7 +30,7 @@ namespace Project_Final {
         }
 
         public string Id { get => GetProductGroupId(); }
-        public string ProductGroupNameName => txtGroupName.Text.Trim();
+        public string ProductGroupName => txtGroupName.Text.Trim();
         public int Supplier { get => int.Parse(GetSupplierId().Trim()); }
         public int ProductGroupCategory { get => int.Parse(GetCategoryId().Trim()); }
         public bool IsStocking { get => chkStock.Checked; }
@@ -70,18 +70,54 @@ namespace Project_Final {
             suppliersPresenter.Display();
             LoadCategoryCombobox();
             LoadSupplierCombobox();
+            if (ProductGroupSelected != null) {
+                cboCategory.Enabled = false;
+                txtGroupID.Enabled = false;
+                LoadFields();
+                chkStock.Enabled = true;
+            }
         }
 
         private void LoadCategoryCombobox() {
             foreach (var item in listCategories) {
                 cboCategory.Items.Add(item.Id + " - " + item.Name);
+                if (ProductGroupSelected != null) {
+                    if (item.Name.Equals(ProductGroupSelected.ProductGroupCategory)) {
+                        cboCategory.SelectedItem = item.Id + " - " + item.Name;
+                    }
+                }
             }
         }
 
         private void LoadSupplierCombobox() {
             foreach (var item in listSupplier) {
                 cboSupplier.Items.Add(item.Id + " - " + item.Name);
+                if (ProductGroupSelected != null) {
+                    if (item.Name.Equals(ProductGroupSelected.SupplierName)) {
+                        cboSupplier.SelectedItem = item.Id + " - " + item.Name;
+                    }
+                }
             }
+        }
+
+        private void LoadFields() {
+            txtGroupID.Text = LoadIdField();
+            txtGroupName.Text = ProductGroupSelected.Name;
+            chkStock.Checked = ProductGroupSelected.IsStocking;
+            chkStatus.Checked = ProductGroupSelected.Status;
+        }
+
+        private string LoadIdField() {
+            string field = string.Empty;
+            string id = ProductGroupSelected.Id;
+            bool contain = id.Contains(lblId.Text);
+            if (contain) {
+                for (int i = 0; i < id.Length; i++) {
+                    if (Char.IsDigit(id[i]))
+                        field += id[i];
+                }
+            }
+            return field;
         }
 
         private bool ValidateFields() {
@@ -147,11 +183,14 @@ namespace Project_Final {
                         MessageBox.Show("Add Fail.", "Insert Status");
                     }
                 }
+                else {
+
+                }
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {
-
+            this.Dispose();
         }
 
         public string RemoveUnicode(string text) {
@@ -174,6 +213,12 @@ namespace Project_Final {
                 text = text.Replace(arr1[i].ToUpper(), arr2[i].ToUpper());
             }
             return text;
+        }
+
+        private void txtGroupID_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
+                e.Handled = true;
+            }
         }
     }
 }

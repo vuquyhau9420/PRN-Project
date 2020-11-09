@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Project_Final.Views {
     interface IProductGroupView : IView {
         string Id { get; }
-        string ProductGroupNameName { get; }
+        string ProductGroupName { get; }
         int Supplier { get; }
         int ProductGroupCategory { get; }
         bool IsStocking { get; }

@@ -89,6 +89,15 @@ namespace Project_Final {
                     }
                 }
             }
+
+            //for (int i = 0; i < ProductGroups.Count; i++) {
+            //    cboProductGroup.Items.Add(ProductGroups[i].Id + " - " + ProductGroups[i].Name);
+            //    if (ProductSelected != null) {
+            //        if (ProductGroups[i].Id.Equals(ProductSelected.ProductGroupId)) {
+            //            cboProductGroup.SelectedIndex = i;
+            //        }
+            //    }
+            //}
         }
         #endregion
 
@@ -288,6 +297,7 @@ namespace Project_Final {
 
         #region Combobox product group select
         private void cboProductGroup_SelectedIndexChanged(object sender, EventArgs e) {
+            Console.WriteLine("alo");
             string productGroupItem = cboProductGroup.SelectedItem.ToString();
             string productGroupId = productGroupItem.Split(new char[] { '-' })[0].Trim();
             if (!productGroupId.Equals("")) {
@@ -304,9 +314,9 @@ namespace Project_Final {
             productGroupsPresenter.DisplayBaseCategory(categoryId);
             cboProductGroup.Enabled = true;
             if (ProductGroups != null) {
-                LoadProductGroups();
                 cboProductGroup.Text = "";
                 lblProductGroupId.Text = "";
+                LoadProductGroups();
             }
         }
         #endregion
