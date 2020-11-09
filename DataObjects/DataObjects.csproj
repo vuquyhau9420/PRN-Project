@@ -46,6 +46,7 @@
     <Compile Include="Data\ProductDao.cs" />
     <Compile Include="Data\ProductGroupDao.cs" />
     <Compile Include="Data\StaffDao.cs" />
+    <Compile Include="Data\StaffRoleDao.cs" />
     <Compile Include="Data\SupplierDao.cs" />
     <Compile Include="DBHelpers.cs" />
     <Compile Include="Extension.cs" />

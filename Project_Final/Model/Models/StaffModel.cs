@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project_Final.Model.Models {
     public class StaffModel {
+        public int Id { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
         public string FullName { get; set; }
@@ -16,6 +17,8 @@ namespace Project_Final.Model.Models {
         public DateTime BirthDay { get; set; }
         public string Role { get; set; }
         public bool Status { get; set; }
+
+        public string Image { get; set; }
 
         // Parent
         //public StaffRoleModel StaffRole { get; set; }

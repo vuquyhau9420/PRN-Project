@@ -45,8 +45,8 @@ namespace Project_Final.Model {
         List<SupplierModel> GetSuppliersActive();
         #endregion
 
-        #region Staff
         List<StaffModel> GetAllStaff();
-        #endregion
+
+        List<StaffRoleModel> GetAllStaffRole();
     }
 }

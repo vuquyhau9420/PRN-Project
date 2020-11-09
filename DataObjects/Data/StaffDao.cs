@@ -42,7 +42,7 @@ namespace DataObjects.Data {
 
             return db.Read(storeProcedure, make).ToList();
         }
-
+        
         public void InsertStaff(Staff staff) {
             throw new NotImplementedException();
         }
@@ -63,7 +63,8 @@ namespace DataObjects.Data {
             Address = reader["staff_address"].AsString(),
             BirthDay = reader["staff_birthday"].AsDateTime(),
             Role = reader["staff_role"].AsString(),
-            Status = reader["staff_status"].AsBoolean()
+            Status = reader["staff_status"].AsBoolean(),
+            Image = reader["staff_image"].AsString()
         };
     }
 }

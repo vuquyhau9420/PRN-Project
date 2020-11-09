@@ -18,6 +18,8 @@ namespace BusinessObject {
         public string Role { get; set; }
         public bool Status { get; set; }
 
+        public string Image { get; set; }
+
         // Parent
         public StaffRole StaffRole { get; set; }
     }

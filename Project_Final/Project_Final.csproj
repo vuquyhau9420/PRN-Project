@@ -125,6 +125,7 @@
     <Compile Include="Presenters\ProductGroupsPresenter.cs" />
     <Compile Include="Presenters\ProductPresenter.cs" />
     <Compile Include="Presenters\ProductsPresenter.cs" />
+    <Compile Include="Presenters\StaffRolePresenter.cs" />
     <Compile Include="Presenters\SuppliersPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -170,6 +171,7 @@
     <Compile Include="Views\IProductGroupView.cs" />
     <Compile Include="Views\IProductsView.cs" />
     <Compile Include="Views\IProductView.cs" />
+    <Compile Include="Views\IStaffRoleView.cs" />
     <Compile Include="Views\IStaffView.cs" />
     <Compile Include="Views\ISuppliersView.cs" />
     <Compile Include="Views\IView.cs" />
