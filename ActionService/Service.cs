@@ -133,6 +133,11 @@ namespace ActionService {
         public List<StaffRole> GetAllStaffRole() {
             return staffRoleDao.GetAllRoles();
         }
+
+        public bool InsertStaff(Staff staff)
+        {
+            return staffDao.InsertStaff(staff);
+        }
         #endregion
     }
 }

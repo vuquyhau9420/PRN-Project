@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Project_Final.Views;
 using Project_Final.Presenters;
 using Project_Final.Model.Models;
+using DataLibrary;
 
 namespace Project_Final.ucControl
 {
@@ -51,6 +52,28 @@ namespace Project_Final.ucControl
             }
 
         }
+
+        public string UserName => txtUsername.Text.Trim();
+
+        public string Password => txtPassword.Text;
+
+        public string FullName => txtStaffName.Text.Trim();
+
+        public string CitizenIdentification => txtCiti_Iden.Text.Trim();
+
+        public bool Sex => chkSex.Checked;
+
+        public string Phone => txtPhoneNumber.Text.Trim();
+
+        public string Address => txtAddress.Text.Trim();
+
+        public DateTime BirthDay => mskBirthday.Text.Trim().AsDateTime();
+
+        public string Role => GetRoleName();
+
+        public bool Status => chkStatus.Checked;
+
+        public string Images => txtImage.Text.Trim();
 
         private void ucStaff_Load(object sender, EventArgs e)
         {
@@ -135,7 +158,7 @@ namespace Project_Final.ucControl
             txtAddress.DataBindings.Clear();
             txtCiti_Iden.DataBindings.Clear();
             txtImage.DataBindings.Clear();
-            txtBirthday.DataBindings.Clear();
+            mskBirthday.DataBindings.Clear();
             chkSex.DataBindings.Clear();
             chkStatus.DataBindings.Clear();
         }
@@ -151,7 +174,7 @@ namespace Project_Final.ucControl
             txtAddress.DataBindings.Add("Text", dgvStaff.DataSource, "Address");
             txtCiti_Iden.DataBindings.Add("Text", dgvStaff.DataSource, "CitizenIdentification");
             txtImage.DataBindings.Add("Text", dgvStaff.DataSource, "Image");
-            txtBirthday.DataBindings.Add("Text", dgvStaff.DataSource, "BirthDay");
+            mskBirthday.DataBindings.Add("Text", dgvStaff.DataSource, "BirthDay");
             chkSex.DataBindings.Add("Checked", dgvStaff.DataSource, "Sex");
             chkStatus.DataBindings.Add("Checked", dgvStaff.DataSource, "Status");
 
@@ -185,6 +208,7 @@ namespace Project_Final.ucControl
                 btnDelete.Enabled = true;
                 btnUpdate.Enabled = true;
                 btnChooseImage.Enabled = false;
+                dgvStaff.Enabled = true;
             }
             if (action == 1)
             {
@@ -192,6 +216,7 @@ namespace Project_Final.ucControl
                 btnDelete.Enabled = false;
                 btnUpdate.Enabled = false;
                 btnChooseImage.Enabled = true;
+                dgvStaff.Enabled = false;
             }
             if (action == 2)
             {
@@ -211,7 +236,7 @@ namespace Project_Final.ucControl
         private void ClearAllTextField()
         {
             txtAddress.Text = String.Empty;
-            txtBirthday.Text = String.Empty;
+            mskBirthday.Text = String.Empty;
             txtCiti_Iden.Text = String.Empty;
             txtImage.Text = String.Empty;
             txtPassword.Text = String.Empty;
@@ -230,23 +255,37 @@ namespace Project_Final.ucControl
                 if(openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     txtImage.Text = openFileDialog.FileName;
+                    pBImage.Image = Image.FromFile(txtImage.Text.Trim());
                 }
             }
         }
 
         private void dgvStaff_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = dgvStaff.Rows[e.RowIndex];
-            string role = row.Cells[9].Value.ToString();
-            foreach (StaffRoleModel item in cboRole.Items)
+            int index = e.RowIndex;
+            if(index >= 0)
             {
-                if (item.Id.Equals(role))
+                DataGridViewRow row = dgvStaff.Rows[e.RowIndex];
+                string role = row.Cells[9].Value.ToString();
+                foreach (StaffRoleModel item in cboRole.Items)
                 {
-                    cboRole.SelectedItem = item;
-                    break;
+                    if (item.Id.Equals(role))
+                    {
+                        cboRole.SelectedItem = item;
+                        break;
+                    }
                 }
+                string fileName = row.Cells[11].Value.ToString();
+                pBImage.Image = Image.FromFile(fileName);
+                pBImage.SizeMode = PictureBoxSizeMode.AutoSize;
             }
-            
         }
+
+        private string GetRoleName()
+        {
+            StaffRoleModel staffRoleModel = (StaffRoleModel)cboRole.SelectedItem;
+            return staffRoleModel.Name;
+        }
+
     }
 }

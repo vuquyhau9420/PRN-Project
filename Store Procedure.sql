@@ -1,4 +1,4 @@
-CREATE PROCEDURE spCheckLogin(@STAFF_USERNAME VARCHAR(100), @STAFF_PASSWORD VARCHAR(30))
+49CREATE PROCEDURE spCheckLogin(@STAFF_USERNAME VARCHAR(100), @STAFF_PASSWORD VARCHAR(30))
 AS
 	BEGIN
 		SELECT staff_id, staff_username, staff_password, staff_fullname, staff_citizen_identification, staff_sex, staff_phone, staff_address, staff_birthday, staff_role, staff_status, staff_image
@@ -345,3 +345,25 @@ AS
 GO
 
 EXEC spGetAllStaffRole
+
+CREATE PROCEDURE spInsertStaff (
+								@Username varchar(100),
+							    @Password varchar(30),
+						        @FulName nvarchar(50),
+						        @Citizen_identification varchar(12),
+						        @Sex bit = 1,
+						        @Phone varchar(20),
+						        @Address nvarchar(200),
+						        @Birthday Date,
+						        @Image varchar(MAX),
+						        @Role varchar(5),
+						        @Status bit = 1
+								)
+AS
+	BEGIN
+		INSERT staff(staff_username, staff_password, staff_fullname, staff_citizen_identification, staff_sex, staff_phone, staff_address, staff_birthday, staff_role, staff_status, staff_image) 
+			 VALUES (@Username, @Password, @FulName, @Citizen_identification, @Sex, @Phone, @Address, @Birthday, @Role, @Status, @Image)	
+	END
+GO
+--EXEC spInsertStaff 'KiemHH', '123', 'Ho Hoan Kiem', '123456789', '' , '7749', 'ABC', '11/2/1990', 'S', '' , 'D:\CN5\PRN321\Light_Gradient.jpg' 
+EXEC  spInsertStaff @Username = 'KiemHH', @Password = '123', @FulName = 'Ho Hoan Kiem', @Citizen_identification = '123456789',@Sex = 1 , @Phone = '7749', @Address = 'ABC', @Birthday = '11/2/1990', @Role = 'S', @Status = 1, @Image = 'D:\CN5\PRN321\Light_Gradient.jpg'

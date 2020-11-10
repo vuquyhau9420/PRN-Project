@@ -132,5 +132,16 @@ namespace Project_Final.Model {
         public List<StaffRoleModel> GetAllStaffRole() {
             return Mapper.Map<List<StaffRole>, List<StaffRoleModel>>(service.GetAllStaffRole());
         }
+
+        public bool InsertStaff(StaffModel staffModel)
+        {
+            //Staff staff = new Staff
+            //{
+            //    Address = staffModel.Address,
+            //    BirthDay = staffModel.BirthDay,
+
+            //};
+            return service.InsertStaff(Mapper.Map<StaffModel,Staff>(staffModel));
+        }
     }
 }

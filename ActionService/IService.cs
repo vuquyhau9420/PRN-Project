@@ -48,5 +48,7 @@ namespace ActionService {
         List<Staff> GetAllStaff();
 
         List<StaffRole> GetAllStaffRole();
+
+        bool InsertStaff(Staff staff);
     }
 }

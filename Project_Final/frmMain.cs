@@ -25,13 +25,13 @@ namespace Project_Final {
         private void EnabledFunctionForSpecificRole(string role) {
             ShowButtonFeature();
             btnLogin.Hide();
-            ucProductMainFrm = new ucProductMainFrm();
+            /*ucProductMainFrm = new ucProductMainFrm();
             ucProductMainFrm.Size = ContentPanel.Size;
-            ContentPanel.Controls.Add(ucProductMainFrm);
+            ContentPanel.Controls.Add(ucProductMainFrm);*/
 
-            /*ucStaff = new ucStaff();
+            ucStaff = new ucStaff();
             ucStaff.Size = ContentPanel.Size;
-            ContentPanel.Controls.Add(ucStaff);*/
+            ContentPanel.Controls.Add(ucStaff);
 
             if (role.Equals("O"))//Owner
             {

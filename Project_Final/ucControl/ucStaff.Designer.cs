@@ -42,7 +42,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnChooseImage = new System.Windows.Forms.Button();
             this.txtImage = new System.Windows.Forms.TextBox();
-            this.txtBirthday = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.txtCiti_Iden = new System.Windows.Forms.TextBox();
@@ -62,6 +61,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pBImage = new System.Windows.Forms.PictureBox();
+            this.mskBirthday = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -85,6 +85,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.mskBirthday);
             this.groupBox1.Controls.Add(this.txtStaffID);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.lbActionStatus);
@@ -97,7 +98,6 @@
             this.groupBox1.Controls.Add(this.btnCancel);
             this.groupBox1.Controls.Add(this.btnChooseImage);
             this.groupBox1.Controls.Add(this.txtImage);
-            this.groupBox1.Controls.Add(this.txtBirthday);
             this.groupBox1.Controls.Add(this.txtAddress);
             this.groupBox1.Controls.Add(this.txtPhoneNumber);
             this.groupBox1.Controls.Add(this.txtCiti_Iden);
@@ -128,7 +128,7 @@
             // 
             this.txtStaffID.Enabled = false;
             this.txtStaffID.Location = new System.Drawing.Point(243, 36);
-            this.txtStaffID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStaffID.Margin = new System.Windows.Forms.Padding(4);
             this.txtStaffID.Name = "txtStaffID";
             this.txtStaffID.Size = new System.Drawing.Size(220, 22);
             this.txtStaffID.TabIndex = 29;
@@ -267,16 +267,6 @@
             this.txtImage.Name = "txtImage";
             this.txtImage.Size = new System.Drawing.Size(189, 22);
             this.txtImage.TabIndex = 18;
-            // 
-            // txtBirthday
-            // 
-            this.txtBirthday.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBirthday.Location = new System.Drawing.Point(745, 23);
-            this.txtBirthday.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtBirthday.Name = "txtBirthday";
-            this.txtBirthday.Size = new System.Drawing.Size(189, 22);
-            this.txtBirthday.TabIndex = 17;
             // 
             // txtAddress
             // 
@@ -470,6 +460,15 @@
             this.pBImage.TabIndex = 0;
             this.pBImage.TabStop = false;
             // 
+            // mskBirthday
+            // 
+            this.mskBirthday.Location = new System.Drawing.Point(745, 23);
+            this.mskBirthday.Mask = "00/00/0000";
+            this.mskBirthday.Name = "mskBirthday";
+            this.mskBirthday.Size = new System.Drawing.Size(189, 22);
+            this.mskBirthday.TabIndex = 30;
+            this.mskBirthday.ValidatingType = typeof(System.DateTime);
+            // 
             // ucStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -505,7 +504,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnChooseImage;
         private System.Windows.Forms.TextBox txtImage;
-        private System.Windows.Forms.TextBox txtBirthday;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.TextBox txtCiti_Iden;
@@ -528,5 +526,6 @@
         private System.Windows.Forms.PictureBox pBImage;
         private System.Windows.Forms.TextBox txtStaffID;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.MaskedTextBox mskBirthday;
     }
 }

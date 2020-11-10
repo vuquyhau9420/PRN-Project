@@ -29,7 +29,7 @@ namespace DataObjects.Data {
             return db.Read(storeProcedure, make, parms).FirstOrDefault();
         }
 
-        public void DeleteStaff(Staff staff) {
+        public bool DeleteStaff(Staff staff) {
             throw new NotImplementedException();
         }
 
@@ -43,11 +43,27 @@ namespace DataObjects.Data {
             return db.Read(storeProcedure, make).ToList();
         }
         
-        public void InsertStaff(Staff staff) {
-            throw new NotImplementedException();
+        public bool InsertStaff(Staff staff) {
+            string storeProcedure = "spInsertStaff";
+            object[] parms = { "@Username", staff.UserName, 
+                               "@Password", staff.Password, 
+                               "@FulName", staff.FullName, 
+                               "@Citizen_identification", staff.CitizenIdentification, 
+                               "@Sex", staff.Sex, 
+                               "@Phone", staff.Phone, 
+                               "@Address", staff.Address, 
+                               "@Birthday", staff.BirthDay, 
+                               "@Role", staff.Role, 
+                               "@Status", staff.Status, 
+                               "@Image", staff.Image };
+            if(db.Insert(storeProcedure, parms) > 0)
+            {
+                return true;
+            }
+            return false;
         }
 
-        public void UpdateStaff(Staff staff) {
+        public bool UpdateStaff(Staff staff) {
             throw new NotImplementedException();
         }
 

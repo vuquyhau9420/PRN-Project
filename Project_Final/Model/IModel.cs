@@ -48,5 +48,7 @@ namespace Project_Final.Model {
         List<StaffModel> GetAllStaff();
 
         List<StaffRoleModel> GetAllStaffRole();
+
+        bool InsertStaff(StaffModel staffModel);
     }
 }

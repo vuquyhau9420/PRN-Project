@@ -13,10 +13,10 @@ namespace DataObjects {
 
         List<Staff> GetStaffs();
 
-        void InsertStaff(Staff staff);
+        bool InsertStaff(Staff staff);
 
-        void UpdateStaff(Staff staff);
+        bool UpdateStaff(Staff staff);
 
-        void DeleteStaff(Staff staff);
+        bool DeleteStaff(Staff staff);
     }
 }
